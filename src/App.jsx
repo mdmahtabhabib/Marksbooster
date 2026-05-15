@@ -6,7 +6,7 @@ function App() {
         <span className="text-blue-900">Hello</span>
         <span className="text-blue-400">aage</span>
       </div>
-      <div className="flex gap-8 text-sm text-gray-500">
+      <div className=" hidden md:flex gap-8 text-sm text-gray-500">
         <a href="#" className="hover:text-blue-600 transition-colors">Feature</a>
         <a href="#" className="hover:text-blue-600 transition-colors">Pricing</a>
         <a href="#" className="hover:text-blue-600 transition-colors">Reveiw</a>
