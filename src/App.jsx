@@ -13,11 +13,9 @@ function App() {
         <a href="#" className="hover:text-blue-600 transition-colors">FAQ</a>
       </div>
       <div className="flex items-center gap-3">
-        <button href="#" className="border-1 border-blue-200 px-4 py-1 rounded-2xl text-blue-700 hover:bg-blue-50 text-black transition-colors">
-          Log In
-        </button>
+        
         <button href="#" className="bg-blue-700 text-white text-sm px-5 py-2 rounded-xl transition-colors hover:bg-blue-800">
-          start free trial
+          Login/Register
         </button>
       </div>
     </nav>
