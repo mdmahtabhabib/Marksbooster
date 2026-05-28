@@ -1,8 +1,8 @@
 function Testimonials(){
  const Testimonials = [
-    { name: "Priya sharma", cls: "Class 10 , patna" , text: "The AI doubt solver saved me so much Time. I used to wait for tution for anser - now I get them instantly!" , stars : 5},
+    { name: "Ananya Singh", cls: "Class 8 , Bhagalpur" , text: "Flashcards made revision so easy . My marks improved from 72% to 89% in one term!" , stars : 5},
     { name: "Rahul Kumar", cls: "Class 9 , Ranchi" , text: "The syllabus tracker keeps me motivatd. I can see exactly how much i have completed every day." , stars : 5},
-    { name: "Ananya Singh", cls: "Class 8 , Bhagalpur" , text: "Flashcards made revision so easy . My marks improved from 72% to 89% in one term!" , stars : 5}
+    { name: "Priya sharma", cls: "Class 10 , patna" , text: "The study timer helped me stay focused for longer. I used to get distracted often " , stars : 5}  
  ];
     return(
         <section id="Testimonials" className="bg-white border-y border-blue-100 py-14 md:py-16 px-5 md:px-8 " >
