@@ -3,6 +3,7 @@ import Nav from "./Components/Nav"
 import Hero from "./Components/Hero"
 import Features from "./Components/Features"
 import Cources from "./Components/Cources"
+import Testimonials from "./Components/Testimonials"
 function App() {
   return (
     <div className="bg-[#F0F4FF] font-sans ">
@@ -11,6 +12,7 @@ function App() {
     <Stats />
     <Features />
     <Cources />
+    <Testimonials />
     </div>
   )
 }
