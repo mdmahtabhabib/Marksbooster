@@ -2,7 +2,7 @@ function Nav(){
 return(
 <nav className="bg-white border-2 border-blue-100 px-5 py-5 flex items-center justify-between shadow-sm sticky top-0 z-50  ">
       <div className="text-xl font-bold text-blue-900 tracking-tight">
-        <span className="text-blue-900">Khel</span>
+        <span className="text-blue-900">Marks</span>
         <span className="text-blue-400">booster</span>
       </div>
       <div className=" hidden md:flex gap-8 text-sm text-gray-500">
