@@ -1,25 +1,15 @@
-import Stats from "./Components/Stats"
-import Nav from "./Components/Nav"
-import Hero from "./Components/Hero"
-import Features from "./Components/Features"
-import Cources from "./Components/Cources"
-import Testimonials from "./Components/Testimonials"
-import Faq from "./Components/Faq"
-import Banner from "./Components/Banner"
-import Footer from "./Components/Footer"
+
+import {  BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./Components/Home";
+
+
 function App() {
   return (
-    <div className="bg-[#F0F4FF] font-sans ">
-    <Nav />
-    <Hero />
-    <Stats />
-    <Features />
-    <Cources />
-    <Testimonials />
-    <Faq />
-    <Banner />
-    <Footer />
-    </div>
+  <BrowserRouter>
+    <Routes>
+     <Route path="/" element={<Home />} />
+    </Routes>
+    </BrowserRouter>
   )
 }
 
