@@ -1,6 +1,7 @@
 
 import {  BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Components/Home";
+import Neetlist from "./Pages/Neetlist";
 
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
   <BrowserRouter>
     <Routes>
      <Route path="/" element={<Home />} />
+     <Route path="/Neetlist" element={< Neetlist />} />
     </Routes>
     </BrowserRouter>
   )
