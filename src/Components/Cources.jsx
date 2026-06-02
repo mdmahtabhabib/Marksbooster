@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 function Cources(){
     const Cources = [
-        {class: "Class 8" , tag: "Foundation" , price: 499 , Subjects: ["Mathematic" , "Science" , "Social Science" , "English" , "Hindi"], desc:"Perfect for building strong fundamentals in class 8" , label: "Buy Now"} ,
-        {class: "Class 9" , tag: "Foundation" , price: 499 , Subjects: ["Mathematic" , "Science" , "Social Science" , "English" , "Hindi"], desc:"Ideal for class 9 foundation students   ", label: "Buy Now"} ,
-        {class: "Class 10" , tag: "Board" , price: 499 , Subjects: ["Mathematic" , "Science" , "Social Science" , "English" , "Hindi"], desc:"Everything you need to ace your class 10 board exams", label: "Buy Now"} ,
-        {class: "NEET Biology",tag: "Free",price: 0,Subjects: ["Cell Biology", "Genetics", "Physiology", "Ecology", "Evolution"], desc: "All chapter flashcards for NEET Biology ", label: "Start Now"}
+        {class: "Class 8" , tag: "Foundation" , price: 499 , Subjects: ["Mathematic" , "Science" , "Social Science" , "English" , "Hindi"], desc:"Perfect for building strong fundamentals in class 8" , label: "Buy Now" , cnt:"/ComingSoon"  } ,
+        {class: "Class 9" , tag: "Foundation" , price: 499 , Subjects: ["Mathematic" , "Science" , "Social Science" , "English" , "Hindi"], desc:"Ideal for class 9 foundation students   ", label: "Buy Now" , cnt:"/ComingSoon"} ,
+        {class: "Class 10" , tag: "Board" , price: 499 , Subjects: ["Mathematic" , "Science" , "Social Science" , "English" , "Hindi"], desc:"Everything you need to ace your class 10 board exams", label: "Buy Now" , cnt:"/ComingSoon"} ,
+        {class: "NEET Biology",tag: "Free",price: 0,Subjects: ["Cell Biology", "Genetics", "Physiology", "Ecology", "Evolution"], desc: "All chapter flashcards for NEET Biology ", label: "Start Now" , cnt:"/Neetlist"}
     ];
-    const Neet = [{class: "NEET Biology",tag: "Free",price: 0,Subjects: ["Cell Biology", "Genetics", "Human Physiology", "Plant Physiology", "Ecology", "Evolution"], desc: "All chapter flashcards for NEET Biology "}];
+    
 return(
     <section id="Course" className="max-w-5xl mx-auto px-5 md:px-8 py-14 md:py-20" >
         <p className="text-xl text-gray-500 text-center tracking-widest mb-2 " >PRICING</p>
@@ -39,7 +39,7 @@ return(
                 <p className="text-sm text-gray-700" >All 8 tools included</p>
                 </div>      
                 </div>
-                <Link to={"/Neetlist"} >
+                <Link to={Course.cnt} >
                  <button className="w-full font-semibold text-xl py-3.5 rounded-xl transition-colors bg-blue-600 hover:bg-blue-800 text-white shadow-md shadow-blue-200 cursor-pointer " >{Course.label}</button> 
                  </Link>  
                 </div>
