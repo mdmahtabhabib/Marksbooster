@@ -8,6 +8,7 @@ import Faq from "./Faq";
 import Banner from "./Banner";
 import Footer from "./Footer";
 import ComingSoon from "../Pages/ComingSoon";
+
 function Home(){
    return (
 <div>
@@ -20,7 +21,7 @@ function Home(){
     <Faq />
     <Banner />
     <Footer />
-    <ComingSoon />
+    
 </div>
   )
 }

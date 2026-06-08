@@ -1,5 +1,6 @@
 import Nav from "../Components/Nav";
 import Footer from "../Components/Footer" ;
+import { Link } from "react-router-dom";
 
 function Neetlist(){
     const chapters = [
@@ -88,6 +89,7 @@ function Neetlist(){
 
             <div className="flex flex-col gap-3" >
                 {chapters.map((ch) => (
+                    <Link to="/Neetlist/cell">
                     <div key={ch.no} className="bg-white border border-blue-100 rounded-2xl px-5 py-4 flex iterms-center justify-between hover:bg-blue-100  hover:shadow-md transition-all cursor-pointer group " >
                         <div className="flex items-center gap-4" >
                             <div className="w-9 h-9 bg-blue-50 group-hover:bg-blue-200  rounded-xl flex items-center justify-center text-sm font-bold text-blue-700 tansition-colors flex-shrink-0" >
@@ -106,7 +108,9 @@ function Neetlist(){
                             <span className="text-blue-300 group-hover:text-blue-600 transition-colors text-lg " >→</span>
                         </div>
                          </div>
+                </Link>
                 ))}
+
             </div >
             {/*Bottom CTA */}
             <div className="mt-10 bg-blue-100 rounded-2xl p-6 text-center" >
