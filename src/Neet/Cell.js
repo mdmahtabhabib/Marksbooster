@@ -1,4 +1,5 @@
 const Cell =[
+  
   // Introduction & History
   { id: 1, question: "What are two traditional microbe-mediated biotechnology processes?", answer: "Making curd and baking bread." },
   { id: 2, question: "What does EFB stand for?", answer: "European Federation of Biotechnology." },
@@ -90,26 +91,15 @@ const Cell =[
   { id: 72, question: "Vessels handling 100-1000 litres of biological culture?", answer: "Bioreactors." },
   { id: 73, question: "Most commonly used type of bioreactor?", answer: "Stirring type." },
   { id: 74, question: "What does a bioreactor stirrer primarily facilitate?", answer: "Even mixing and oxygen availability." },
-  { id: 75, question: "Processes of separation and purification before marketing?", answer: "Downstream processing." }, 
-  { id: 76, question: "What are the three basic steps in genetically modifying an organism?", 
-  answer: "1. Identification of DNA with desirable genes\n2. Introduction of identified DNA into host\n3. Maintenance of introduced DNA and transfer to progeny." },
+  { id: 75, question: "Processes of separation and purification before marketing?", answer: "Downstream processing." },
 
-{ id: 77, question: "What does Ti stand for in Ti plasmid?", 
-  answer: "Tumor Inducing — it's the plasmid of Agrobacterium tumifaciens." },
-
-{ id: 78, question: "Why do smaller DNA fragments travel farther in gel electrophoresis?", 
-  answer: "Smaller fragments face less resistance from the agarose gel matrix, so they migrate farther." },
-
-{ id: 79, question: "Why must bacteria be made competent before transformation?", 
-  answer: "DNA is hydrophilic and cannot pass through the cell membrane naturally, so bacteria need chemical treatment to take up DNA." },
-
-{ id: 80, question: "How do recombinants differ from non-recombinants on antibiotic plates?", 
-  answer: "Recombinants grow on ampicillin but NOT tetracycline. Non-recombinants grow on both." },
-
-{ id: 81, question: "What is a continuous culture system in bioreactors?", 
-  answer: "Used medium is drained from one side while fresh medium is added from the other, keeping cells in exponential growth phase." },
-
-{ id: 82, question: "What year was Hind II first characterized?", 
-  answer: "1968 — five years after restriction enzymes were first isolated in 1963." },
+  // Additional Core Concepts
+  { id: 76, question: "What are the three basic steps in genetically modifying an organism?", answer: "1. Identification of DNA with desirable genes\n2. Introduction of identified DNA into host\n3. Maintenance of introduced DNA and transfer to progeny." },
+  { id: 77, question: "What does Ti stand for in Ti plasmid?", answer: "Tumor Inducing — it's the plasmid of Agrobacterium tumifaciens." },
+  { id: 78, question: "Why do smaller DNA fragments travel farther in gel electrophoresis?", answer: "Smaller fragments face less resistance from the agarose gel matrix, so they migrate farther." },
+  { id: 79, question: "Why must bacteria be made competent before transformation?", answer: "DNA is hydrophilic and cannot pass through the cell membrane naturally, so bacteria need chemical treatment to take up DNA." },
+  { id: 80, question: "How do recombinants differ from non-recombinants on antibiotic plates?", answer: "Recombinants grow on ampicillin but NOT tetracycline. Non-recombinants grow on both." },
+  { id: 81, question: "What is a continuous culture system in bioreactors?", answer: "Used medium is drained from one side while fresh medium is added from the other, keeping cells in exponential growth phase." },
+  { id: 82, question: "What year was Hind II first characterized?", answer: "1968 — five years after restriction enzymes were first isolated in 1963." }
 ];
 export default Cell;

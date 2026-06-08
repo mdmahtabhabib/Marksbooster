@@ -4,46 +4,46 @@ import { Link } from "react-router-dom";
 
 function Neetlist(){
     const chapters = [
-  { no: 1, name: "The Living World", questions: 15 },
-  { no: 2, name: "Biological Classification", questions: 20 },
-  { no: 3, name: "Plant Kingdom", questions: 25 },
-  { no: 4, name: "Animal Kingdom", questions: 30 },
+  { no: 1, name: "The Living World", questions: 15, slug: "cell" },
+  { no: 2, name: "Biological Classification", questions: 20, slug: "cell" },
+  { no: 3, name: "Plant Kingdom", questions: 25, slug: "cell" },
+  { no: 4, name: "Animal Kingdom", questions: 30, slug: "cell" },
 
-  { no: 5, name: "Morphology of Flowering Plants", questions: 20 },
-  { no: 6, name: "Anatomy of Flowering Plants", questions: 18 },
+  { no: 5, name: "Morphology of Flowering Plants", questions: 20, slug: "cell" },
+  { no: 6, name: "Anatomy of Flowering Plants", questions: 18, slug: "cell" },
 
-  { no: 7, name: "Cell: The Unit of Life", questions: 35 },
-  { no: 8, name: "Biomolecules", questions: 28 },
-  { no: 9, name: "Cell Cycle and Cell Division", questions: 22 },
+  { no: 7, name: "Cell: The Unit of Life", questions: 35, slug: "cell" },
+  { no: 8, name: "Biomolecules", questions: 28, slug: "cell" },
+  { no: 9, name: "Cell Cycle and Cell Division", questions: 22, slug: "cell" },
 
-  { no: 10, name: "Photosynthesis in Higher Plants", questions: 30 },
-  { no: 11, name: "Respiration in Plants", questions: 20 },
-  { no: 12, name: "Plant Growth and Development", questions: 18 },
+  { no: 10, name: "Photosynthesis in Higher Plants", questions: 30, slug: "cell" },
+  { no: 11, name: "Respiration in Plants", questions: 20, slug: "cell" },
+  { no: 12, name: "Plant Growth and Development", questions: 18, slug: "cell" },
 
-  { no: 13, name: "Breathing and Exchange of Gases", questions: 20 },
-  { no: 14, name: "Body Fluids and Circulation", questions: 25 },
-  { no: 15, name: "Excretory Products and Elimination", questions: 22 },
-  { no: 16, name: "Locomotion and Movement", questions: 18 },
-  { no: 17, name: "Neural Control and Coordination", questions: 25 },
-  { no: 18, name: "Chemical Coordination and Integration", questions: 20 },
+  { no: 13, name: "Breathing and Exchange of Gases", questions: 20, slug: "cell" },
+  { no: 14, name: "Body Fluids and Circulation", questions: 25, slug: "cell" },
+  { no: 15, name: "Excretory Products and Elimination", questions: 22, slug: "cell" },
+  { no: 16, name: "Locomotion and Movement", questions: 18, slug: "cell" },
+  { no: 17, name: "Neural Control and Coordination", questions: 25, slug: "cell" },
+  { no: 18, name: "Chemical Coordination and Integration", questions: 20, slug: "cell" },
 
-  { no: 19, name: "Reproduction in Organisms", questions: 15 },
-  { no: 20, name: "Sexual Reproduction in Flowering Plants", questions: 25 },
-  { no: 21, name: "Human Reproduction", questions: 25 },
-  { no: 22, name: "Reproductive Health", questions: 20 },
+  { no: 19, name: "Reproduction in Organisms", questions: 15, slug: "cell" },
+  { no: 20, name: "Sexual Reproduction in Flowering Plants", questions: 25, slug: "cell" },
+  { no: 21, name: "Human Reproduction", questions: 25, slug: "cell" },
+  { no: 22, name: "Reproductive Health", questions: 20, slug: "cell" },
 
-  { no: 23, name: "Principles of Inheritance and Variation", questions: 35 },
-  { no: 24, name: "Molecular Basis of Inheritance", questions: 40 },
-  { no: 25, name: "Evolution", questions: 25 },
+  { no: 23, name: "Principles of Inheritance and Variation", questions: 35, slug: "cell" },
+  { no: 24, name: "Molecular Basis of Inheritance", questions: 40, slug: "cell" },
+  { no: 25, name: "Evolution", questions: 25, slug: "cell" },
 
-  { no: 26, name: "Human Health and Disease", questions: 25 },
-  { no: 27, name: "Microbes in Human Welfare", questions: 20 },
-  { no: 28, name: "Biotechnology: Principles and Processes", questions: 25 },
-  { no: 29, name: "Biotechnology and its Applications", questions: 20 },
+  { no: 26, name: "Human Health and Disease", questions: 25, slug: "cell" },
+  { no: 27, name: "Microbes in Human Welfare", questions: 20, slug: "cell" },
+  { no: 28, name: "Biotechnology: Principles and Processes", questions: 25, slug: "cell" },
+  { no: 29, name: "Biotechnology and its Applications", questions: 20, slug: "BiotechnologyApplications" },
 
-  { no: 30, name: "Organisms and Populations", questions: 20 },
-  { no: 31, name: "Ecosystem", questions: 25 },
-  { no: 32, name: "Biodiversity and Conservation", questions: 20 }
+  { no: 30, name: "Organisms and Populations", questions: 20, slug: "cell" },
+  { no: 31, name: "Ecosystem", questions: 25, slug: "cell" },
+  { no: 32, name: "Biodiversity and Conservation", questions: 20, slug: "cell" }
 ];
     return(
        <section className="min-h-screen bg-gray-50" >
@@ -89,7 +89,7 @@ function Neetlist(){
 
             <div className="flex flex-col gap-3" >
                 {chapters.map((ch) => (
-                    <Link to="/Neetlist/cell">
+                    <Link to={`/Neetlist/${ch.slug}`}>
                     <div key={ch.no} className="bg-white border border-blue-100 rounded-2xl px-5 py-4 flex iterms-center justify-between hover:bg-blue-100  hover:shadow-md transition-all cursor-pointer group " >
                         <div className="flex items-center gap-4" >
                             <div className="w-9 h-9 bg-blue-50 group-hover:bg-blue-200  rounded-xl flex items-center justify-center text-sm font-bold text-blue-700 tansition-colors flex-shrink-0" >
