@@ -162,7 +162,7 @@ function  Cards({flashcards , title} ){
             {/*Back face - Answer*/}
             <div className="absolute inset-0 flex flex-col items-center justify-center rounded-2xl border border-emerald-500/20 bg-slate-800 px-8 gap-4 " style={{ backfaceVisibility:"hidden" , transform:"rotateY(180deg)"}}  >
            <span className="text-xs font-semibold uppercase tracking-widest text-emerald-400" >Answer</span>
-           <p className="text-center text-2xl font-normal text-emerald-100 leading-relaxed" >{card.answer}</p>
+           <p className="text-center text-xl font-normal text-emerald-100 leading-relaxed" >{card.answer}</p>
            <span className="text-xs text-slate-600" >Tap to flip</span>
             </div>
                 </div>
