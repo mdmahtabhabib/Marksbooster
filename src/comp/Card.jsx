@@ -156,7 +156,7 @@ function  Cards({flashcards , title} ){
             {/* Front face question */}
             <div className="absolute inset-0 flex flex-col items-center justify-center rounded-2xl border border-emerald-500/20 bg-slate-800 px-8 gap-4 " style={{ backfaceVisibility:"hidden"  }}  >
             <span className="text-xs font-semibold uppercase tracking-widest text-blue-400 " >Question</span>
-            <p className="text-center text-3xl text-white leading-relaxed " >{card.question}</p>
+            <p className="text-center text-2xl md:text-3xl text-white leading-normal " >{card.question}</p>
             <span className="text-xs text-slate-600" >Tap to flip</span>
             </div>
             {/*Back face - Answer*/}
