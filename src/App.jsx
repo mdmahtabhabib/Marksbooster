@@ -7,6 +7,9 @@ import ComingSoon from "./Pages/ComingSoon";
 import Cell from "./Neet/Cell";
 import Cards from "./comp/Card";
 import BiotechnologyApplications from "./Neet/BiotechnologyApplications";
+import LivingWorld from "./Neet/LivingWorld";
+import BiologicalClassification from "./Neet/BiologicalClassification";
+import PlantKingdom from "./Neet/PlantKingdom";
 
 
 function App() {
@@ -19,6 +22,9 @@ function App() {
      <Route path="/ComingSoon" element={< ComingSoon />} />
      <Route path="/Neetlist/cell" element={<Cards title="cell biology" flashcards={Cell}   />} />
      <Route path="/Neetlist/BiotechnologyApplications" element={<Cards title="Biotechnology application" flashcards={BiotechnologyApplications} /> } />
+     <Route path="/Neetlist/LivingWorld" element={<Cards title="Living World" flashcards={LivingWorld}   />} />
+     <Route path="/Neetlist/BiologicalClassification" element={<Cards title="Biological classification" flashcards={BiologicalClassification}   />} />
+     <Route path="/Neetlist/PlantKingdom" element={<Cards title="Plant Kingdom" flashcards={PlantKingdom}   />} />
     
      
     </Routes>

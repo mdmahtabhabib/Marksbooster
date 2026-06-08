@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 
 function Neetlist(){
     const chapters = [
-  { no: 1, name: "The Living World", questions: 15, slug: "cell" },
-  { no: 2, name: "Biological Classification", questions: 20, slug: "cell" },
-  { no: 3, name: "Plant Kingdom", questions: 25, slug: "cell" },
+  { no: 1, name: "The Living World", questions: 15, slug: "LivingWorld" },
+  { no: 2, name: "Biological Classification", questions: 20, slug: "BiologicalClassification" },
+  { no: 3, name: "Plant Kingdom", questions: 25, slug: "PlantKingdom" },
   { no: 4, name: "Animal Kingdom", questions: 30, slug: "cell" },
 
   { no: 5, name: "Morphology of Flowering Plants", questions: 20, slug: "cell" },
