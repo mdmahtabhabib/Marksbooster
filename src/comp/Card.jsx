@@ -151,18 +151,18 @@ function  Cards({flashcards , title} ){
                 style={{width: `${progress}%`}} />
             </div>
             {/* Flashcard 3D flip*/}
-            <div onClick={flipcard} className="w-full cursor-pointer mb-6 " style={{perspective:"1200px"}} >
-                <div className="relative w-full transition-all duration-500" style={{ height:"300px", transformStyle:"preserve-3d" , transform : showAnswer? "rotateY(180deg)" : "rotateY(0deg)" ,  }} >
+            <div onClick={flipcard} className="max-w-sm  mx-auto md:max-w-full cursor-pointer mb-6 " style={{perspective:"1200px"}} >
+                <div className="relative w-full transition-all duration-500" style={{ height:"400px", transformStyle:"preserve-3d" , transform : showAnswer? "rotateY(180deg)" : "rotateY(0deg)" ,  }} >
             {/* Front face question */}
             <div className="absolute inset-0 flex flex-col items-center justify-center rounded-2xl border border-emerald-500/20 bg-slate-800 px-8 gap-4 " style={{ backfaceVisibility:"hidden"  }}  >
             <span className="text-xs font-semibold uppercase tracking-widest text-blue-400 " >Question</span>
-            <p className="text-center text-xl font-medium text-white leading-relaxed " >{card.question}</p>
+            <p className="text-center text-3xl text-white leading-relaxed " >{card.question}</p>
             <span className="text-xs text-slate-600" >Tap to flip</span>
             </div>
             {/*Back face - Answer*/}
             <div className="absolute inset-0 flex flex-col items-center justify-center rounded-2xl border border-emerald-500/20 bg-slate-800 px-8 gap-4 " style={{ backfaceVisibility:"hidden" , transform:"rotateY(180deg)"}}  >
            <span className="text-xs font-semibold uppercase tracking-widest text-emerald-400" >Answer</span>
-           <p className="text-center text-xl font-normal text-emerald-100 leading-relaxed" >{card.answer}</p>
+           <p className="text-center text-2xl font-normal text-emerald-100 leading-relaxed" >{card.answer}</p>
            <span className="text-xs text-slate-600" >Tap to flip</span>
             </div>
                 </div>
