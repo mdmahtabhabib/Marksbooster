@@ -7,9 +7,9 @@ function Neetlist(){
   { no: 1, name: "The Living World", questions: 15, slug: "LivingWorld" },
   { no: 2, name: "Biological Classification", questions: 20, slug: "BiologicalClassification" },
   { no: 3, name: "Plant Kingdom", questions: 25, slug: "PlantKingdom" },
-  { no: 4, name: "Animal Kingdom", questions: 30, slug: "cell" },
+  { no: 4, name: "Animal Kingdom", questions: 30, slug: "AnimalKingdom" },
 
-  { no: 5, name: "Morphology of Flowering Plants", questions: 20, slug: "cell" },
+  { no: 5, name: "Morphology of Flowering Plants", questions: 20, slug: "PlantMorphology" },
   { no: 6, name: "Anatomy of Flowering Plants", questions: 18, slug: "cell" },
 
   { no: 7, name: "Cell: The Unit of Life", questions: 35, slug: "cell" },

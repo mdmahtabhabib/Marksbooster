@@ -10,6 +10,8 @@ import BiotechnologyApplications from "./Neet/BiotechnologyApplications";
 import LivingWorld from "./Neet/LivingWorld";
 import BiologicalClassification from "./Neet/BiologicalClassification";
 import PlantKingdom from "./Neet/PlantKingdom";
+import AnimalKingdom from "./Neet/AnimalKingdom";
+import PlantMorphology from "./Neet/PlantMorphology";
 
 
 function App() {
@@ -25,6 +27,8 @@ function App() {
      <Route path="/Neetlist/LivingWorld" element={<Cards title="Living World" flashcards={LivingWorld}   />} />
      <Route path="/Neetlist/BiologicalClassification" element={<Cards title="Biological classification" flashcards={BiologicalClassification}   />} />
      <Route path="/Neetlist/PlantKingdom" element={<Cards title="Plant Kingdom" flashcards={PlantKingdom}   />} />
+     <Route path="/Neetlist/AnimalKingdom" element={<Cards title="Animal Kingdom" flashcards={AnimalKingdom}   />} />
+     <Route path="/Neetlist/PlantMorphology" element={<Cards title="Plant Morphology" flashcards={PlantMorphology} />} />
     
      
     </Routes>
