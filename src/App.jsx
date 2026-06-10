@@ -14,7 +14,7 @@ import AnimalKingdom from "./Neet/AnimalKingdom";
 import PlantMorphology from "./Neet/PlantMorphology";
 import PlantAnatomy from "./Neet/PlantAnatomy";
 import CellUnitOfLife from "./Neet/CellUnitOfLife";
-import Biomolecules from "./Neet/biomolecules";
+import Biomolecules from "./Neet/Biomolecules";
 import Celldivision from "./Neet/Celldivision";
 
 
