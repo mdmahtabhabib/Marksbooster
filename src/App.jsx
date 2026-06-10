@@ -12,6 +12,10 @@ import BiologicalClassification from "./Neet/BiologicalClassification";
 import PlantKingdom from "./Neet/PlantKingdom";
 import AnimalKingdom from "./Neet/AnimalKingdom";
 import PlantMorphology from "./Neet/PlantMorphology";
+import PlantAnatomy from "./Neet/PlantAnatomy";
+import CellUnitOfLife from "./Neet/CellUnitOfLife";
+import Biomolecules from "./Neet/biomolecules";
+import Celldivision from "./Neet/Celldivision";
 
 
 function App() {
@@ -29,8 +33,11 @@ function App() {
      <Route path="/Neetlist/PlantKingdom" element={<Cards title="Plant Kingdom" flashcards={PlantKingdom}   />} />
      <Route path="/Neetlist/AnimalKingdom" element={<Cards title="Animal Kingdom" flashcards={AnimalKingdom}   />} />
      <Route path="/Neetlist/PlantMorphology" element={<Cards title="Plant Morphology" flashcards={PlantMorphology} />} />
-    
-     
+    <Route path="/Neetlist/PlantAnatomy" element={<Cards title="Plant Anatomy" flashcards={PlantAnatomy} />} />
+     <Route path="/Neetlist/CellUnitOfLife" element={<Cards title="Cell" flashcards={CellUnitOfLife} />} />
+     <Route path="/Neetlist/biomolecules" element={<Cards title="Biomolecules" flashcards={Biomolecules} />} />
+     <Route path="/Neetlist/cell-division" element={ < Cards title="Cell Dvision" flashcards={Celldivision} /> } />
+
     </Routes>
     </BrowserRouter>
   )

@@ -10,11 +10,11 @@ function Neetlist(){
   { no: 4, name: "Animal Kingdom", questions: 30, slug: "AnimalKingdom" },
 
   { no: 5, name: "Morphology of Flowering Plants", questions: 20, slug: "PlantMorphology" },
-  { no: 6, name: "Anatomy of Flowering Plants", questions: 18, slug: "cell" },
+  { no: 6, name: "Anatomy of Flowering Plants", questions: 18, slug: "PlantAnatomy" },
 
-  { no: 7, name: "Cell: The Unit of Life", questions: 35, slug: "cell" },
-  { no: 8, name: "Biomolecules", questions: 28, slug: "cell" },
-  { no: 9, name: "Cell Cycle and Cell Division", questions: 22, slug: "cell" },
+  { no: 7, name: "Cell: The Unit of Life", questions: 35, slug: "CellUnitOfLife" },
+  { no: 8, name: "Biomolecules", questions: 28, slug: "biomolecules" },
+  { no: 9, name: "Cell Cycle and Cell Division", questions: 22, slug: "cell-division" },
 
   { no: 10, name: "Photosynthesis in Higher Plants", questions: 30, slug: "cell" },
   { no: 11, name: "Respiration in Plants", questions: 20, slug: "cell" },
