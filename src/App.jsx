@@ -17,6 +17,8 @@ import CellUnitOfLife from "./Neet/CellUnitOfLife";
 import Biomolecules from "./Neet/Biomolecules";
 import Celldivision from "./Neet/Celldivision";
 import Photosynthesis from "./Neet/Photosynthesis";
+import Respiration from "./Neet/Respiration";
+import PlantGD from "./Neet/PlantGD.JS";
 
 
 function App() {
@@ -39,6 +41,8 @@ function App() {
      <Route path="/Neetlist/biomolecules" element={<Cards title="Biomolecules" flashcards={Biomolecules} />} />
      <Route path="/Neetlist/cell-division" element={ < Cards title="Cell Dvision" flashcards={Celldivision} /> } />
      <Route path="/Neetlist/photosynthesis" element={ < Cards title="Photosynthesis " flashcards={Photosynthesis} /> } />
+     <Route path="/Neetlist/respiration" element={ < Cards title="Respiration " flashcards={Respiration} /> } />
+     <Route path="/Neetlist/plantgd" element={ < Cards title="Plant growth and development " flashcards={PlantGD} /> } />
     </Routes>
     </BrowserRouter>
   )

@@ -426,7 +426,45 @@ const Photosynthesis = [
     id: 80,
     question: "How does water affect photosynthesis?",
     answer: "Effect is more through the plant than directly. Water stress closes stomata (reduces CO2 availability) and makes leaves wilt (reduces surface area and metabolic activity)."
-  }
+  },
+
+  // ─── KEY STANDALONE RECALL POINTS ────────────────────────────────────────────
+  {
+    id: 81,
+    question: "What type of organism is Cladophora, used in Engelmann's experiment?",
+    answer: "A green alga."
+  },
+  {
+    id: 82,
+    question: "Which is the most abundant enzyme in the world?",
+    answer: "RuBisCO (RuBP carboxylase-oxygenase)."
+  },
+  {
+    id: 83,
+    question: "In what sequence are the photosystems PS I and PS II named?",
+    answer: "In the sequence of their discovery, not in the sequence in which they function during the light reaction."
+  },
+  {
+    id: 84,
+    question: "Why is calling the biosynthetic phase the 'dark reaction' a misnomer?",
+    answer: "It is not light-independent; it depends on ATP and NADPH from the light reaction. It stops soon after light is removed and resumes when light returns."
+  } ,
+  {
+  id: 85,
+  question: "Name the electron carriers of the Z-scheme.",
+  answer: "Plastoquinone (PQ), Cytochrome b6f complex, Plastocyanin (PC), Ferredoxin (Fd), NADP reductase."
+} ,
+{
+  id: 86,
+  question: "What are the labelled components of a photosystem?",
+  answer: "Antenna pigments, reaction centre chlorophyll a, primary electron acceptor, photon."
+} ,
+{
+  id: 87,
+  question: "What are the three major products of water splitting?",
+  answer: "Electrons, protons (H+), and oxygen."
+}
+
 
 ];
 

@@ -17,8 +17,8 @@ function Neetlist(){
   { no: 9, name: "Cell Cycle and Cell Division", questions: 22, slug: "cell-division" },
 
   { no: 10, name: "Photosynthesis in Higher Plants", questions: 30, slug: "photosynthesis" },
-  { no: 11, name: "Respiration in Plants", questions: 20, slug: "cell" },
-  { no: 12, name: "Plant Growth and Development", questions: 18, slug: "cell" },
+  { no: 11, name: "Respiration in Plants", questions: 20, slug: "Respiration" },
+  { no: 12, name: "Plant Growth and Development", questions: 18, slug: "plantgd" },
 
   { no: 13, name: "Breathing and Exchange of Gases", questions: 20, slug: "cell" },
   { no: 14, name: "Body Fluids and Circulation", questions: 25, slug: "cell" },
