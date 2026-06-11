@@ -1,293 +1,305 @@
-const Celldivision = [
-  // ─── CELL CYCLE BASICS & INTERPHASE ─────────────────────────────────────────
+const CellDivision = [
+
+  // ─── CELL CYCLE BASICS ───────────────────────────────────────────────────────
   {
     id: 1,
-    question: "What constitutes the cell cycle?",
-    answer: "The coordinated sequence of events involving cell growth, DNA replication, and cell division to form progeny cells." /* */
+    question: "What is the cell cycle?",
+    answer: "Sequence of events by which a cell duplicates its genome, synthesises other constituents, and divides into two daughter cells."
   },
   {
     id: 2,
-    question: "Compare the average cell cycle duration of a human cell in culture to that of yeast.",
-    answer: "Human cells divide approximately every 24 hours. Yeast cells complete the cycle in only about 90 minutes." /* */
+    question: "What are the two basic phases of the cell cycle?",
+    answer: "Interphase and M Phase (Mitosis phase)."
   },
   {
     id: 3,
-    question: "What specific events mark the exact start and end of the M Phase?",
-    answer: "It starts with nuclear division (karyokinesis) and usually ends with the division of cytoplasm (cytokinesis)." /* */
+    question: "Compare cell cycle duration: human cells in culture vs yeast.",
+    answer: "Human cells: ~24 hours. Yeast: ~90 minutes."
   },
   {
     id: 4,
-    question: "Which specific term denotes the division of the nucleus during the M phase?",
-    answer: "Karyokinesis." /* */
+    question: "What fraction of the cell cycle does interphase and M phase each occupy in a human cell?",
+    answer: "Interphase: >95% of duration. M phase: ~1 hour only."
   },
   {
     id: 5,
-    question: "Which specific term denotes the division of the cytoplasm following karyokinesis?",
-    answer: "Cytokinesis." /* */
+    question: "What is karyokinesis and cytokinesis?",
+    answer: "Karyokinesis: nuclear division. Cytokinesis: division of cytoplasm. M phase starts with karyokinesis and usually ends with cytokinesis."
   },
   {
     id: 6,
-    question: "What preparatory processes occur during the superficially named 'resting' interphase?",
-    answer: "The cell undergoes both cell growth and DNA replication in a highly orderly manner." /* */
+    question: "Why is interphase called 'resting phase' and what actually happens during it?",
+    answer: "Called resting phase superficially; actually the cell prepares for division by undergoing cell growth and DNA replication in an orderly manner."
   },
+
+  // ─── INTERPHASE PHASES ───────────────────────────────────────────────────────
   {
     id: 7,
-    question: "What are the durations of interphase and M Phase in a typical 24-hour human cell cycle?",
-    answer: "Interphase lasts over 95% of the duration. The M Phase lasts for only about an hour." /* */
+    question: "What are the three phases of interphase?",
+    answer: "G1 phase (Gap 1), S phase (Synthesis), G2 phase (Gap 2)."
   },
   {
     id: 8,
-    question: "What are the three specific phases of interphase?",
-    answer: "G1 phase (Gap 1), S phase (Synthesis), and G2 phase (Gap 2)." /* */
+    question: "What characterises the G1 phase?",
+    answer: "Cell metabolically active, grows continuously; does not replicate DNA. Interval between mitosis and DNA replication initiation."
   },
   {
     id: 9,
-    question: "What key cellular events characterise the G1 phase?",
-    answer: "The cell is metabolically active and grows continuously, but it does not replicate its DNA." /* */
+    question: "What happens to DNA content and chromosome number during S phase?",
+    answer: "DNA doubles (2C → 4C). Chromosome number unchanged (2n remains 2n)."
   },
   {
     id: 10,
-    question: "How do the DNA content and chromosome number change during the S phase?",
-    answer: "DNA content doubles (e.g., 2C to 4C). The chromosome number remains exactly the same (e.g., 2n remains 2n)." /* */
+    question: "What two events occur in animal cells during S phase?",
+    answer: "DNA replication begins in nucleus; centriole duplicates in cytoplasm."
   },
   {
     id: 11,
-    question: "Where do DNA replication and centriole duplication occur in animal cells during the S phase?",
-    answer: "DNA replication begins in the nucleus, and the centriole duplicates in the cytoplasm." /* */
+    question: "What occurs during G2 phase?",
+    answer: "Proteins synthesised in preparation for mitosis; cell growth continues."
   },
   {
     id: 12,
-    question: "What occurs during the G2 phase of the cell cycle?",
-    answer: "Proteins are synthesised in preparation for mitosis while cell growth continues." /* */
+    question: "What is the quiescent stage (G0)?",
+    answer: "Inactive stage entered by non-dividing cells (e.g., heart cells) exiting G1; remain metabolically active but do not proliferate."
   },
   {
     id: 13,
-    question: "What is the quiescent stage (G0)?",
-    answer: "An inactive stage where non-dividing cells (like heart cells) remain metabolically active without proliferating." /* */
-  },
-  {
-    id: 14,
-    question: "Which ploidy of cells undergo mitotic division in animals versus plants?",
-    answer: "Animals: Usually restricted to diploid somatic cells (exception: haploid male honey bees). Plants: Occurs in both haploid and diploid cells." /* */
+    question: "Which cells undergo mitosis in animals vs plants?",
+    answer: "Animals: usually only diploid somatic cells (exception: haploid male honey bees). Plants: both haploid and diploid cells."
   },
 
-  // ─── M PHASE: MITOSIS ───────────────────────────────────────────────────────
+  // ─── M PHASE: MITOSIS ────────────────────────────────────────────────────────
   {
-    id: 15,
-    question: "Why is mitosis strictly referred to as equational division?",
-    answer: "Because the number of chromosomes in the parent and progeny cells is exactly the same." /* */
+    id: 14,
+    question: "Why is mitosis called equational division?",
+    answer: "Chromosome number in parent and progeny cells is exactly the same."
   },
   {
+    id: 15,
+    question: "What are the four stages of karyokinesis in mitosis?",
+    answer: "Prophase, Metaphase, Anaphase, Telophase."
+  },
+
+  // ─── PROPHASE ────────────────────────────────────────────────────────────────
+  {
     id: 16,
-    question: "What happens to the chromosomal material during mitotic prophase?",
-    answer: "It untangles and condenses into compact mitotic chromosomes." /* */
+    question: "What are the key events of mitotic prophase?",
+    answer: "Chromosomal material condenses into compact mitotic chromosomes (two chromatids at centromere); centrosome moves to opposite poles; asters and spindle fibres form mitotic apparatus."
   },
   {
     id: 17,
-    question: "What is the structural composition of a chromosome at the prophase stage?",
-    answer: "It is composed of two chromatids attached together at the centromere." /* */
+    question: "What is an aster and what is the mitotic apparatus?",
+    answer: "Aster: microtubules radiating from each centrosome. Mitotic apparatus: two asters + spindle fibres."
   },
   {
     id: 18,
-    question: "What term describes the star-shaped arrangement of microtubules radiating from a centrosome during mitosis?",
-    answer: "Aster." /* */
+    question: "Which structures disappear by end of prophase?",
+    answer: "Golgi complexes, endoplasmic reticulum, nucleolus, and nuclear envelope."
   },
+
+  // ─── METAPHASE ───────────────────────────────────────────────────────────────
   {
     id: 19,
-    question: "What components collectively constitute the mitotic apparatus?",
-    answer: "The two asters together with the spindle fibres." /* */
+    question: "What marks the start of metaphase?",
+    answer: "Complete disintegration of nuclear envelope; chromosomes spread through cytoplasm."
   },
   {
     id: 20,
-    question: "Which specific cell structures disappear by the end of prophase?",
-    answer: "The Golgi complexes, endoplasmic reticulum, nucleolus, and the nuclear envelope completely disappear." /* */
+    question: "Why is metaphase best for studying chromosome morphology?",
+    answer: "Condensation of chromosomes is complete; they are most clearly visible under microscope."
   },
   {
     id: 21,
-    question: "What is a kinetochore?",
-    answer: "A small disc-shaped structure at the surface of the centromere serving as the attachment site for spindle fibres." /* */
+    question: "What is a kinetochore and what is its role in metaphase?",
+    answer: "Small disc-shaped structure at centromere surface; serves as attachment site for spindle fibres."
   },
   {
     id: 22,
-    question: "How do spindle fibres attach to sister chromatids during metaphase?",
-    answer: "One chromatid connects to a pole via its kinetochore, and its sister chromatid connects to the opposite pole." /* */
+    question: "How are spindle fibres attached to chromosomes at metaphase?",
+    answer: "One chromatid connected to one pole via kinetochore; sister chromatid connected to opposite pole via its kinetochore."
   },
   {
     id: 23,
-    question: "What term refers to the plane of alignment of chromosomes at the spindle equator?",
-    answer: "The metaphase plate." /* */
+    question: "What is the metaphase plate?",
+    answer: "Plane of alignment of chromosomes at the spindle equator during metaphase."
   },
+
+  // ─── ANAPHASE ────────────────────────────────────────────────────────────────
   {
     id: 24,
-    question: "What is the movement and orientation of chromosomes during mitotic anaphase?",
-    answer: "Centromeres split; chromatids separate and move to opposite poles. Centromeres lead at the front, with chromosome arms trailing behind." /* */
+    question: "What are the key events of mitotic anaphase?",
+    answer: "Centromeres split simultaneously; chromatids (now daughter chromosomes) separate and move to opposite poles. Centromeres lead, arms trail behind."
   },
+
+  // ─── TELOPHASE ───────────────────────────────────────────────────────────────
   {
     id: 25,
-    question: "What structural reorganisations occur to chromosomes during mitotic telophase?",
-    answer: "They reach their respective poles, decondense, and lose their individuality as discrete elements." /* */
+    question: "What are the key events of mitotic telophase?",
+    answer: "Chromosomes reach poles, decondense, lose individuality; nuclear envelope reforms around each cluster; nucleolus, Golgi complex, ER reform."
   },
+
+  // ─── CYTOKINESIS ─────────────────────────────────────────────────────────────
   {
     id: 26,
-    question: "Which organelles and structures reform during telophase?",
-    answer: "The nuclear envelope, nucleolus, Golgi complex, and endoplasmic reticulum." /* */
+    question: "How does cytokinesis differ in animal vs plant cells?",
+    answer: "Animal: furrow forms in plasma membrane, deepens inward. Plant: cell-plate forms in centre, grows outward to meet lateral walls."
   },
   {
     id: 27,
-    question: "Contrast the mechanism of cytokinesis in animal and plant cells.",
-    answer: "Animal cells form a deepening plasma membrane furrow. Plant cells form a cell-plate in the centre that grows outward." /* */
+    question: "What does the plant cell-plate represent anatomically?",
+    answer: "Middle lamella between walls of two adjacent cells."
   },
   {
     id: 28,
-    question: "What does the plant cell-plate represent anatomically?",
-    answer: "It represents the middle lamella between the walls of two adjacent cells." /* */
+    question: "What organelles are distributed during cytokinesis and what is a syncytium?",
+    answer: "Mitochondria and plastids distributed between daughter cells. Syncytium: multinucleate condition when karyokinesis not followed by cytokinesis (e.g., liquid endosperm in coconut)."
   },
+
+  // ─── SIGNIFICANCE OF MITOSIS ─────────────────────────────────────────────────
   {
     id: 29,
-    question: "What specific cellular condition leads to the formation of a multinucleate syncytium?",
-    answer: "When karyokinesis is not followed by cytokinesis (e.g., liquid endosperm in coconut)." /* */
+    question: "What are the significances of mitosis?",
+    answer: "Produces diploid daughter cells with identical genetic complement; growth of multicellular organisms; restores nucleo-cytoplasmic ratio; cell repair (epidermis, gut lining, blood cells); continuous plant growth via apical and lateral cambium."
   },
   {
     id: 30,
-    question: "What is the primary genetic outcome of a mitotic division?",
-    answer: "The production of diploid daughter cells with identical genetic complements." /* */
-  },
-  {
-    id: 31,
-    question: "What are three major physiological contributions of mitosis in multicellular organisms?",
-    answer: "Cell growth (restoring nucleo-cytoplasmic ratio), cell repair (e.g., gut lining), and continuous plant growth via apical/lateral cambium." /* */
+    question: "In which organisms do haploid cells divide by mitosis?",
+    answer: "Some lower plants and some social insects (e.g., male honey bees)."
   },
 
-  // ─── MEIOSIS BASICS & INITIATION ────────────────────────────────────────────
+  // ─── MEIOSIS: OVERVIEW ───────────────────────────────────────────────────────
+  {
+    id: 31,
+    question: "What is meiosis and why is it called reduction division?",
+    answer: "Specialised cell division reducing chromosome number by half; produces haploid daughter cells from diploid cells for sexual reproduction."
+  },
   {
     id: 32,
-    question: "When does meiosis occur, and what specific biological process restores the diploid phase?",
-    answer: "Meiosis occurs during gametogenesis to produce haploid gametes. Fertilisation restores the diploid phase." /* */
+    question: "What are the key features of meiosis?",
+    answer: "Two sequential divisions (meiosis I and II); only one DNA replication cycle; pairing of homologous chromosomes; recombination between non-sister chromatids; four haploid cells formed at end."
   },
   {
     id: 33,
-    question: "At what specific point in the cell cycle is Meiosis I initiated?",
-    answer: "After the parental chromosomes have replicated to produce identical sister chromatids at the S phase." /* */
+    question: "When is meiosis initiated and what restores the diploid phase?",
+    answer: "Meiosis I initiated after parental chromosomes replicate (S phase). Fertilisation restores diploid phase."
   },
 
-  // ─── MEIOSIS PROPHASE I (DETAILED) ──────────────────────────────────────────
+  // ─── PROPHASE I: FIVE STAGES ─────────────────────────────────────────────────
   {
     id: 34,
-    question: "What changes happen to chromosomes during the leptotene stage?",
-    answer: "They become gradually visible under the light microscope, and compaction continues throughout this stage." /* */
+    question: "What are the five sub-stages of Prophase I?",
+    answer: "Leptotene, Zygotene, Pachytene, Diplotene, Diakinesis."
   },
   {
     id: 35,
-    question: "During which stage do homologous chromosomes pair up, and what is this process called?",
-    answer: "During zygotene. The pairing process is called synapsis." /* */
+    question: "What happens during leptotene?",
+    answer: "Chromosomes become gradually visible under light microscope; compaction continues throughout."
   },
   {
     id: 36,
-    question: "What complex protein structure accompanies chromosome synapsis during zygotene?",
-    answer: "The synaptonemal complex." /* */
+    question: "What happens during zygotene?",
+    answer: "Homologous chromosomes pair (synapsis); synaptonemal complex forms. Paired complex called bivalent or tetrad."
   },
   {
     id: 37,
-    question: "What names are given to the complex formed by a pair of synapsed homologous chromosomes?",
-    answer: "A bivalent or a tetrad." /* */
+    question: "What is synapsis and the synaptonemal complex?",
+    answer: "Synapsis: pairing of homologous chromosomes during zygotene. Synaptonemal complex: protein structure accompanying chromosome synapsis."
   },
   {
     id: 38,
-    question: "When do the four chromatids of each bivalent become distinct and clearly appear as tetrads?",
-    answer: "During the pachytene stage." /* */
+    question: "What is a bivalent/tetrad?",
+    answer: "Complex formed by a pair of synapsed homologous chromosomes; consists of four chromatids."
   },
   {
     id: 39,
-    question: "What are recombination nodules and during which stage do they appear?",
-    answer: "They appear during pachytene and represent the specific sites at which crossing over occurs between non-sister chromatids." /* */
+    question: "What are the key events of pachytene?",
+    answer: "Four chromatids of each bivalent become distinct; recombination nodules appear (sites of crossing over); crossing over occurs between non-sister chromatids; recombinase mediates the process; recombination completed by end of pachytene."
   },
   {
     id: 40,
-    question: "What genetic exchange occurs during the pachytene stage?",
-    answer: "Crossing over, which is the exchange of genetic material between non-sister chromatids of homologous chromosomes." /* */
+    question: "What is crossing over?",
+    answer: "Exchange of genetic material between non-sister chromatids of homologous chromosomes; enzyme-mediated by recombinase; occurs during pachytene."
   },
   {
     id: 41,
-    question: "Which specific enzyme mediates the process of crossing over?",
-    answer: "Recombinase." /* */
+    question: "What happens during diplotene?",
+    answer: "Synaptonemal complex dissolves; recombined homologous chromosomes separate except at crossover sites (chiasmata). In vertebrate oocytes, can last months or years."
   },
   {
     id: 42,
-    question: "When is genetic recombination between homologous chromosomes fully completed?",
-    answer: "By the end of pachytene, leaving the chromosomes linked at the sites of crossing over." /* */
+    question: "What are chiasmata?",
+    answer: "X-shaped structures at sites of crossing over between homologous chromosomes; visible during diplotene."
   },
   {
     id: 43,
-    question: "What structural changes occur to homologous chromosomes during the diplotene stage?",
-    answer: "The synaptonemal complex dissolves, and recombined homologous chromosomes separate except at the crossover sites." /* */
+    question: "What are the key events of diakinesis?",
+    answer: "Terminalisation of chiasmata; chromosomes fully condensed; meiotic spindle assembles; nucleolus disappears; nuclear envelope breaks down. Represents transition to metaphase."
   },
+
+  // ─── MEIOSIS I (REMAINING STAGES) ────────────────────────────────────────────
   {
     id: 44,
-    question: "What are the X-shaped structures formed during the diplotene stage called?",
-    answer: "Chiasmata." /* */
+    question: "What happens during Metaphase I?",
+    answer: "Bivalent chromosomes align on equatorial plate; microtubules from opposite poles attach to kinetochores of homologous chromosomes."
   },
   {
     id: 45,
-    question: "What specific physical sites do the X-shaped chiasmata structures represent?",
-    answer: "The sites of crossing over between homologous chromosomes." /* */
+    question: "What happens during Anaphase I?",
+    answer: "Homologous chromosomes separate and move to opposite poles; sister chromatids remain associated at their centromeres."
   },
   {
     id: 46,
-    question: "What specific transition in the cell cycle does the diakinesis stage represent?",
-    answer: "It represents the transition to metaphase, marked by terminalisation of chiasmata and spindle assembly." /* */
+    question: "What happens during Telophase I?",
+    answer: "Nuclear membrane and nucleolus reappear; cytokinesis follows → dyad of cells formed. Chromosomes do not reach fully extended interphase state."
   },
   {
     id: 47,
-    question: "What happens to the nucleus by the end of diakinesis?",
-    answer: "The nucleolus disappears and the nuclear envelope completely breaks down." /* */
+    question: "What is interkinesis?",
+    answer: "Short-lived stage between two meiotic divisions; no DNA replication occurs."
   },
 
-  // ─── MEIOSIS I & II (REMAINDER) ─────────────────────────────────────────────
+  // ─── MEIOSIS II ──────────────────────────────────────────────────────────────
   {
     id: 48,
-    question: "How do spindle microtubules attach to chromosomes during Metaphase I?",
-    answer: "They attach directly to the kinetochores of homologous chromosomes." /* */
+    question: "How does Prophase II differ from Prophase I?",
+    answer: "Much simpler; resembles mitosis. Nuclear membrane disappears; chromosomes become compact again. Initiated immediately after cytokinesis of meiosis I."
   },
   {
     id: 49,
-    question: "What occurs during Anaphase I of meiosis?",
-    answer: "Homologous chromosomes separate and move to opposite poles, but sister chromatids remain attached at their centromeres." /* */
+    question: "What happens during Metaphase II and Anaphase II?",
+    answer: "Metaphase II: chromosomes align at equator; microtubules attach to kinetochores of sister chromatids. Anaphase II: centromeres split simultaneously; sister chromatids move to opposite poles via microtubule shortening."
   },
   {
     id: 50,
-    question: "What specific structures reappear during Telophase I before cytokinesis forms a dyad?",
-    answer: "The nuclear membrane and nucleolus reappear." /* */
+    question: "What happens during Telophase II?",
+    answer: "Two chromosome groups enclosed by nuclear envelope; cytokinesis follows → tetrad of four haploid daughter cells formed."
   },
   {
     id: 51,
-    question: "What is interkinesis?",
-    answer: "The generally short-lived stage between the two meiotic divisions. There is no DNA replication during this phase." /* */
+    question: "What are the cell formations at end of Meiosis I and Meiosis II?",
+    answer: "Meiosis I → dyad of cells (2 cells). Meiosis II → tetrad of cells (4 haploid cells)."
   },
+
+  // ─── SIGNIFICANCE OF MEIOSIS ─────────────────────────────────────────────────
   {
     id: 52,
-    question: "Which meiotic stage closely resembles normal mitosis and involves the disappearance of the nuclear membrane?",
-    answer: "Prophase II." /* */
+    question: "What are the significances of meiosis?",
+    answer: "Conserves specific chromosome number of each species across generations; increases genetic variability in population; variations important for evolution."
   },
+
+  // ─── MITOSIS VS MEIOSIS COMPARISON ───────────────────────────────────────────
   {
     id: 53,
-    question: "How do chromosomes move during Metaphase II and Anaphase II?",
-    answer: "Metaphase II: Chromosomes align at the equator. Anaphase II: Simultaneous splitting of centromeres allows sister chromatids to separate to opposite poles." /* */
+    question: "Compare mitosis and meiosis on: cell type, divisions, daughter cells, and genetic outcome.",
+    answer: "Mitosis: diploid somatic cells; 1 division; 2 diploid identical daughter cells. Meiosis: diploid cells forming gametes; 2 divisions; 4 haploid genetically variable cells."
   },
   {
     id: 54,
-    question: "What marks the end of meiosis during Telophase II?",
-    answer: "The two groups of chromosomes get enclosed by a nuclear envelope, resulting in a tetrad of four haploid cells." /* */
-  },
-  {
-    id: 55,
-    question: "What are the two major evolutionary significances of meiosis?",
-    answer: "It conserves specific chromosome numbers across generations and increases genetic variability within a population." /* */
-  },
-  {
-    id: 56,
-    question: "What terms describe the cell formations at the end of Meiosis I and Meiosis II, respectively?",
-    answer: "Meiosis I ends with a dyad of cells. Meiosis II ends with a tetrad of cells." /* */
+    question: "Compare Anaphase of mitosis vs Anaphase I of meiosis.",
+    answer: "Mitosis anaphase: centromeres split, sister chromatids separate to opposite poles. Meiosis Anaphase I: homologous chromosomes separate; sister chromatids remain joined at centromere."
   }
+
 ];
 
-export default Celldivision;
+export default CellDivision;

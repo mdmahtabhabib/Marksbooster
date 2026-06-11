@@ -1,335 +1,377 @@
 const Biomolecules = [
+
   // ─── CHEMICAL ANALYSIS & BASIC CONCEPTS ─────────────────────────────────────
   {
     id: 1,
-    question: "Which chemical is used to grind tissue for elemental analysis, and what do the resulting fractions represent?",
-    answer: "Trichloroacetic acid. Filtrate = acid-soluble pool (micromolecules); Retentate = acid-insoluble fraction (macromolecules)." /* */
+    question: "What chemical is used to grind tissue for analysis and what are the two fractions obtained?",
+    answer: "Trichloroacetic acid (Cl3CCOOH). Filtrate = acid-soluble pool; Retentate = acid-insoluble fraction."
   },
   {
     id: 2,
-    question: "How does elemental abundance differ between living organisms and the earth's crust?",
-    answer: "The relative abundance of Carbon and Hydrogen is higher in living organisms than in the earth's crust." /* */
+    question: "How does elemental abundance differ between living organisms and earth's crust?",
+    answer: "Relative abundance of Carbon and Hydrogen is higher in living organisms than in earth's crust."
   },
   {
     id: 3,
-    question: "List the % weight of Oxygen, Carbon, and Nitrogen in the human body.",
-    answer: "Oxygen: 65.0%, Carbon: 18.5%, Nitrogen: 3.3%." /* */
+    question: "Compare % weight of key elements in earth's crust vs human body.",
+    answer: "H: 0.14 vs 9.5. C: 0.03 vs 18.5. O: 46.6 vs 65.0. N: very little vs 3.3. Si: 27.7 vs negligible."
   },
   {
     id: 4,
-    question: "Which elements have the highest % weight in the earth's crust?",
-    answer: "Oxygen (46.6%) and Silicon (27.7%)." /* */
+    question: "What is dry weight and what remains after fully burning living tissue?",
+    answer: "Dry weight: after evaporating water. Burning oxidises carbon compounds → 'ash' containing inorganic elements (Ca, Mg, etc.)."
   },
   {
     id: 5,
-    question: "How is dry weight obtained, and what remains after fully burning the tissue?",
-    answer: "Dry weight is obtained by evaporating water. Burning oxidises carbon compounds, leaving 'ash' containing inorganic elements." /* */
+    question: "What are biomolecules and what do elemental vs compound analyses yield?",
+    answer: "Biomolecules: all carbon compounds from living tissues. Elemental analysis: H, O, C, etc. Compound analysis: organic and inorganic constituents."
   },
   {
     id: 6,
-    question: "What do elemental and compound analyses of living tissues yield respectively?",
-    answer: "Elemental analysis yields elements like hydrogen, oxygen, and carbon. Compound analysis yields organic and inorganic constituents." /* */
+    question: "What do the acid-soluble and acid-insoluble pools represent?",
+    answer: "Acid-soluble: cytoplasmic composition (micromolecules, MW 18–800 Da). Acid-insoluble: macromolecules from cytoplasm and organelles."
   },
   {
     id: 7,
-    question: "What are biomolecules, and which functional groups can chemists identify in them?",
-    answer: "All carbon compounds from living tissues. Chemists identify functional groups like aldehydes, ketones, and aromatic compounds." /* */
+    question: "What is the most abundant chemical in living organisms and its percentage?",
+    answer: "Water; 70–90% of total cellular mass."
   },
   {
     id: 8,
-    question: "What do the acid-soluble and acid-insoluble pools roughly represent?",
-    answer: "Acid-soluble represents cytoplasmic composition. Acid-insoluble represents macromolecules from the cytoplasm and organelles." /* */
+    question: "What are the % cellular mass of proteins, nucleic acids, carbohydrates, lipids, and ions?",
+    answer: "Proteins: 10–15%. Nucleic acids: 5–7%. Carbohydrates: 3%. Lipids: 2%. Ions: 1%."
   },
   {
     id: 9,
-    question: "What is the most abundant chemical in living organisms?",
-    answer: "Water, constituting 70-90% of the total cellular mass." /* */
+    question: "What are the MW ranges of micromolecules and macromolecules?",
+    answer: "Micromolecules (acid-soluble): 18–~800 Da. Macromolecules (acid-insoluble): 10,000 Da and above."
   },
   {
     id: 10,
-    question: "List the average cellular composition % of Proteins, Nucleic acids, Carbohydrates, Lipids, and Ions.",
-    answer: "Proteins: 10-15%. Nucleic acids: 5-7%. Carbohydrates: 3%. Lipids: 2%. Ions: 1%." /* */
+    question: "What are the four types of organic compounds in the acid-insoluble fraction?",
+    answer: "Proteins, nucleic acids, polysaccharides, and lipids."
   },
-
-  // ─── AMINO ACIDS ────────────────────────────────────────────────────────────
   {
     id: 11,
-    question: "What is the structural composition of an amino acid? What determines its specific chemical nature?",
-    answer: "Substituted methanes with 4 alpha-carbon substituents: Hydrogen, carboxyl group, amino group, and a variable R-group (determines its nature)." /* */
+    question: "Why do lipids (MW <800 Da) appear in the acid-insoluble macromolecular fraction?",
+    answer: "Grinding disrupts membranes into water-insoluble vesicles that separate into acid-insoluble pool. Lipids are not strictly macromolecules."
   },
+
+  // ─── AMINO ACIDS ─────────────────────────────────────────────────────────────
   {
     id: 12,
-    question: "Identify the R-group for the amino acids Glycine, Alanine, and Serine.",
-    answer: "Glycine: Hydrogen. Alanine: Methyl. Serine: Hydroxy methyl." /* */
+    question: "What is the structure of an α-amino acid?",
+    answer: "Substituted methane; four substituents on α-carbon: H, carboxyl group (–COOH), amino group (–NH2), and variable R group."
   },
   {
     id: 13,
-    question: "Provide examples of acidic, basic, neutral, and aromatic amino acids.",
-    answer: "Acidic: Glutamic acid. Basic: Lysine. Neutral: Valine. Aromatic: Tyrosine, Phenylalanine, Tryptophan." /* */
+    question: "What are the R groups of Glycine, Alanine, and Serine?",
+    answer: "Glycine: H. Alanine: methyl (–CH3). Serine: hydroxymethyl (–CH2OH)."
   },
   {
     id: 14,
-    question: "Why does amino acid structure change in solutions of different pH?",
-    answer: "Due to the ionizable nature of -NH2 and -COOH groups, forming a zwitterionic state." /* */
+    question: "Classify amino acids: acidic, basic, neutral, and aromatic examples.",
+    answer: "Acidic: glutamic acid. Basic: lysine. Neutral: valine. Aromatic: tyrosine, phenylalanine, tryptophan."
   },
   {
     id: 15,
-    question: "Contrast essential and non-essential amino acids regarding their source.",
-    answer: "Non-essential are made by our body. Essential cannot be made and must be supplied through dietary proteins." /* */
+    question: "Why does amino acid structure change at different pH?",
+    answer: "Due to ionizable nature of –NH2 and –COOH groups; forms zwitterionic state (B form)."
   },
-
-  // ─── LIPIDS ─────────────────────────────────────────────────────────────────
   {
     id: 16,
-    question: "Contrast saturated and unsaturated fatty acids, and list the esterified forms of glycerol.",
-    answer: "Saturated lack double bonds; unsaturated have C=C bonds. Fatty acids esterified with glycerol form mono-, di-, and triglycerides." /* */
+    question: "Distinguish essential from non-essential amino acids.",
+    answer: "Non-essential: made by our body. Essential: cannot be synthesised; must be supplied through diet. Dietary proteins are source of essential amino acids."
   },
   {
     id: 17,
-    question: "Detail the specific carbon atom count for palmitic and arachidonic acid.",
-    answer: "Palmitic acid: 16 carbons. Arachidonic acid: 20 carbons. (Both counts include the carboxyl carbon)." /* */
+    question: "How many types of amino acids occur in proteins?",
+    answer: "20 types."
   },
+
+  // ─── LIPIDS ──────────────────────────────────────────────────────────────────
   {
     id: 18,
-    question: "What is the structure of glycerol and phospholipids?",
-    answer: "Glycerol is trihydroxy propane. Phospholipids have a phosphorylated organic compound attached to the lipid (e.g., Lecithin)." /* */
+    question: "What are saturated and unsaturated fatty acids?",
+    answer: "Saturated: no double bonds. Unsaturated: one or more C=C double bonds."
   },
   {
     id: 19,
-    question: "How is a triglyceride structurally represented in the NCERT diagram?",
-    answer: "As glycerol esterified to three fatty acids, represented as R1, R2, and R3." /* */
+    question: "What is glycerol and how do fatty acids combine with it?",
+    answer: "Glycerol: trihydroxy propane. Fatty acids esterified to glycerol → monoglycerides, diglycerides, triglycerides (fats/oils)."
   },
   {
     id: 20,
-    question: "Why do oils remain liquid in winter? Where are structurally complex lipids found?",
-    answer: "Oils (e.g., gingelly oil) have lower melting points. Complex lipids are found in neural tissues." /* */
+    question: "What are the carbon counts of palmitic acid and arachidonic acid?",
+    answer: "Palmitic acid: 16 carbons (including carboxyl carbon). Arachidonic acid: 20 carbons."
   },
   {
     id: 21,
-    question: "Why do lipids (MW < 800 Da) appear in the acid-insoluble macromolecular fraction?",
-    answer: "Tissue grinding disrupts cell membranes into water-insoluble vesicles that separate into the acid-insoluble pool." /* */
+    question: "What are phospholipids, where are they found, and give an example?",
+    answer: "Lipids with phosphorous and a phosphorylated organic compound; found in cell membrane. Example: Lecithin."
   },
-
-  // ─── CARBOHYDRATES & POLYSACCHARIDES ────────────────────────────────────────
   {
     id: 22,
-    question: "What are the exact chemical formulas for glucose and ribose?",
-    answer: "Glucose: C6H12O6. Ribose: C5H10O5." /* */
+    question: "Why do oils remain liquid in winter and where are complex lipids found?",
+    answer: "Oils (e.g., gingelly oil) have lower melting points. Complex lipids found in neural tissues."
   },
+
+  // ─── CARBOHYDRATES & POLYSACCHARIDES ─────────────────────────────────────────
   {
     id: 23,
-    question: "Classify cellulose, starch, glycogen, and inulin based on their monomers.",
-    answer: "Cellulose, starch, and glycogen are glucose homopolymers. Inulin is a polymer of fructose." /* */
+    question: "What are the chemical formulas of glucose and ribose?",
+    answer: "Glucose: C6H12O6. Ribose: C5H10O5."
   },
   {
     id: 24,
-    question: "Contrast the structural folding and iodine-binding capacity of starch and cellulose.",
-    answer: "Starch forms a helical secondary structure that holds I2 (blue colour). Cellulose lacks complex helices and cannot hold I2." /* */
+    question: "Classify cellulose, starch, glycogen, and inulin by their monomers.",
+    answer: "Cellulose, starch, glycogen: glucose homopolymers. Inulin: polymer of fructose."
   },
   {
     id: 25,
-    question: "Identify the reducing and non-reducing ends of a glycogen chain.",
-    answer: "The right end is the reducing end, and the left end is the non-reducing end." /* */
+    question: "Contrast starch and cellulose in structure and iodine-binding.",
+    answer: "Starch: helical secondary structure; holds I2 (blue colour). Cellulose: no complex helices; cannot hold I2."
   },
   {
     id: 26,
-    question: "What specific features are illustrated in the NCERT diagram of a glycogen portion?",
-    answer: "It depicts a branched portion of glycogen, explicitly highlighting its right reducing end and left non-reducing end." /* */
+    question: "What are the reducing and non-reducing ends of a glycogen chain?",
+    answer: "Right end: reducing end. Left end: non-reducing end. Glycogen is branched."
   },
   {
     id: 27,
-    question: "Give examples of chemically modified sugars and state the composition of arthropod exoskeletons.",
-    answer: "Modified sugars: Glucosamine, N-acetyl galactosamine. Arthropod exoskeletons are made of chitin (a complex polysaccharide homopolymer)." /* */
+    question: "What are chemically modified sugars? What is chitin?",
+    answer: "Modified sugars: glucosamine, N-acetyl galactosamine. Chitin: complex polysaccharide homopolymer forming arthropod exoskeletons."
   },
-
-  // ─── NUCLEIC ACIDS ──────────────────────────────────────────────────────────
   {
     id: 28,
-    question: "Name the five nitrogenous bases and classify them as purines or pyrimidines.",
-    answer: "Purines: Adenine, Guanine. Pyrimidines: Cytosine, Uracil, Thymine." /* */
+    question: "What are polysaccharides made of and what is their structure?",
+    answer: "Long chains of monosaccharides as building blocks; cotton thread-like. Plant cell walls: cellulose. Paper and cotton fibre: cellulosic."
   },
+
+  // ─── NUCLEIC ACIDS ───────────────────────────────────────────────────────────
   {
     id: 29,
-    question: "List the five nucleosides (base + sugar) found in living tissues.",
-    answer: "Adenosine, Guanosine, Cytidine, Uridine, Thymidine." /* */
+    question: "Name the five nitrogenous bases and classify as purines or pyrimidines.",
+    answer: "Purines: Adenine, Guanine. Pyrimidines: Cytosine, Uracil, Thymine."
   },
   {
     id: 30,
-    question: "What are the three components of a nucleotide, and what pentose sugars do DNA and RNA contain?",
-    answer: "A heterocyclic base, a monosaccharide (pentose), and phosphoric acid. DNA contains 2'-deoxyribose; RNA contains ribose." /* */
+    question: "What are the five nucleosides?",
+    answer: "Adenosine, Guanosine, Thymidine, Uridine, Cytidine."
   },
   {
     id: 31,
-    question: "List the five specific nucleotides found in nucleic acids.",
-    answer: "Adenylic acid, thymidylic acid, guanylic acid, uridylic acid, and cytidylic acid." /* */
+    question: "What are the three components of a nucleotide?",
+    answer: "Heterocyclic nitrogenous base + monosaccharide (pentose) + phosphoric acid."
   },
-
-  // ─── PRIMARY & SECONDARY METABOLITES ────────────────────────────────────────
   {
     id: 32,
-    question: "Differentiate primary and secondary metabolites based on their functions.",
-    answer: "Primary have identifiable physiological roles. Secondary have unclear host roles but hold ecological/human welfare importance." /* */
+    question: "What are the five nucleotides found in nucleic acids?",
+    answer: "Adenylic acid, thymidylic acid, guanylic acid, uridylic acid, cytidylic acid."
   },
   {
     id: 33,
-    question: "Identify the secondary metabolites classified as Pigments, Alkaloids, and Terpenoides.",
-    answer: "Pigments: Carotenoids, Anthocyanins. Alkaloids: Morphine, Codeine. Terpenoides: Monoterpenes, Diterpenes." /* */
+    question: "What pentose sugars do DNA and RNA contain and what do nucleic acids function as?",
+    answer: "DNA: 2'-deoxyribose. RNA: ribose. Both function as genetic material."
   },
+
+  // ─── PRIMARY & SECONDARY METABOLITES ─────────────────────────────────────────
   {
     id: 34,
-    question: "Identify the secondary metabolites classified as Toxins, Lectins, Drugs, and Polymeric substances.",
-    answer: "Toxins: Abrin, Ricin. Lectins: Concanavalin A. Drugs: Vinblastin, curcumin. Polymeric: Rubber, gums, cellulose." /* */
+    question: "Distinguish primary and secondary metabolites.",
+    answer: "Primary: identifiable physiological roles in normal processes (in all cells). Secondary: found in plant/fungal/microbial cells; roles in host unclear but important for ecology and human welfare."
   },
   {
     id: 35,
-    question: "Name the essential oil and the microbial products explicitly listed as secondary metabolites.",
-    answer: "Lemon grass oil (an essential oil) and antibiotics." /* */
+    question: "Give examples of secondary metabolites: pigments, alkaloids, terpenoids, essential oils.",
+    answer: "Pigments: carotenoids, anthocyanins. Alkaloids: morphine, codeine. Terpenoids: monoterpenes, diterpenes. Essential oils: lemon grass oil."
   },
   {
     id: 36,
-    question: "What are the molecular weight ranges for micromolecules and macromolecules?",
-    answer: "Micromolecules (acid-soluble pool): 18 to ~800 Da. Macromolecules (acid-insoluble pool): 10,000 Da and above." /* */
+    question: "Give examples of secondary metabolites: toxins, lectins, drugs, polymeric substances.",
+    answer: "Toxins: abrin, ricin. Lectins: concanavalin A. Drugs: vinblastin, curcumin. Polymeric: rubber, gums, cellulose."
   },
 
-  // ─── PROTEINS ───────────────────────────────────────────────────────────────
+  // ─── PROTEINS ────────────────────────────────────────────────────────────────
   {
     id: 37,
-    question: "Why are proteins considered heteropolymers rather than homopolymers?",
-    answer: "They are linear polypeptide chains of amino acids linked by peptide bonds, containing 20 different types of amino acids." /* */
+    question: "What are proteins and why are they heteropolymers?",
+    answer: "Linear polypeptide chains of amino acids linked by peptide bonds; heteropolymers because they contain 20 different types of amino acids."
   },
   {
     id: 38,
-    question: "Identify the functions of Collagen, Trypsin, Insulin, Antibody, Receptor, and GLUT-4.",
-    answer: "Collagen: Intercellular ground substance. Trypsin: Enzyme. Insulin: Hormone. Antibody: Fights infection. Receptor: Sensory reception. GLUT-4: Glucose transport." /* */
+    question: "Name the proteins and their functions: Collagen, Trypsin, Insulin, Antibody, Receptor, GLUT-4.",
+    answer: "Collagen: intercellular ground substance. Trypsin: enzyme. Insulin: hormone. Antibody: fights infectious agents. Receptor: sensory reception. GLUT-4: glucose transport."
   },
   {
     id: 39,
-    question: "Name the most abundant protein in the animal world and the entire biosphere.",
-    answer: "Animal world: Collagen. Biosphere: Ribulose bisphosphate Carboxylase-Oxygenase (RuBisCO)." /* */
+    question: "Name the most abundant protein in animal world and in the entire biosphere.",
+    answer: "Animal world: Collagen. Biosphere: RuBisCO (Ribulose bisphosphate Carboxylase-Oxygenase)."
   },
   {
     id: 40,
-    question: "What characterizes the primary and secondary structures of a protein?",
-    answer: "Primary: Amino acid sequence (left/1st = N-terminal, right/last = C-terminal). Secondary: Local folding (only right-handed alpha-helices exist in proteins)." /* */
+    question: "What is the primary structure of a protein?",
+    answer: "Sequence of amino acids; left end = N-terminal (first); right end = C-terminal (last amino acid)."
   },
   {
     id: 41,
-    question: "What characterizes the tertiary and quaternary structures of a protein?",
-    answer: "Tertiary: 3D hollow woolen ball folding (necessary for biological activity). Quaternary: Multi-subunit assembly (e.g., adult human Hb: 2 alpha, 2 beta subunits)." /* */
+    question: "What is the secondary structure of a protein?",
+    answer: "Local folding of polypeptide thread into helices or other forms. Only right-handed alpha-helices observed in proteins."
   },
   {
     id: 42,
-    question: "Which specific bonds and structures are labelled in the NCERT protein structure diagram?",
-    answer: "Polypeptide, Alpha-Helix, Beta-pleated sheet, Hydrogen bond, and Disulphide bond." /* */
+    question: "What are the tertiary and quaternary structures of a protein?",
+    answer: "Tertiary: 3D folding like hollow woolen ball; necessary for biological activity. Quaternary: multi-subunit arrangement (e.g., human Hb: 2α + 2β subunits)."
   },
-
-  // ─── ENZYMES: BASICS & REACTIONS ────────────────────────────────────────────
   {
     id: 43,
-    question: "What are ribozymes? How do high temperatures generally affect enzymes?",
-    answer: "Ribozymes are nucleic acids that behave like enzymes. High temperatures (>40°C) denature most enzymes." /* */
+    question: "Which bonds and structures are shown in the NCERT protein structure diagram?",
+    answer: "Polypeptide, alpha-helix, beta-pleated sheet, hydrogen bond, disulphide bond."
   },
+
+  // ─── ENZYMES: BASICS ─────────────────────────────────────────────────────────
   {
     id: 44,
-    question: "What exception exists for enzyme thermal stability?",
-    answer: "Thermophilic enzymes (isolated from hot vents/sulphur springs) remain stable and retain catalytic power up to 80-90°C." /* */
+    question: "What are ribozymes and how do high temperatures affect enzymes?",
+    answer: "Ribozymes: nucleic acids with enzyme-like catalytic power. High temperatures (>40°C) denature most enzymes."
   },
   {
     id: 45,
-    question: "Give the NCERT examples of an inorganic chemical reaction and an organic chemical reaction.",
-    answer: "Inorganic: Ba(OH)2 + H2SO4 → BaSO4 + 2H2O. Organic: Hydrolysis of starch into glucose." /* */
+    question: "What exception exists for enzyme thermal stability?",
+    answer: "Thermophilic enzymes (from hot vents/sulphur springs) stable up to 80–90°C; thermal stability is an important quality."
   },
   {
     id: 46,
-    question: "Write the specific reversible reaction catalysed by carbonic anhydrase.",
-    answer: "CO2 + H2O ⇌ H2CO3 (Carbonic acid)." /* */
+    question: "What is a metabolic pathway? Give an NCERT example.",
+    answer: "Multistep chemical reaction catalysed by same enzyme complex or different enzymes. Example: glucose → pyruvic acid through 10 enzyme-catalysed reactions."
   },
   {
     id: 47,
-    question: "How much does carbonic anhydrase accelerate the formation of H2CO3?",
-    answer: "By 10 million times. Uncatalysed: ~200 molecules/hour. Catalysed: ~600,000 molecules/second." /* */
+    question: "What are the end products of glucose breakdown under different conditions?",
+    answer: "Anaerobic (skeletal muscle): lactic acid. Fermentation (yeast): ethanol. Normal aerobic: pyruvic acid."
   },
   {
     id: 48,
-    question: "What are the varying end-products of the 10-step glucose-to-pyruvic acid pathway under different conditions?",
-    answer: "Muscle (anaerobic): Lactic acid. Yeast (fermentation): Ethanol. Normal aerobic: Pyruvic acid." /* */
+    question: "What are the NCERT examples of inorganic and organic chemical reactions?",
+    answer: "Inorganic: Ba(OH)2 + H2SO4 → BaSO4 + 2H2O. Organic: hydrolysis of starch into glucose."
   },
   {
     id: 49,
-    question: "How does temperature fluctuation generally affect biochemical reaction rates?",
-    answer: "The rate doubles or decreases by half for every 10°C change in either direction." /* */
+    question: "How does temperature affect biochemical reaction rates?",
+    answer: "Rate doubles or decreases by half for every 10°C change in either direction."
   },
 
-  // ─── ENZYMES: MECHANISM OF ACTION ───────────────────────────────────────────
+  // ─── CARBONIC ANHYDRASE ──────────────────────────────────────────────────────
   {
     id: 50,
-    question: "What is an active site, and what unstable structure forms when a substrate binds to it?",
-    answer: "A crevice or pocket where the substrate fits. Binding forms a transient, unstable transition state structure." /* */
+    question: "What reaction does carbonic anhydrase catalyse and by how much does it accelerate it?",
+    answer: "CO2 + H2O ⇌ H2CO3. Uncatalysed: ~200 molecules/hour. Catalysed: ~600,000 molecules/second. Acceleration: ~10 million times."
   },
+
+  // ─── ENZYME MECHANISM ────────────────────────────────────────────────────────
   {
     id: 51,
-    question: "What is activation energy? Does an exothermic reaction still require it?",
-    answer: "The average energy difference between the substrate and its transition state. Yes, even exothermic reactions must overcome this barrier." /* */
+    question: "What is the active site of an enzyme?",
+    answer: "Crevice or pocket in tertiary structure where substrate fits; chain criss-crosses to form many such pockets."
   },
   {
     id: 52,
-    question: "What is the symbolic representation of an enzyme-catalysed reaction through complex formations?",
-    answer: "E + S ⇌ ES → EP → E + P." /* */
+    question: "What is activation energy?",
+    answer: "Difference in average energy content of substrate (S) and its transition state. Enzymes lower this barrier; even exothermic reactions must overcome it."
   },
   {
     id: 53,
-    question: "Why does the velocity of an enzymatic reaction plateau at Vmax?",
-    answer: "At Vmax, all enzyme active sites are saturated; adding more substrate molecules cannot increase the velocity further." /* */
+    question: "Write the symbolic equation for enzyme-catalysed reaction.",
+    answer: "E + S ⇌ ES → EP → E + P."
   },
   {
     id: 54,
-    question: "What is competitive inhibition? Give an example.",
-    answer: "An inhibitor resembles the substrate, competing for the active site. Example: Malonate inhibits succinic dehydrogenase (resembles succinate)." /* */
+    question: "Describe the four steps of the catalytic cycle of enzyme action.",
+    answer: "1. Substrate binds active site. 2. Enzyme alters shape, fits tightly. 3. Active site breaks substrate bonds; EP complex formed. 4. Products released; free enzyme ready for next substrate."
   },
 
-  // ─── ENZYMES: CLASSIFICATION & CO-FACTORS ───────────────────────────────────
+  // ─── FACTORS AFFECTING ENZYME ACTIVITY ───────────────────────────────────────
   {
     id: 55,
-    question: "How are enzymes officially classified and named?",
-    answer: "Divided into 6 classes (each with 4-13 subclasses) and named by a four-digit number based on the catalysed reaction." /* */
+    question: "What factors affect enzyme activity and how do temperature/pH affect it?",
+    answer: "Temperature, pH, substrate concentration, inhibitors. Each enzyme has optimum temperature and pH for highest activity; activity declines above and below optimum."
   },
   {
     id: 56,
-    question: "Define the enzyme classes: Oxidoreductases, Transferases, and Hydrolases.",
-    answer: "Oxidoreductases: Catalyse oxidoreduction. Transferases: Transfer group G (not H). Hydrolases: Hydrolyse ester, ether, peptide, glycosidic bonds." /* */
+    question: "What is Vmax and why is it not exceeded?",
+    answer: "Maximum velocity reached when all enzyme active sites are saturated; adding more substrate cannot increase velocity further."
   },
   {
     id: 57,
-    question: "Define the enzyme classes: Lyases, Isomerases, and Ligases.",
-    answer: "Lyases: Remove groups without hydrolysis, leaving double bonds. Isomerases: Inter-convert isomers. Ligases: Link 2 compounds (C-O, C-S, P-O bonds)." /* */
+    question: "What is competitive inhibition? Give the NCERT example.",
+    answer: "Inhibitor resembles substrate; competes for active site; substrate cannot bind → enzyme action declines. Example: malonate inhibits succinic dehydrogenase (resembles succinate)."
   },
+
+  // ─── ENZYME CLASSIFICATION ────────────────────────────────────────────────────
   {
     id: 58,
-    question: "What constitutes a holoenzyme? What is an apoenzyme?",
-    answer: "A holoenzyme is an active enzyme formed by an apoenzyme (the protein portion) bound to a non-protein co-factor." /* */
+    question: "How are enzymes classified and named?",
+    answer: "6 classes, each with 4–13 subclasses; named by a four-digit number based on reaction catalysed."
   },
   {
     id: 59,
-    question: "Differentiate prosthetic groups and co-enzymes as co-factors.",
-    answer: "Prosthetic groups: Tightly bound organics (e.g., haem in peroxidase/catalase). Co-enzymes: Transient organics, often vitamins (e.g., NAD/NADP contain niacin)." /* */
+    question: "Define oxidoreductases and transferases.",
+    answer: "Oxidoreductases: catalyse oxidoreduction between two substrates. Transferases: transfer a group G (not H) between substrates S and S'."
   },
   {
     id: 60,
-    question: "How do metal ions act as co-factors? Provide an example.",
-    answer: "They form coordination bonds with active site side chains and the substrate. Example: Zinc is a cofactor for the proteolytic enzyme carboxypeptidase." /* */
+    question: "Define hydrolases and lyases.",
+    answer: "Hydrolases: catalyse hydrolysis of ester, ether, peptide, glycosidic, C-C, C-halide, P-N bonds. Lyases: remove groups without hydrolysis, leaving double bonds."
   },
-
-  // ─── REMAINING DATA POINTS (RATIONALISED SYLLABUS) ───────────────
   {
     id: 61,
-    question: "What is the % weight of Sulphur, Sodium, Calcium, Magnesium, and Silicon in the human body?",
-    answer: "Sulphur: 0.3%. Sodium: 0.2%. Calcium: 1.5%. Magnesium: 0.1%. Silicon: negligible." /* */
+    question: "Define isomerases and ligases.",
+    answer: "Isomerases: inter-convert optical, geometric, or positional isomers. Ligases: link 2 compounds via C-O, C-S, C-N, P-O bonds."
   },
+
+  // ─── CO-FACTORS ──────────────────────────────────────────────────────────────
   {
     id: 62,
-    question: "Which specific representative inorganic ions and compounds are found in living tissues according to NCERT?",
-    answer: "Ions: Na+, K+, Ca++, Mg++. Molecules/Compounds: H2O, NaCl, CaCO3, PO4 3-, SO4 2-." /* */
-  }
+    question: "What is a holoenzyme and apoenzyme?",
+    answer: "Holoenzyme: active enzyme = apoenzyme (protein portion) + co-factor. Apoenzyme: inactive protein portion alone."
+  },
+  {
+    id: 63,
+    question: "What are prosthetic groups? Give an example.",
+    answer: "Organic co-factors tightly bound to apoenzyme; part of active site. Example: haem in peroxidase and catalase (catalyse breakdown of H2O2)."
+  },
+  {
+    id: 64,
+    question: "What are co-enzymes and what vitamins do they contain?",
+    answer: "Organic co-factors with transient association with apoenzyme during catalysis; serve multiple enzyme reactions. NAD and NADP contain vitamin niacin."
+  },
+  {
+    id: 65,
+    question: "How do metal ions act as co-factors? Give an NCERT example.",
+    answer: "Form coordination bonds with active site side chains and substrate. Example: zinc is co-factor for proteolytic enzyme carboxypeptidase."
+  },
+  {
+    id: 66,
+    question: "What happens when a co-factor is removed from an enzyme?",
+    answer: "Catalytic activity is lost; confirms co-factors play crucial role in enzyme catalytic activity."
+  },
+
+  // ─── TABLE DATA ──────────────────────────────────────────────────────────────
+  {
+    id: 67,
+    question: "What are the representative inorganic ions and compounds found in living tissues?",
+    answer: "Ions: Na+, K+, Ca++, Mg++. Compounds: H2O, NaCl, CaCO3, PO4³⁻, SO4²⁻."
+  },
+  {
+    id: 68,
+    question: "What are the % weights of S, Na, Ca, Mg in human body and Si, Na, Ca in earth's crust?",
+    answer: "Human: S 0.3%, Na 0.2%, Ca 1.5%, Mg 0.1%. Earth's crust: Na 2.8%, Ca 3.6%, Si 27.7%."
+  },
+
+  // ─── CONTENT FIX: PALMITIC & ARACHIDONIC (corrected from wrong values) ───────
+  // NOTE: id 20 above already has correct values (16C and 20C per NCERT)
+  // The uploaded file had wrong values (21C and 22C) — now corrected above.
+
 ];
 
 export default Biomolecules;
