@@ -19,6 +19,12 @@ import Celldivision from "./Neet/Celldivision";
 import Photosynthesis from "./Neet/Photosynthesis";
 import Respiration from "./Neet/Respiration";
 import PlantGD from "./Neet/PlantGD.JS";
+import Breathingandexchange from "./Neet/Breathingandexchange";
+import Bodyfluids from "./Neet/Bodyfluids";
+import Excretoryproduct from "./Neet/Excretoryproduct";
+import Locomotionandmovement from "./Neet/Locomotionandmovement";
+import Neuralcontrol from "./Neet/Neuralcontrol";
+import Chemicalcoordination from "./Neet/Chemicalcoordination";
 
 
 function App() {
@@ -43,6 +49,12 @@ function App() {
      <Route path="/Neetlist/photosynthesis" element={ < Cards title="Photosynthesis " flashcards={Photosynthesis} /> } />
      <Route path="/Neetlist/respiration" element={ < Cards title="Respiration " flashcards={Respiration} /> } />
      <Route path="/Neetlist/plantgd" element={ < Cards title="Plant growth and development " flashcards={PlantGD} /> } />
+     <Route path="/Neetlist/breathingandexchange" element={ < Cards title="Breathing and exchange of gases " flashcards={Breathingandexchange} /> } />
+     <Route path="/Neetlist/bodyfluids" element={ < Cards title="Body fluids and circulation " flashcards={Bodyfluids} /> } />
+      <Route path="/Neetlist/excretory-product" element={ < Cards title="Excretory products and their elimination " flashcards={Excretoryproduct} /> } />
+      <Route path="/Neetlist/locomotion-and-movement" element={ < Cards title="Locomotion And Movement " flashcards={Locomotionandmovement} /> } />
+      <Route path="/Neetlist/neural-control-and-coordination" element={ < Cards title="Neural Control And Coordination " flashcards={Neuralcontrol} /> } />
+      <Route path="/Neetlist/chemical-control-and-coordination" element={ < Cards title="Chemical Control And Coordination " flashcards={Chemicalcoordination} /> } />
     </Routes>
     </BrowserRouter>
   )

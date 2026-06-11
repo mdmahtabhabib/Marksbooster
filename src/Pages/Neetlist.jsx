@@ -20,12 +20,12 @@ function Neetlist(){
   { no: 11, name: "Respiration in Plants", questions: 20, slug: "Respiration" },
   { no: 12, name: "Plant Growth and Development", questions: 18, slug: "plantgd" },
 
-  { no: 13, name: "Breathing and Exchange of Gases", questions: 20, slug: "cell" },
-  { no: 14, name: "Body Fluids and Circulation", questions: 25, slug: "cell" },
-  { no: 15, name: "Excretory Products and Elimination", questions: 22, slug: "cell" },
-  { no: 16, name: "Locomotion and Movement", questions: 18, slug: "cell" },
-  { no: 17, name: "Neural Control and Coordination", questions: 25, slug: "cell" },
-  { no: 18, name: "Chemical Coordination and Integration", questions: 20, slug: "cell" },
+  { no: 13, name: "Breathing and Exchange of Gases", questions: 20, slug: "breathingandexchange" },
+  { no: 14, name: "Body Fluids and Circulation", questions: 25, slug: "bodyfluids" },
+  { no: 15, name: "Excretory Products and Elimination", questions: 22, slug: "excretory-product" },
+  { no: 16, name: "Locomotion and Movement", questions: 18, slug: "locomotion-and-movement" },
+  { no: 17, name: "Neural Control and Coordination", questions: 25, slug: "neural-control-and-coordination" },
+  { no: 18, name: "Chemical Coordination and Integration", questions: 20, slug: "chemical-control-and-coordination" },
 
   { no: 19, name: "Reproduction in Organisms", questions: 15, slug: "cell" },
   { no: 20, name: "Sexual Reproduction in Flowering Plants", questions: 25, slug: "cell" },
