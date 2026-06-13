@@ -8,9 +8,15 @@ import Faq from "./Faq";
 import Banner from "./Banner";
 import Footer from "./Footer";
 import ComingSoon from "../Pages/ComingSoon";
+import { Helmet } from "react-helmet-async";
 
 function Home(){
    return (
+    <>
+    <Helmet>
+        <title>MarksBooster - Free NEET Biology Notes & Flashcards</title>
+        <meta name="description" content="Free NEET Biology notes, flashcards, PYQs for class 8-10 students. Just ₹499/year." />
+      </Helmet>
 <div>
      <Nav />
     <Hero />
@@ -23,6 +29,7 @@ function Home(){
     <Footer />
     
 </div>
+</>
   )
 }
 export default Home;

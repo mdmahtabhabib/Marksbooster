@@ -1,6 +1,7 @@
 import Nav from "../Components/Nav";
 import Footer from "../Components/Footer" ;
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 function Neetlist(){
     const chapters = [
@@ -46,6 +47,24 @@ function Neetlist(){
   { no: 32, name: "Biodiversity and Conservation", questions: 20, slug: "cell" }
 ];
     return(
+        <>
+        <Helmet>
+  <title>
+    NEET Biology Flashcards | 32 Chapters | Free Practice Questions | MarksBooster
+  </title>
+
+  <meta
+    name="description"
+    content="Practice NEET Biology flashcards chapter-wise covering The Living World, Biological Classification, Plant Kingdom, Animal Kingdom, Morphology of Flowering Plants, Anatomy of Flowering Plants, Cell The Unit of Life, Biomolecules, Cell Cycle and Cell Division, Photosynthesis in Higher Plants, Respiration in Plants, Plant Growth and Development, Breathing and Exchange of Gases, Body Fluids and Circulation, Excretory Products and Elimination, Locomotion and Movement, Neural Control and Coordination, Chemical Coordination and Integration, Reproduction in Organisms, Sexual Reproduction in Flowering Plants, Human Reproduction, Reproductive Health, Principles of Inheritance and Variation, Molecular Basis of Inheritance, Evolution, Human Health and Disease, Microbes in Human Welfare, Biotechnology Principles and Processes, Biotechnology and its Applications, Organisms and Populations, Ecosystem, Biodiversity and Conservation."
+  />
+
+  <meta
+    name="keywords"
+    content="NEET Biology Flashcards, NEET Biology Questions, The Living World, Biological Classification, Plant Kingdom, Animal Kingdom, Morphology of Flowering Plants, Anatomy of Flowering Plants, Cell The Unit of Life, Biomolecules, Cell Cycle and Cell Division, Photosynthesis in Higher Plants, Respiration in Plants, Plant Growth and Development, Breathing and Exchange of Gases, Body Fluids and Circulation, Excretory Products and Elimination, Locomotion and Movement, Neural Control and Coordination, Chemical Coordination and Integration, Reproduction in Organisms, Sexual Reproduction in Flowering Plants, Human Reproduction, Reproductive Health, Principles of Inheritance and Variation, Molecular Basis of Inheritance, Evolution, Human Health and Disease, Microbes in Human Welfare, Biotechnology Principles and Processes, Biotechnology and its Applications, Organisms and Populations, Ecosystem, Biodiversity and Conservation"
+  />
+
+  <link rel="canonical" href="https://marksbooster.in/Neetlist" />
+</Helmet>
        <section className="min-h-screen bg-gray-50" >
         <Nav />
         <div className="bg-blue-100 py-10 px-5 text-center"  >
@@ -127,6 +146,7 @@ function Neetlist(){
         <Footer />
 
        </section>
+       </>
     )
 };
 export default Neetlist;
