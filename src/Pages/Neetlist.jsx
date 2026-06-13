@@ -63,7 +63,7 @@ function Neetlist(){
     content="NEET Biology Flashcards, NEET Biology Questions, The Living World, Biological Classification, Plant Kingdom, Animal Kingdom, Morphology of Flowering Plants, Anatomy of Flowering Plants, Cell The Unit of Life, Biomolecules, Cell Cycle and Cell Division, Photosynthesis in Higher Plants, Respiration in Plants, Plant Growth and Development, Breathing and Exchange of Gases, Body Fluids and Circulation, Excretory Products and Elimination, Locomotion and Movement, Neural Control and Coordination, Chemical Coordination and Integration, Reproduction in Organisms, Sexual Reproduction in Flowering Plants, Human Reproduction, Reproductive Health, Principles of Inheritance and Variation, Molecular Basis of Inheritance, Evolution, Human Health and Disease, Microbes in Human Welfare, Biotechnology Principles and Processes, Biotechnology and its Applications, Organisms and Populations, Ecosystem, Biodiversity and Conservation"
   />
 
-  <link rel="canonical" href="https://marksbooster.in/Neetlist" />
+  <link rel="canonical" href="https://marksbooster.com/Neetlist" />
 </Helmet>
        <section className="min-h-screen bg-gray-50" >
         <Nav />
