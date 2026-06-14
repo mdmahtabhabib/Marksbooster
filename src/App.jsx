@@ -19,7 +19,7 @@ function App() {
      <Route path="/ComingSoon" element={< ComingSoon />} />
      <Route path="/Neetlist/:slug" element={<DynamicChapter />} />
      
-    </Routes>
+    </Routes> 
     </BrowserRouter>
   )
 }

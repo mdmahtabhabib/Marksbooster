@@ -21,6 +21,12 @@ import Locomotionandmovement from "../Neet/Locomotionandmovement";
 import Neuralcontrol from "../Neet/Neuralcontrol";
 import Chemicalcoordination from "../Neet/Chemicalcoordination";
 import BiotechnologyApplications from "../Neet/BiotechnologyApplications";
+import ReproductionInOrganisms from "../Neet/ReproductionInOrganisms";
+import Sexualreproductioninfloweringplants from "../Neet/Sexualreproductioninfloweringplants";
+import Humanreproduction from "../Neet/Humanreproduction";
+import Reproductivehealth from "../Neet/Reproductivehealth";
+import Principlesofinheritance from "../Neet/Principlesofinheritance";
+import Molecularbasis from "../Neet/Molecularbasis";
 
 const chapters = {
   LivingWorld: {
@@ -117,6 +123,13 @@ const chapters = {
     title: "Biotechnology and its Applications",
     flashcards: BiotechnologyApplications,
   },
+   
+ "reproduction-in-organims" :{ title: "Reproduction in organism " , flashcards: ReproductionInOrganisms  } ,
+ "Sexual-reproduction-flowering-plants" :{ title: "Sexual reproduction in Flowering plants " , flashcards: Sexualreproductioninfloweringplants  } ,
+ "human-reproduction":{ title: "Human Reproduction" , flashcards: Humanreproduction},
+ "reproductive-health":{ title: "Reproductive Health" , flashcards: Reproductivehealth } ,
+ "Principles-of-inheritance":{ title: "Principle of inheritance and variation" , flashcards: Principlesofinheritance } ,
+ "molecular-basis":{ title: "Molecular Basis Of Inheritance" , flashcards: Molecularbasis } ,
 };
 
 function DynamicChapter(){

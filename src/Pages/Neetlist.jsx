@@ -28,13 +28,13 @@ function Neetlist(){
   { no: 17, name: "Neural Control and Coordination", questions: 25, slug: "neural-control-and-coordination" },
   { no: 18, name: "Chemical Coordination and Integration", questions: 20, slug: "chemical-control-and-coordination" },
 
-  { no: 19, name: "Reproduction in Organisms", questions: 15, slug: "cell" },
-  { no: 20, name: "Sexual Reproduction in Flowering Plants", questions: 25, slug: "cell" },
-  { no: 21, name: "Human Reproduction", questions: 25, slug: "cell" },
-  { no: 22, name: "Reproductive Health", questions: 20, slug: "cell" },
+  { no: 19, name: "Reproduction in Organisms", questions: 15, slug: "reproduction-in-organims" },
+  { no: 20, name: "Sexual Reproduction in Flowering Plants", questions: 25, slug: "Sexual-reproduction-flowering-plants" },
+  { no: 21, name: "Human Reproduction", questions: 25, slug: "human-reproduction" },
+  { no: 22, name: "Reproductive Health", questions: 64, slug: "reproductive-health" },
 
-  { no: 23, name: "Principles of Inheritance and Variation", questions: 35, slug: "cell" },
-  { no: 24, name: "Molecular Basis of Inheritance", questions: 40, slug: "cell" },
+  { no: 23, name: "Principles of Inheritance and Variation", questions: 81, slug: "Principles-of-inheritance" },
+  { no: 24, name: "Molecular Basis of Inheritance", questions: 106, slug: "molecular-basis" },
   { no: 25, name: "Evolution", questions: 25, slug: "cell" },
 
   { no: 26, name: "Human Health and Disease", questions: 25, slug: "cell" },
