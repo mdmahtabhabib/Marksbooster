@@ -13,7 +13,7 @@ import Biomolecules from "../Neet/Biomolecules";
 import Celldivision from "../Neet/Celldivision";
 import Photosynthesis from "../Neet/Photosynthesis";
 import Respiration from "../Neet/Respiration";
-// import PlantGD from "../Neet/PlantGD";
+ import PlantGD from "../Neet/PlantGD";
 import Breathingandexchange from "../Neet/Breathingandexchange";
 import Bodyfluids from "../Neet/Bodyfluids";
 import Excretoryproduct from "../Neet/Excretoryproduct";
@@ -91,10 +91,10 @@ const chapters = {
     flashcards: Respiration,
   },
 
-  //plantgd: {
-   // title: "Plant Growth and Development",
-   // flashcards: PlantGD,
- // },
+  plantgd: {
+    title: "Plant Growth and Development",
+    flashcards: PlantGD,
+  },
 
   breathingandexchange: {
     title: "Breathing and Exchange of Gases",
