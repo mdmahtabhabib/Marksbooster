@@ -1,122 +1,536 @@
 const BiotechnologyApplications = [
-  // Introduction & Core Areas
-  { id: 1, question: "What are the three critical research areas of biotechnology?", answer: "1. Providing the best catalyst\n2. Creating optimal conditions for the catalyst\n3. Downstream processing technologies." },
-  { id: 2, question: "What form does the 'best catalyst' usually take in biotechnology?", answer: "An improved organism, usually a microbe or pure enzyme." },
-  { id: 3, question: "List the major applications of biotechnology.", answer: "Therapeutics, diagnostics, genetically modified crops, processed food, bioremediation, waste treatment and energy production." },
+  // ─── INTRODUCTION & CORE AREAS ───────────────────────────────────────────────
+  { 
+    id: 1, 
+    question: "What are the three critical research areas of biotechnology?", 
+    answer: "1. Providing the best catalyst\n2. Creating optimal conditions for the catalyst\n3. Downstream processing technologies." 
+  },
+  { 
+    id: 2, 
+    question: "What form does the 'best catalyst' usually take in biotechnology?", 
+    answer: "An improved organism, usually a microbe or pure enzyme." 
+  },
+  { 
+    id: 3, 
+    question: "List the major applications of biotechnology.", 
+    answer: "Therapeutics, diagnostics, genetically modified crops, processed food, bioremediation, waste treatment and energy production." 
+  },
   
-  // Agriculture & Tissue Culture
-  { id: 4, question: "What are the three options thought of for increasing food production?", answer: "1. Agro-chemical based agriculture\n2. Organic agriculture\n3. Genetically engineered crop-based agriculture." },
-  { id: 5, question: "How much did the Green Revolution increase the food supply?", answer: "It succeeded in tripling the food supply." },
-  { id: 6, question: "Why did traditional breeding techniques become insufficient for crop improvement?", answer: "They failed to keep pace with demand and could not provide sufficiently fast and efficient systems for crop improvement." },
-  { id: 7, question: "Why are agrochemicals often unsuitable for farmers in developing countries?", answer: "Because fertilisers and pesticides are often too expensive." },
-  { id: 8, question: "In what decade did scientists learn that whole plants could be regenerated from explants?", answer: "During the 1950s." },
-  { id: 9, question: "What is an explant?", answer: "Any part of a plant taken out and grown in a test tube under sterile conditions." },
-  { id: 10, question: "What is totipotency?", answer: "The capacity to generate a whole plant from any cell or explant." },
-  { id: 11, question: "What carbon source is typically provided in a plant tissue culture nutrient medium?", answer: "Sucrose." },
-  { id: 12, question: "Name two growth regulators required in a tissue culture nutrient medium.", answer: "Auxins and cytokinins." },
-  { id: 13, question: "Besides sucrose and growth regulators, what other components are present in tissue culture nutrient medium?", answer: "Inorganic salts, vitamins and amino acids." },
-  { id: 14, question: "What is micro-propagation?", answer: "The method of producing thousands of plants through tissue culture." },
-  { id: 15, question: "What term describes tissue-cultured plants that are genetically identical to the original plant?", answer: "Somaclones." },
-  { id: 16, question: "Name three important food plants produced commercially using micro-propagation.", answer: "Tomato, banana, and apple." },
-  { id: 17, question: "Which specific parts of a virus-infected plant are free of the virus?", answer: "The apical and axillary meristems." },
-  { id: 18, question: "Name three plants whose meristems have been successfully cultured by scientists to obtain virus-free plants.", answer: "Banana, sugarcane, and potato." },
-  { id: 19, question: "What is a naked plant cell surrounded only by a plasma membrane (cell wall digested) called?", answer: "A protoplast." },
-  { id: 20, question: "What is the process of fusing isolated protoplasts from two different plant varieties called?", answer: "Somatic hybridisation." },
-  { id: 21, question: "Why is somatic hybridisation useful?", answer: "It allows fusion of desirable characters from two different plant varieties into a single hybrid plant." },
-  { id: 22, question: "What is the resulting cell from somatic hybridisation called?", answer: "A somatic hybrid." },
-  { id: 23, question: "What was the name of the hybrid plant created by fusing tomato and potato protoplasts?", answer: "Pomato." },
-  { id: 24, question: "Why was pomato not commercially successful?", answer: "Because it did not possess all the desired combinations of characteristics required for commercial utilisation." },
+  // ─── AGRICULTURE & TISSUE CULTURE ────────────────────────────────────────────
+  { 
+    id: 4, 
+    question: "What are the three options thought of for increasing food production?", 
+    answer: "1. Agro-chemical based agriculture\n2. Organic agriculture\n3. Genetically engineered crop-based agriculture." 
+  },
+  { 
+    id: 5, 
+    question: "How much did the Green Revolution increase the food supply?", 
+    answer: "It succeeded in tripling the food supply." 
+  },
+  { 
+    id: 6, 
+    question: "Why did traditional breeding techniques become insufficient for crop improvement?", 
+    answer: "They failed to keep pace with demand and could not provide sufficiently fast and efficient systems for crop improvement." 
+  },
+  { 
+    id: 7, 
+    question: "Why are agrochemicals often unsuitable for farmers in developing countries?", 
+    answer: "Because fertilisers and pesticides are often too expensive." 
+  },
+  { 
+    id: 8, 
+    question: "In what decade did scientists learn that whole plants could be regenerated from explants?", 
+    answer: "During the 1950s." 
+  },
+  { 
+    id: 9, 
+    question: "What is an explant?", 
+    answer: "Any part of a plant taken out and grown in a test tube under sterile conditions." 
+  },
+  { 
+    id: 10, 
+    question: "What is totipotency?", 
+    answer: "The capacity to generate a whole plant from any cell or explant." 
+  },
+  { 
+    id: 11, 
+    question: "What carbon source is typically provided in a plant tissue culture nutrient medium?", 
+    answer: "Sucrose." 
+  },
+  { 
+    id: 12, 
+    question: "Name two growth regulators required in a tissue culture nutrient medium.", 
+    answer: "Auxins and cytokinins." 
+  },
+  { 
+    id: 13, 
+    question: "Besides sucrose and growth regulators, what other components are present in tissue culture nutrient medium?", 
+    answer: "Inorganic salts, vitamins and amino acids." 
+  },
+  { 
+    id: 14, 
+    question: "What is micro-propagation?", 
+    answer: "The method of producing thousands of plants through tissue culture." 
+  },
+  { 
+    id: 15, 
+    question: "What term describes tissue-cultured plants that are genetically identical to the original plant?", 
+    answer: "Somaclones." 
+  },
+  { 
+    id: 16, 
+    question: "Name three important food plants produced commercially using micro-propagation.", 
+    answer: "Tomato, banana, and apple." 
+  },
+  { 
+    id: 17, 
+    question: "Which specific parts of a virus-infected plant are free of the virus?", 
+    answer: "The apical and axillary meristems." 
+  },
+  { 
+    id: 18, 
+    question: "Name three plants whose meristems have been successfully cultured by scientists to obtain virus-free plants.", 
+    answer: "Banana, sugarcane, and potato." 
+  },
+  { 
+    id: 19, 
+    question: "What is a naked plant cell surrounded only by a plasma membrane (cell wall digested) called?", 
+    answer: "A protoplast." 
+  },
+  { 
+    id: 20, 
+    question: "What is the process of fusing isolated protoplasts from two different plant varieties called?", 
+    answer: "Somatic hybridisation." 
+  },
+  { 
+    id: 21, 
+    question: "Why is somatic hybridisation useful?", 
+    answer: "It allows fusion of desirable characters from two different plant varieties into a single hybrid plant." 
+  },
+  { 
+    id: 22, 
+    question: "What is the resulting cell from somatic hybridisation called?", 
+    answer: "A somatic hybrid." 
+  },
+  { 
+    id: 23, 
+    question: "What was the name of the hybrid plant created by fusing tomato and potato protoplasts?", 
+    answer: "Pomato." 
+  },
+  { 
+    id: 24, 
+    question: "Why was pomato not commercially successful?", 
+    answer: "Because it did not possess all the desired combinations of characteristics required for commercial utilisation." 
+  },
   
-  // GMOs & Bt Crops
-  { id: 25, question: "What does GMO stand for?", answer: "Genetically Modified Organisms." },
-  { id: 26, question: "Name five benefits of genetic modification in plants.", answer: "1. Tolerance to abiotic stresses\n2. Reduced reliance on pesticides\n3. Reduced post-harvest losses\n4. Increased mineral usage efficiency\n5. Enhanced nutritional value." },
-  { id: 27, question: "What specific vitamin enriches 'golden rice'?", answer: "Vitamin 'A'." },
-  { id: 28, question: "Which bacterium produces the Bt toxin?", answer: "Bacillus thuringiensis." },
-  { id: 29, question: "Name six examples of crops where Bt toxin genes have been introduced.", answer: "Cotton, corn, rice, tomato, potato, and soyabean." },
-  { id: 30, question: "Which insect group includes tobacco budworms and armyworms?", answer: "Lepidopterans." },
-  { id: 31, question: "Which insect group includes beetles?", answer: "Coleopterans." },
-  { id: 32, question: "Which insect group includes flies and mosquitoes?", answer: "Dipterans." },
-  { id: 33, question: "In what state does the Bt toxin protein exist inside the Bacillus?", answer: "As an inactive protoxin." },
-  { id: 34, question: "Why does Bt toxin not kill Bacillus thuringiensis itself?", answer: "Because Bt toxin exists as an inactive protoxin inside the bacterium and becomes active only in the alkaline gut of insects." },
-  { id: 35, question: "What specific condition in the insect's gut converts the inactive Bt protoxin into an active toxin?", answer: "The alkaline pH of the gut." },
-  { id: 36, question: "Where exactly does the activated Bt toxin bind in the insect?", answer: "The surface of midgut epithelial cells." },
-  { id: 37, question: "What is the name of the gene that codes for the Bt toxin?", answer: "The cry gene." },
-  { id: 38, question: "Which two specific cry genes control cotton bollworms?", answer: "cryIAc and cryIIAb." },
-  { id: 39, question: "Which specific cry gene controls the corn borer?", answer: "cryIAb." },
+  // ─── GMOS & BT CROPS ─────────────────────────────────────────────────────────
+  { 
+    id: 25, 
+    question: "What does GMO stand for?", 
+    answer: "Genetically Modified Organisms." 
+  },
+  { 
+    id: 26, 
+    question: "Name five benefits of genetic modification in plants.", 
+    answer: "1. Tolerance to abiotic stresses\n2. Reduced reliance on pesticides\n3. Reduced post-harvest losses\n4. Increased mineral usage efficiency\n5. Enhanced nutritional value." 
+  },
+  { 
+    id: 27, 
+    question: "What specific vitamin enriches 'golden rice'?", 
+    answer: "Vitamin 'A'." 
+  },
+  { 
+    id: 28, 
+    question: "Which bacterium produces the Bt toxin?", 
+    answer: "Bacillus thuringiensis." 
+  },
+  { 
+    id: 29, 
+    question: "Name six examples of crops where Bt toxin genes have been introduced.", 
+    answer: "Cotton, corn, rice, tomato, potato, and soyabean." 
+  },
+  { 
+    id: 30, 
+    question: "Which insect group includes tobacco budworms and armyworms?", 
+    answer: "Lepidopterans." 
+  },
+  { 
+    id: 31, 
+    question: "Which insect group includes beetles?", 
+    answer: "Coleopterans." 
+  },
+  { 
+    id: 32, 
+    question: "Which insect group includes flies and mosquitoes?", 
+    answer: "Dipterans." 
+  },
+  { 
+    id: 33, 
+    question: "In what state does the Bt toxin protein exist inside the Bacillus?", 
+    answer: "As an inactive protoxin." 
+  },
+  { 
+    id: 34, 
+    question: "Why does Bt toxin not kill Bacillus thuringiensis itself?", 
+    answer: "Because Bt toxin exists as an inactive protoxin inside the bacterium and becomes active only in the alkaline gut of insects." 
+  },
+  { 
+    id: 35, 
+    question: "What specific condition in the insect's gut converts the inactive Bt protoxin into an active toxin?", 
+    answer: "The alkaline pH of the gut." 
+  },
+  { 
+    id: 36, 
+    question: "Where exactly does the activated Bt toxin bind in the insect?", 
+    answer: "The surface of midgut epithelial cells." 
+  },
+  { 
+    id: 37, 
+    question: "What is the name of the gene that codes for the Bt toxin?", 
+    answer: "The cry gene." 
+  },
+  { 
+    id: 38, 
+    question: "How is the pest resistance trait functionally introduced into plants like Bt cotton?", 
+    answer: "The Bt toxin gene is cloned from Bacillus thuringiensis and expressed in the plants." 
+  },
+  { 
+    id: 39, 
+    question: "On what two factors does the choice of Bt toxin genes depend when modifying a plant?", 
+    answer: "The crop and the targeted pest, as most Bt toxins are insect-group specific." 
+  },
+  { 
+    id: 40, 
+    question: "Which two specific cry genes control cotton bollworms?", 
+    answer: "cryIAc and cryIIAb." 
+  },
+  { 
+    id: 41, 
+    question: "Which specific cry gene controls the corn borer?", 
+    answer: "cryIAb." 
+  },
   
-  // Pest Resistance & RNAi
-  { id: 40, question: "Which specific nematode infects the roots of tobacco plants?", answer: "Meloidegyne incognitia." },
-  { id: 41, question: "What does RNAi stand for?", answer: "RNA interference." },
-  { id: 42, question: "What is the primary function of RNAi in all eukaryotic organisms?", answer: "It is a method of cellular defense." },
-  { id: 43, question: "What molecule triggers the silencing of a specific mRNA in RNAi?", answer: "A complementary double-stranded RNA (dsRNA) molecule." },
-  { id: 44, question: "What is the final effect of RNA interference (RNAi)?", answer: "Silencing of specific mRNA and prevention of its translation." },
-  { id: 45, question: "What are mobile genetic elements that replicate via an RNA intermediate called?", answer: "Transposons." },
-  { id: 46, question: "Which vector was used to introduce nematode-specific genes into the host tobacco plant?", answer: "Agrobacterium vectors." },
-  { id: 47, question: "What two types of RNA did the introduced nematode DNA produce in the host cells?", answer: "Sense and anti-sense RNA." },
-  { id: 48, question: "What happens to Meloidogyne incognita when RNAi is triggered in the host plant?", answer: "The nematode cannot survive in the transgenic host plant." },
+  // ─── PEST RESISTANCE & RNAI ──────────────────────────────────────────────────
+  { 
+    id: 42, 
+    question: "Which specific nematode infects the roots of tobacco plants?", 
+    answer: "Meloidogyne incognita." 
+  },
+  { 
+    id: 43, 
+    question: "What does RNAi stand for?", 
+    answer: "RNA interference." 
+  },
+  { 
+    id: 44, 
+    question: "What is the primary function of RNAi in all eukaryotic organisms?", 
+    answer: "It is a method of cellular defense." 
+  },
+  { 
+    id: 45, 
+    question: "What molecule triggers the silencing of a specific mRNA in RNAi?", 
+    answer: "A complementary double-stranded RNA (dsRNA) molecule." 
+  },
+  { 
+    id: 46, 
+    question: "What is the final effect of RNA interference (RNAi)?", 
+    answer: "Silencing of specific mRNA and prevention of its translation." 
+  },
+  { 
+    id: 47, 
+    question: "What are mobile genetic elements that replicate via an RNA intermediate called?", 
+    answer: "Transposons." 
+  },
+  { 
+    id: 48, 
+    question: "Which vector was used to introduce nematode-specific genes into the host tobacco plant?", 
+    answer: "Agrobacterium vectors." 
+  },
+  { 
+    id: 49, 
+    question: "What two types of RNA did the introduced nematode DNA produce in the host cells?", 
+    answer: "Sense and anti-sense RNA." 
+  },
+  { 
+    id: 50, 
+    question: "What happens to Meloidogyne incognita when RNAi is triggered in the host plant?", 
+    answer: "The nematode cannot survive in the transgenic host plant." 
+  },
 
-  // Biotechnological Applications in Medicine
-  { id: 49, question: "Approximately how many recombinant therapeutics have been approved for human-use globally?", answer: "About 30." },
-  { id: 50, question: "How many recombinant therapeutics are presently being marketed in India?", answer: "12." },
-  { id: 51, question: "Before genetic engineering, from which two slaughtered animals was insulin extracted?", answer: "Cattle and pigs." },
-  { id: 52, question: "Why could insulin obtained from cattle and pigs cause problems in humans?", answer: "It could trigger allergy or other immune reactions against the foreign protein." },
-  { id: 53, question: "What structural components make up mature insulin?", answer: "Two short polypeptide chains (chain A and chain B) linked by disulphide bridges." },
-  { id: 54, question: "What is the extra stretch of peptide found in pro-insulin but not in mature insulin?", answer: "The C peptide." },
-  { id: 55, question: "What was the main challenge in producing human insulin using recombinant DNA technology?", answer: "Getting insulin assembled into a mature form after removal of the C-peptide." },
-  { id: 56, question: "Which American company prepared the first engineered DNA sequences for human insulin?", answer: "Eli Lilly." },
-  { id: 57, question: "In what year did Eli Lilly successfully produce genetically engineered insulin?", answer: "1983." },
-  { id: 58, question: "Which bacteria's plasmids were used by Eli Lilly to produce insulin chains?", answer: "E. coli." },
+  // ─── BIOTECHNOLOGICAL APPLICATIONS IN MEDICINE ───────────────────────────────
+  { 
+    id: 51, 
+    question: "Approximately how many recombinant therapeutics have been approved for human-use globally?", 
+    answer: "About 30." 
+  },
+  { 
+    id: 52, 
+    question: "How many recombinant therapeutics are presently being marketed in India?", 
+    answer: "12." 
+  },
+  { 
+    id: 53, 
+    question: "Before genetic engineering, from which two slaughtered animals was insulin extracted?", 
+    answer: "Cattle and pigs." 
+  },
+  { 
+    id: 54, 
+    question: "Why could insulin obtained from cattle and pigs cause problems in humans?", 
+    answer: "It could trigger allergy or other immune reactions against the foreign protein." 
+  },
+  { 
+    id: 55, 
+    question: "What structural components make up mature insulin?", 
+    answer: "Two short polypeptide chains (chain A and chain B) linked by disulphide bridges." 
+  },
+  { 
+    id: 56, 
+    question: "What is the extra stretch of peptide found in pro-insulin but not in mature insulin?", 
+    answer: "The C peptide." 
+  },
+  { 
+    id: 57, 
+    question: "What was the main challenge in producing human insulin using recombinant DNA technology?", 
+    answer: "Getting insulin assembled into a mature form after removal of the C-peptide." 
+  },
+  { 
+    id: 58, 
+    question: "Which American company prepared the first engineered DNA sequences for human insulin?", 
+    answer: "Eli Lilly." 
+  },
+  { 
+    id: 59, 
+    question: "In what year did Eli Lilly successfully produce genetically engineered insulin?", 
+    answer: "1983." 
+  },
+  { 
+    id: 60, 
+    question: "Which bacteria's plasmids were used by Eli Lilly to produce insulin chains?", 
+    answer: "E. coli." 
+  },
 
-  // Gene Therapy
-  { id: 59, question: "What is gene therapy?", answer: "A collection of methods that allows correction of a gene defect diagnosed in a child or embryo." },
-  { id: 60, question: "In what year was the first clinical gene therapy given?", answer: "1990." },
-  { id: 61, question: "What was the age and specific deficiency of the patient who received the first gene therapy?", answer: "A 4-year old girl with adenosine deaminase (ADA) deficiency." },
-  { id: 62, question: "For which body system is the ADA enzyme crucial?", answer: "The immune system." },
-  { id: 63, question: "What are two traditional, non-curative treatments for ADA deficiency?", answer: "Bone marrow transplantation and enzyme replacement therapy." },
-  { id: 64, question: "Which type of vector is used to introduce functional ADA cDNA into the patient's lymphocytes?", answer: "A retroviral vector." },
-  { id: 65, question: "Why do ADA gene therapy patients require periodic infusions of engineered lymphocytes?", answer: "Because the lymphocytes are not immortal." },
-  { id: 66, question: "At what developmental stage could gene therapy provide a permanent cure?", answer: "At early embryonic stages." },
+  // ─── GENE THERAPY ────────────────────────────────────────────────────────────
+  { 
+    id: 61, 
+    question: "What is gene therapy?", 
+    answer: "A collection of methods that allows correction of a gene defect diagnosed in a child or embryo." 
+  },
+  { 
+    id: 62, 
+    question: "In what year was the first clinical gene therapy given?", 
+    answer: "1990." 
+  },
+  { 
+    id: 63, 
+    question: "What was the age and specific deficiency of the patient who received the first gene therapy?", 
+    answer: "A 4-year old girl with adenosine deaminase (ADA) deficiency." 
+  },
+  { 
+    id: 64, 
+    question: "For which body system is the ADA enzyme crucial?", 
+    answer: "The immune system." 
+  },
+  { 
+    id: 65, 
+    question: "What are two traditional, non-curative treatments for ADA deficiency?", 
+    answer: "Bone marrow transplantation and enzyme replacement therapy." 
+  },
+  { 
+    id: 66, 
+    question: "Which type of vector is used to introduce functional ADA cDNA into the patient's lymphocytes?", 
+    answer: "A retroviral vector." 
+  },
+  { 
+    id: 67, 
+    question: "Why do ADA gene therapy patients require periodic infusions of engineered lymphocytes?", 
+    answer: "Because the lymphocytes are not immortal." 
+  },
+  { 
+    id: 68, 
+    question: "At what developmental stage could gene therapy provide a permanent cure?", 
+    answer: "At early embryonic stages." 
+  },
 
-  // Molecular Diagnosis
-  { id: 67, question: "Name three techniques used for early molecular diagnosis of diseases.", answer: "Recombinant DNA technology, Polymerase Chain Reaction (PCR), and Enzyme Linked Immuno-sorbent Assay (ELISA)." },
-  { id: 68, question: "Why is early diagnosis difficult using conventional diagnostic methods?", answer: "Because disease symptoms appear only after pathogen concentration becomes very high in the body." },
-  { id: 69, question: "How does PCR help in early disease detection?", answer: "By amplifying the nucleic acid of a pathogen when its concentration is still very low." },
-  { id: 70, question: "What does PCR amplify for early disease detection?", answer: "The nucleic acid (DNA or RNA) of the pathogen." },
-  { id: 71, question: "Which disease is routinely detected in suspected patients using PCR?", answer: "HIV (in suspected AIDS patients)." },
-  { id: 72, question: "Besides HIV, what is PCR commonly used to detect in suspected cancer patients?", answer: "Mutations in genes." },
-  { id: 73, question: "What is a single stranded DNA or RNA tagged with a radioactive molecule called?", answer: "A probe." },
-  { id: 74, question: "In autoradiography, why does a clone with a mutated gene not appear on photographic film?", answer: "Because the probe will not have complementarity with the mutated gene." },
-  { id: 75, question: "What is the underlying principle of ELISA?", answer: "Antigen-antibody interaction." },
+  // ─── MOLECULAR DIAGNOSIS ─────────────────────────────────────────────────────
+  { 
+    id: 69, 
+    question: "Name three techniques used for early molecular diagnosis of diseases.", 
+    answer: "Recombinant DNA technology, Polymerase Chain Reaction (PCR), and Enzyme Linked Immuno-sorbent Assay (ELISA)." 
+  },
+  { 
+    id: 70, 
+    question: "Why is early diagnosis difficult using conventional diagnostic methods?", 
+    answer: "Because disease symptoms appear only after pathogen concentration becomes very high in the body." 
+  },
+  { 
+    id: 71, 
+    question: "How does PCR help in early disease detection?", 
+    answer: "By amplifying the nucleic acid of a pathogen when its concentration is still very low." 
+  },
+  { 
+    id: 72, 
+    question: "What does PCR amplify for early disease detection?", 
+    answer: "The nucleic acid (DNA or RNA) of the pathogen." 
+  },
+  { 
+    id: 73, 
+    question: "Which disease is routinely detected in suspected patients using PCR?", 
+    answer: "HIV (in suspected AIDS patients)." 
+  },
+  { 
+    id: 74, 
+    question: "Besides HIV, what is PCR commonly used to detect in suspected cancer patients?", 
+    answer: "Mutations in genes." 
+  },
+  { 
+    id: 75, 
+    question: "What is a single stranded DNA or RNA tagged with a radioactive molecule called?", 
+    answer: "A probe." 
+  },
+  { 
+    id: 76, 
+    question: "In autoradiography, why does a clone with a mutated gene not appear on photographic film?", 
+    answer: "Because the probe will not have complementarity with the mutated gene." 
+  },
+  { 
+    id: 77, 
+    question: "What is the underlying principle of ELISA?", 
+    answer: "Antigen-antibody interaction." 
+  },
 
-  // Transgenic Animals
-  { id: 76, question: "What are animals that have their DNA manipulated to express an extra/foreign gene called?", answer: "Transgenic animals." },
-  { id: 77, question: "Name some transgenic animals produced by scientists.", answer: "Rats, rabbits, pigs, sheep, cows and fish." },
-  { id: 78, question: "What percentage of all existing transgenic animals are mice?", answer: "Over 95 percent." },
-  { id: 79, question: "Name the complex growth factor mentioned as being studied using transgenic animals.", answer: "Insulin-like growth factor." },
-  { id: 80, question: "Name four human diseases for which transgenic animal models currently exist.", answer: "Cancer, cystic fibrosis, rheumatoid arthritis, and Alzheimer's." },
-  { id: 81, question: "Which human protein is produced by transgenic animals to treat emphysema?", answer: "Alpha-1-antitrypsin (α-1-antitrypsin)." },
-  { id: 82, question: "Besides emphysema, what two other diseases are being targeted with biological products from transgenic animals?", answer: "Phenylketonuria (PKU) and cystic fibrosis." },
-  { id: 83, question: "What was the name of the first transgenic cow?", answer: "Rosie." },
-  { id: 84, question: "In what year was the first transgenic cow produced?", answer: "1997." },
-  { id: 85, question: "How many grams of human protein per litre did Rosie's milk contain?", answer: "2.4 grams per litre." },
-  { id: 86, question: "Which specific human protein was enriched in Rosie's milk?", answer: "Human alpha-lactalbumin." },
-  { id: 87, question: "Transgenic mice are currently being used to test the safety of which specific vaccine?", answer: "The polio vaccine." },
-  { id: 88, question: "If transgenic mice prove reliable for vaccine testing, which animal could they replace?", answer: "Monkeys." },
-  { id: 89, question: "What is another name for chemical safety testing in transgenic animals?", answer: "Toxicity/safety testing." },
+  // ─── TRANSGENIC ANIMALS ──────────────────────────────────────────────────────
+  { 
+    id: 78, 
+    question: "What are animals that have their DNA manipulated to express an extra/foreign gene called?", 
+    answer: "Transgenic animals." 
+  },
+  { 
+    id: 79, 
+    question: "Name some transgenic animals produced by scientists.", 
+    answer: "Rats, rabbits, pigs, sheep, cows and fish." 
+  },
+  { 
+    id: 80, 
+    question: "What percentage of all existing transgenic animals are mice?", 
+    answer: "Over 95 percent." 
+  },
+  { 
+    id: 81, 
+    question: "Name the complex growth factor mentioned as being studied using transgenic animals.", 
+    answer: "Insulin-like growth factor." 
+  },
+  { 
+    id: 82, 
+    question: "Name four human diseases for which transgenic animal models currently exist.", 
+    answer: "Cancer, cystic fibrosis, rheumatoid arthritis, and Alzheimer's." 
+  },
+  { 
+    id: 83, 
+    question: "Which human protein is produced by transgenic animals to treat emphysema?", 
+    answer: "Alpha-1-antitrypsin (α-1-antitrypsin)." 
+  },
+  { 
+    id: 84, 
+    question: "Besides emphysema, what two other diseases are being targeted with biological products from transgenic animals?", 
+    answer: "Phenylketonuria (PKU) and cystic fibrosis." 
+  },
+  { 
+    id: 85, 
+    question: "What was the name of the first transgenic cow?", 
+    answer: "Rosie." 
+  },
+  { 
+    id: 86, 
+    question: "In what year was the first transgenic cow produced?", 
+    answer: "1997." 
+  },
+  { 
+    id: 87, 
+    question: "How many grams of human protein per litre did Rosie's milk contain?", 
+    answer: "2.4 grams per litre." 
+  },
+  { 
+    id: 88, 
+    question: "Which specific human protein was enriched in Rosie's milk?", 
+    answer: "Human alpha-lactalbumin." 
+  },
+  { 
+    id: 89, 
+    question: "Transgenic mice are currently being used to test the safety of which specific vaccine?", 
+    answer: "The polio vaccine." 
+  },
+  { 
+    id: 90, 
+    question: "If transgenic mice prove reliable for vaccine testing, which animal could they replace?", 
+    answer: "Monkeys." 
+  },
+  { 
+    id: 91, 
+    question: "What is another name for chemical safety testing in transgenic animals?", 
+    answer: "Toxicity/safety testing." 
+  },
 
-  // Ethical Issues & Patents
-  { id: 90, question: "Why is genetic modification of organisms a biological concern?", answer: "Because genetically modified organisms may produce unpredictable effects when introduced into ecosystems." },
-  { id: 91, question: "What does GEAC stand for?", answer: "Genetic Engineering Approval Committee." },
-  { id: 92, question: "What is the purpose of the GEAC?", answer: "To make decisions regarding the validity of GM research and the safety of introducing GM-organisms for public services." },
-  { id: 93, question: "Why was GEAC established by the Indian Government?", answer: "To regulate GM research and ensure safety before introducing GM organisms for public use." },
-  { id: 94, question: "Approximately how many varieties of rice are estimated to exist in India alone?", answer: "200,000 varieties." },
-  { id: 95, question: "How many documented varieties of Basmati rice are grown in India?", answer: "27 documented varieties." },
-  { id: 96, question: "In what year did an American company obtain patent rights on Basmati rice?", answer: "1997." },
-  { id: 97, question: "Which organization granted the American company the patent rights on Basmati rice?", answer: "The US Patent and Trademark Office." },
-  { id: 98, question: "How did the American company create their patented 'new' variety of Basmati?", answer: "By crossing Indian Basmati with semi-dwarf varieties." },
-  { id: 99, question: "Name two Indian traditional herbal medicines that face patent attempts by other countries.", answer: "Turmeric and neem." },
-  { id: 100, question: "What term describes the unauthorized use of bio-resources by multinational companies without compensatory payment?", answer: "Biopiracy." },
-  { id: 101, question: "Which legislative action was recently cleared by the Indian Parliament to address patent terms, emergencies, and biopiracy?", answer: "The second amendment of the Indian Patents Bill." }
+  // ─── ETHICAL ISSUES & PATENTS ────────────────────────────────────────────────
+  { 
+    id: 92, 
+    question: "Why is genetic modification of organisms a biological concern?", 
+    answer: "Because genetically modified organisms may produce unpredictable effects when introduced into ecosystems." 
+  },
+  { 
+    id: 93, 
+    question: "What does GEAC stand for?", 
+    answer: "Genetic Engineering Approval Committee." 
+  },
+  { 
+    id: 94, 
+    question: "What is the purpose of the GEAC?", 
+    answer: "To make decisions regarding the validity of GM research and the safety of introducing GM-organisms for public services." 
+  },
+  { 
+    id: 95, 
+    question: "Why was GEAC established by the Indian Government?", 
+    answer: "To regulate GM research and ensure safety before introducing GM organisms for public use." 
+  },
+  { 
+    id: 96, 
+    question: "Approximately how many varieties of rice are estimated to exist in India alone?", 
+    answer: "200,000 varieties." 
+  },
+  { 
+    id: 97, 
+    question: "How many documented varieties of Basmati rice are grown in India?", 
+    answer: "27 documented varieties." 
+  },
+  { 
+    id: 98, 
+    question: "In what year did an American company obtain patent rights on Basmati rice?", 
+    answer: "1997." 
+  },
+  { 
+    id: 99, 
+    question: "Which organization granted the American company the patent rights on Basmati rice?", 
+    answer: "The US Patent and Trademark Office." 
+  },
+  { 
+    id: 100, 
+    question: "How did the American company create their patented 'new' variety of Basmati?", 
+    answer: "By crossing Indian Basmati with semi-dwarf varieties." 
+  },
+  { 
+    id: 101, 
+    question: "Name two Indian traditional herbal medicines that face patent attempts by other countries.", 
+    answer: "Turmeric and neem." 
+  },
+  { 
+    id: 102, 
+    question: "What term describes the unauthorized use of bio-resources by multinational companies without compensatory payment?", 
+    answer: "Biopiracy." 
+  },
+  { 
+    id: 103, 
+    question: "Which legislative action was recently cleared by the Indian Parliament to address patent terms, emergencies, and biopiracy?", 
+    answer: "The second amendment of the Indian Patents Bill." 
+  }
 ];
 
 export default BiotechnologyApplications;

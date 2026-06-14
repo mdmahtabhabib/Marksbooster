@@ -34,17 +34,17 @@ function Neetlist(){
   { no: 22, name: "Reproductive Health", questions: 64, slug: "reproductive-health" },
 
   { no: 23, name: "Principles of Inheritance and Variation", questions: 81, slug: "Principles-of-inheritance" },
-  { no: 24, name: "Molecular Basis of Inheritance", questions: 106, slug: "molecular-basis" },
-  { no: 25, name: "Evolution", questions: 25, slug: "cell" },
+  { no: 24, name: "Molecular Basis of Inheritance", questions: 130, slug: "molecular-basis" },
+  { no: 25, name: "Evolution", questions: 73, slug: "evolution" },
 
-  { no: 26, name: "Human Health and Disease", questions: 25, slug: "cell" },
-  { no: 27, name: "Microbes in Human Welfare", questions: 20, slug: "cell" },
-  { no: 28, name: "Biotechnology: Principles and Processes", questions: 25, slug: "cell" },
-  { no: 29, name: "Biotechnology and its Applications", questions: 20, slug: "BiotechnologyApplications" },
+  { no: 26, name: "Human Health and Disease", questions:74 , slug: "human-health" },
+  { no: 27, name: "Microbes in Human Welfare", questions: 59, slug: "microbes-in-human" },
+  { no: 28, name: "Biotechnology: Principles and Processes", questions: 61, slug: "biotech-principles" },
+  { no: 29, name: "Biotechnology and its Applications", questions: 103, slug: "BiotechnologyApplications" },
 
-  { no: 30, name: "Organisms and Populations", questions: 20, slug: "cell" },
-  { no: 31, name: "Ecosystem", questions: 25, slug: "cell" },
-  { no: 32, name: "Biodiversity and Conservation", questions: 20, slug: "cell" }
+  { no: 30, name: "Organisms and Populations", questions: 65, slug: "organisms-and-populations" },
+  { no: 31, name: "Ecosystem", questions: 70, slug: "ecosystem" },
+  { no: 32, name: "Biodiversity and Conservation", questions: 54, slug: "biodiversity-and-conservation" }
 ];
     return(
         <>

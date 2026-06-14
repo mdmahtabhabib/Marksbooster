@@ -27,6 +27,13 @@ import Humanreproduction from "../Neet/Humanreproduction";
 import Reproductivehealth from "../Neet/Reproductivehealth";
 import Principlesofinheritance from "../Neet/Principlesofinheritance";
 import Molecularbasis from "../Neet/Molecularbasis";
+import Evolution from "../Neet/Evolution";
+import Humanhealth from "../Neet/Humanhealth";
+import Microbesinhuman from "../Neet/Microbesinhuman";
+import Biotechprinciples from "../Neet/Biotechprinciples";
+import Organismsandpopulations from "../Neet/Organismsandpopulations";
+import Ecosystem from "../Neet/Ecosystem";
+import Biodiversityandconservation from "../Neet/Biodiversityandconservation";
 
 const chapters = {
   LivingWorld: {
@@ -119,7 +126,7 @@ const chapters = {
     flashcards: Chemicalcoordination,
   },
 
-  BiotechnologyApplications: {
+  "BiotechnologyApplications": {
     title: "Biotechnology and its Applications",
     flashcards: BiotechnologyApplications,
   },
@@ -130,6 +137,13 @@ const chapters = {
  "reproductive-health":{ title: "Reproductive Health" , flashcards: Reproductivehealth } ,
  "Principles-of-inheritance":{ title: "Principle of inheritance and variation" , flashcards: Principlesofinheritance } ,
  "molecular-basis":{ title: "Molecular Basis Of Inheritance" , flashcards: Molecularbasis } ,
+  "evolution":{ title: "Evolution" , flashcards: Evolution } ,
+   "human-health":{ title: "Human health and disease" , flashcards: Humanhealth } ,
+   "microbes-in-human":{ title: "Microbes In Human Welfare" , flashcards: Microbesinhuman} ,
+   "biotech-principles":{ title: "Biotechnology: Principles and Processes" , flashcards: Biotechprinciples} ,
+    "organisms-and-populations":{ title: "Organisms And Populations" , flashcards: Organismsandpopulations} ,
+    "ecosystem":{ title: "Ecosystem" , flashcards: Ecosystem} ,
+      "biodiversity-and-conservation":{ title: "Biodiversity and conservation" , flashcards: Biodiversityandconservation} ,
 };
 
 function DynamicChapter(){
