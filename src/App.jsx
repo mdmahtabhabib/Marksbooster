@@ -7,6 +7,7 @@ import ComingSoon from "./Pages/ComingSoon";
 import Cell from "./Neet/Cell";
 import Cards from "./comp/Card";
 import DynamicChapter from "./Pages/DynamicChapter";
+import Dashboard from "./Components/Dashboard";
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
      <Route path="/Neetlist" element={< Neetlist />} />
      <Route path="/ComingSoon" element={< ComingSoon />} />
      <Route path="/Neetlist/:slug" element={<DynamicChapter />} />
+     <Route path="/home" element={<Dashboard />} />
      
     </Routes> 
     </BrowserRouter>
