@@ -96,9 +96,10 @@ export default function Dashboard() {
    const studyMins = todayStudyMinutes % 60;
   return(
     <>
+    <div className="min-h-screen bg-slate-50 text-slate-900" >
  <Nav />
   {/* ============ MAIN CONTENT ============ */}
-  <main className="max-w-5xl mx-auto px-4 py-6 pb-12 flex flex-col gap-6 bg-blue-50 md:bg-white "  >
+  <main className="max-w-5xl mx-auto px-4 py-6 pb-12 flex flex-col gap-6 "  >
   {/* Greeting */}
   <div className="flex items-center justify-between flex-wrap gap-2" >
     <div >
@@ -135,7 +136,7 @@ export default function Dashboard() {
         <span className="text-xs font-bold text-slate-900" >{studyHours}h {studyMins}m</span>
       </div>
     </div>
-    <div className="flex-1 grid grid-cols-2 gap-x-6 gap-y-2" >
+    <div className="flex-1 grid grid-cols-1 gap-x-6 gap-y-2" >
       <div>
         <div className="flex items-center justify-between mb-1" >
           <span className="text-xs font-semibold text-slate-500" >Today's goal</span>
@@ -143,13 +144,16 @@ export default function Dashboard() {
         </div>
         < ProgressBar percent={studyPercent} color="bg-blue-500"  /> 
       </div>
-      <div>
+
+      </div>
+    </div>
+    <div className="bg-white border border-slate-200 rounded-2xl p-4  flex items-center gap-5">
+      <div className="flex-1 grid grid-cols-1 gap-x-6 gap-y-2" >
         <div className="flex items-center justify-between mb-1" >
           <span className="text-xs font-semibold text-slate-500" >Syllabus</span>
           <span>{syllabuspercent}%</span>
         </div>
          < ProgressBar percent={syllabuspercent} color="bg-emerald-500" />
-      </div>
     </div>
   </div>
 
@@ -182,6 +186,7 @@ export default function Dashboard() {
  </div>
  <Footer />
   </main>
+  </div>
     </>
   )
   
