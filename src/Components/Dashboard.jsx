@@ -42,6 +42,22 @@ const continueChapter = {
       color : "indigo",
     } ,
     {
+      name : "Mind Maps" ,
+      desc : "Visual chapter summaries ",
+      icon : MapIcon , 
+      route : "/mindmaps" ,
+      color : "violet",
+
+    },
+    {
+      name : "Topic-wise Questions" ,
+      desc : "Find questions by topic" ,
+      icon : HelpCircle ,
+      route : "/topic-questions",
+      color : "rose",
+    } ,
+    
+    {
       name : "Syllabus Tracker" ,
       desc : `${syllabuspercent}% complete` ,
       icon : Layers ,
@@ -55,21 +71,7 @@ const continueChapter = {
       route : "/timer",
       color : "amber",
     } ,
-    {
-      name : "Topic-wise Questions" ,
-      desc : "Find questions by topic" ,
-      icon : HelpCircle ,
-      route : "/topic-questions",
-      color : "rose",
-    } ,
-    {
-      name : "Mind Maps" ,
-      desc : "Visual chapter summaries ",
-      icon : MapIcon , 
-      route : "/mindmaps" ,
-      color : "violet",
-
-    }
+    
   ];
 
 function ProgressBar ({percent , color = "bg-blue-500"}){
