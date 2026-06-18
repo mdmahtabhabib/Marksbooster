@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 function Cources(){
     const Cources = [
-        {class: "Class 8" , tag: "Foundation" , price: 499 , Subjects: ["Mathematic" , "Science" , "Social Science" , "English" , "Hindi"], desc:"Perfect for building strong fundamentals in class 8" , label: "Buy Now" , cnt:"/ComingSoon"  } ,
-        {class: "Class 9" , tag: "Foundation" , price: 499 , Subjects: ["Mathematic" , "Science" , "Social Science" , "English" , "Hindi"], desc:"Ideal for class 9 foundation students   ", label: "Buy Now" , cnt:"/home"} ,
-        {class: "Class 10" , tag: "Board" , price: 499 , Subjects: ["Mathematic" , "Science" , "Social Science" , "English" , "Hindi"], desc:"Everything you need to ace your class 10 board exams", label: "Buy Now" , cnt:"/ComingSoon"} ,
+        {class: "Class 8" , tag: "Foundation" , price: 499 , Subjects: ["Mathematic" , "Science" , "Social Science" , "English" , "Hindi"], desc:"Perfect for building strong fundamentals in class 8" , label: "Buy Now" , cnt:"/home/class8"  } ,
+        {class: "Class 9" , tag: "Foundation" , price: 499 , Subjects: ["Mathematic" , "Science" , "Social Science" , "English" , "Hindi"], desc:"Ideal for class 9 foundation students   ", label: "Buy Now" , cnt:"/home/class9"} ,
+        {class: "Class 10" , tag: "Board" , price: 499 , Subjects: ["Mathematic" , "Science" , "Social Science" , "English" , "Hindi"], desc:"Everything you need to ace your class 10 board exams", label: "Buy Now" , cnt:"/home/class10"} ,
         {class: "NEET Biology",tag: "Free",price: 0,Subjects: ["Cell Biology", "Genetics", "Physiology", "Ecology", "Evolution"], desc: "All chapter flashcards for NEET Biology ", label: "Start Now" , cnt:"/Neetlist"}
     ];
     

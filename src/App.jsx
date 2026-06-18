@@ -8,6 +8,8 @@ import Cell from "./Neet/Cell";
 import Cards from "./comp/Card";
 import DynamicChapter from "./Pages/DynamicChapter";
 import Dashboard from "./Components/Dashboard";
+import { class8Data } from "./Components/data/class8";
+import DashboardPage from "./Components/hometype/DashboardPage";
 
 
 function App() {
@@ -19,7 +21,7 @@ function App() {
      <Route path="/Neetlist" element={< Neetlist />} />
      <Route path="/ComingSoon" element={< ComingSoon />} />
      <Route path="/Neetlist/:slug" element={<DynamicChapter />} />
-     <Route path="/home" element={<Dashboard />} />
+     <Route path="/home/:classId"  element={ <DashboardPage />} />
      
     </Routes> 
     </BrowserRouter>

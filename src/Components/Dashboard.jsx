@@ -3,26 +3,7 @@ import Nav from "./Nav"
 import Footer from "./Footer";
 import { BookOpen, Clock, Target , AlertCircle , Flame , ChevronRight, CheckCircle2 , TrendingUp , Layers, FileText , HelpCircle , Bot , MapIcon , MessageSquare  , Bookmark, Route, icons, Bluetooth} from "lucide-react"
 
-// From Supabase auth: supabase.auth.getUser()
-const student = {
-    name : "Probol", 
-    className: "class 9",
-};
 
-//From study sessoins table : SUM(duration) where date = today
-const todayStudyMinutes = 95 ;
-const dailyGoalMinutes = 120 ;
-
-//from syllabus progress table : AVG COMPLETEEION % across chapters
-const syllabuspercent = 42;
-
-//from "chapters" + "syllabus progress" : last chapter the student opened
-const continueChapter = {
-  title: "Acid , Bases and Salts",
-  subtitle : "Science .Flashcard . 18/30 cards done " ,
-  progress : 60,
-  route : "/flashcard/acids-bases-and-salt"
-};
 
 // the tools grid - all tools data
   const tools = [
@@ -58,11 +39,11 @@ const continueChapter = {
     } ,
     
     {
-      name : "Syllabus Tracker" ,
-      desc : `${syllabuspercent}% complete` ,
-      icon : Layers ,
-      route : "/syllabus",
-      color : "emerald",
+      name : "Syllabus Tracker",
+    desc : "Track your syllabus progress",
+    icon : Layers,
+    route : "/syllabus",
+    color : "emerald",
     },
     {
       name : "Study Timer" ,
@@ -92,7 +73,7 @@ const colorMap = {
   violet : {bg: "bg-violet-50" , text: "text-violet-600" , border:"group-hover:border-violet-200" },
 }
 
-export default function Dashboard() {
+function Dashboard({ student, todayStudyMinutes, dailyGoalMinutes, syllabusPercent, continueChapter,}) {
    const studyPercent = Math.min( 100 , Math.round((todayStudyMinutes / dailyGoalMinutes)*100));
    const studyHours = Math.floor(todayStudyMinutes/60);
    const studyMins = todayStudyMinutes % 60;
@@ -153,9 +134,9 @@ export default function Dashboard() {
       <div className="flex-1 grid grid-cols-1 gap-x-6 gap-y-2" >
         <div className="flex items-center justify-between mb-1" >
           <span className="text-xs font-semibold text-slate-500" >Syllabus</span>
-          <span>{syllabuspercent}%</span>
+          <span>{syllabusPercent}%</span>
         </div>
-         < ProgressBar percent={syllabuspercent} color="bg-emerald-500" />
+         < ProgressBar percent={syllabusPercent} color="bg-emerald-500" />
     </div>
   </div>
 
@@ -193,3 +174,4 @@ export default function Dashboard() {
   )
   
 }
+export default Dashboard;
