@@ -11,7 +11,7 @@ import { BookOpen, Clock, Target , AlertCircle , Flame , ChevronRight, CheckCirc
       name: "Flashcards" ,
       desc: "Concept-wise, all subjects",
       icon: Layers ,
-      route : "/home/dashboard/flashcard/subject" ,
+      route : "/home/class10/flashcard" ,
       color : "blue",
       
     } , 

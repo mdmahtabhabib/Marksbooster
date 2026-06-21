@@ -2,7 +2,7 @@ import Nav from "../Components/Nav";
 import { Atom , FlaskConical ,Leaf , BookOpenText , Globe2 , Calculator , ChevronRight , Lock } from "lucide-react";
 import Footer from "../Components/Footer";
 import { Link } from "react-router-dom";
-import Subject10 from "../Components/data/SubjectlistdataClass10";
+
 
 
  

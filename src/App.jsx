@@ -26,7 +26,7 @@ function App() {
      <Route path="/Neetlist/:slug" element={<DynamicChapter />} />
      <Route path="/home/:classId"  element={ <DashboardPage />} />
     
-     <Route path="/home/dashboard/flashcard" element={<Subjectlist subjects={Subject10} /> } />
+     <Route path="/home/class10/flashcard" element={<Subjectlist subjects={Subject10} /> } />
      
     </Routes> 
     </BrowserRouter>
