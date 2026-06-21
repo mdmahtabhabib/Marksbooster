@@ -1,8 +1,7 @@
 import { useParams } from "react-router-dom";
-import Dashboard from "../../app/Dashboard";
-import { class8Data } from "../data/class8";
-import { class9Data } from "../data/class9";
-import { class10Data } from "../data/class10";
+import Dashboard from "./Dashboard";
+import { class8Data } from "../Components/data/class8";
+
 
 export default function DashboardPage () {
     const {classId}  = useParams();

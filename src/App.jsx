@@ -7,9 +7,12 @@ import ComingSoon from "./Pages/ComingSoon";
 import Cell from "./Neet/Cell";
 import Cards from "./comp/Card";
 import DynamicChapter from "./Pages/DynamicChapter";
-import Dashboard from "./Components/Dashboard";
+import Dashboard from "./app/Dashboard";
 import { class8Data } from "./Components/data/class8";
 import DashboardPage from "./Components/hometype/DashboardPage";
+import Subject10 from "./Components/data/SubjectlistdataClass10";
+import Subjectlist from "./app/Subjectlist";
+
 
 
 function App() {
@@ -22,6 +25,8 @@ function App() {
      <Route path="/ComingSoon" element={< ComingSoon />} />
      <Route path="/Neetlist/:slug" element={<DynamicChapter />} />
      <Route path="/home/:classId"  element={ <DashboardPage />} />
+    
+     <Route path="/home/dashboard/flashcard" element={<Subjectlist subjects={Subject10} /> } />
      
     </Routes> 
     </BrowserRouter>

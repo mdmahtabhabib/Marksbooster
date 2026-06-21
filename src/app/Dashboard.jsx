@@ -1,6 +1,6 @@
 
-import Nav from "./Nav"
-import Footer from "./Footer";
+import Nav from "../Components/Nav"
+import Footer from "../Components/Footer";
 import { BookOpen, Clock, Target , AlertCircle , Flame , ChevronRight, CheckCircle2 , TrendingUp , Layers, FileText , HelpCircle , Bot , MapIcon , MessageSquare  , Bookmark, Route, icons, Bluetooth} from "lucide-react"
 
 
@@ -11,7 +11,7 @@ import { BookOpen, Clock, Target , AlertCircle , Flame , ChevronRight, CheckCirc
       name: "Flashcards" ,
       desc: "Concept-wise, all subjects",
       icon: Layers ,
-      route : "/flashcards" ,
+      route : "/home/dashboard/flashcard/subject" ,
       color : "blue",
       
     } , 
