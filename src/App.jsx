@@ -9,9 +9,11 @@ import Cards from "./comp/Card";
 import DynamicChapter from "./Pages/DynamicChapter";
 import Dashboard from "./app/Dashboard";
 import { class8Data } from "./Components/data/Dashboard/class8";
-import DashboardPage from "./Components/hometype/DashboardPage";
-import Subject10 from "./Components/data/SubjectlistdataClass10";
+import DashboardPage from "./app/DashboardPage";
+import Subject10 from "./Components/data/Subject/SubjectlistdataClass10";
 import Subjectlist from "./app/Subjectlist";
+import SubjectlistPage from "./app/SubjectlistPage";
+import Chapterlist from "./app/Chapterlist";
 
 
 
@@ -26,7 +28,9 @@ function App() {
      <Route path="/Neetlist/:slug" element={<DynamicChapter />} />
      <Route path="/home/:classId"  element={ <DashboardPage />} />
     
-     <Route path="/home/class10/flashcard" element={<Subjectlist subjects={Subject10} /> } />
+     <Route path="/home/:classId/:tool" element={<SubjectlistPage /> } />
+      <Route path="/home/:classId/:tool/:subject" element={<div> subject clicked</div>} />
+      <Route path="/home/class8/flashcard/physics" element={<Chapterlist />} />
      
     </Routes> 
     </BrowserRouter>

@@ -13,14 +13,14 @@ import { BookOpen, Clock, Target , AlertCircle , Flame , ChevronRight, CheckCirc
       name : "PYQ Papers" , 
       desc : "Previous year papers" ,
       icon : FileText ,
-      route : "/pyq" ,
+      route : "/home/class10/pyq" ,
       color : "indigo",
     } ,
     {
       name : "Mind Maps" ,
       desc : "Visual chapter summaries ",
       icon : MapIcon , 
-      route : "/mindmaps" ,
+      route : "/home/class10/mindmap" ,
       color : "violet",
 
     },
@@ -28,7 +28,7 @@ import { BookOpen, Clock, Target , AlertCircle , Flame , ChevronRight, CheckCirc
       name : "Topic-wise Questions" ,
       desc : "Find questions by topic" ,
       icon : HelpCircle ,
-      route : "/topic-questions",
+      route : "/home/class10/topic-question",
       color : "rose",
     } ,
     
