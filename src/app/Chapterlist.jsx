@@ -2,7 +2,7 @@ import Nav from "../Components/Nav";
 import { Atom , FlaskConical ,Leaf , BookOpenText , Globe2 , Calculator , ChevronRight , Lock } from "lucide-react";
 import Footer from "../Components/Footer";
 import { Link } from "react-router-dom";
-import Chapters from "../Components/data/Chapters/class9/physics9";
+
 
 
 
@@ -33,7 +33,7 @@ const Colorstyle = {
   zinc : {bg: "bg-zinc-50" , text :"text-zinc-600" , border:"hover:border-zinc-300"} ,
 };
 
-function Chapterlist ({subjects , classId , tool}){
+function Chapterlist ({ chapters,  subject , classId , tool}){
     return(
         <div>
             <Nav />
@@ -44,7 +44,7 @@ function Chapterlist ({subjects , classId , tool}){
             </div>
            <div className=" grid grid-cols-1 sm:grid-cols-2 mx-auto max-w-5xl px-4 " >
             
-            {Chapters.map((list) => {
+            {chapters.map((list) => {
                 
                 const c = Colorstyle[list.color];
                 return(

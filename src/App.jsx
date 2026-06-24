@@ -14,6 +14,9 @@ import Subject10 from "./Components/data/Subject/SubjectlistdataClass10";
 import Subjectlist from "./app/Subjectlist";
 import SubjectlistPage from "./app/SubjectlistPage";
 import Chapterlist from "./app/Chapterlist";
+import ChapterlistPage from "./app/ChapterlistPage";
+
+
 
 
 
@@ -29,8 +32,8 @@ function App() {
      <Route path="/home/:classId"  element={ <DashboardPage />} />
     
      <Route path="/home/:classId/:tool" element={<SubjectlistPage /> } />
-      <Route path="/home/:classId/:tool/:subject" element={<div> subject clicked</div>} />
-      <Route path="/home/class8/flashcard/physics" element={<Chapterlist />} />
+      <Route path="/home/:classId/:tool/:subject" element={<ChapterlistPage />} />
+     
      
     </Routes> 
     </BrowserRouter>

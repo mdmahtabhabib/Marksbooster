@@ -1,0 +1,26 @@
+// SOCIAL SCIENCE — Class 10 | NCERT (2026-27) | id starts from 1
+const sst10 = [
+  { id: 1,  chapter: "The Rise of Nationalism in Europe",    icon: "R", color: "blue",    slug: "the-rise-of-nationalism-in-europe",          subject: "History" },
+  { id: 2,  chapter: "Nationalism in India",                 icon: "N", color: "purple",  slug: "nationalism-in-india",                       subject: "History" },
+  { id: 3,  chapter: "The Making of a Global World",         icon: "G", color: "green",   slug: "the-making-of-a-global-world",               subject: "History" },
+  { id: 4,  chapter: "The Age of Industrialisation",         icon: "I", color: "orange",  slug: "the-age-of-industrialisation",               subject: "History" },
+  { id: 5,  chapter: "Print Culture and the Modern World",   icon: "P", color: "rose",    slug: "print-culture-and-the-modern-world",         subject: "History" },
+  { id: 6,  chapter: "Resources and Development",            icon: "R", color: "indigo",  slug: "resources-and-development",                  subject: "Geography" },
+  { id: 7,  chapter: "Forest and Wildlife Resources",        icon: "F", color: "red",     slug: "forest-and-wildlife-resources",              subject: "Geography" },
+  { id: 8,  chapter: "Water Resources",                      icon: "W", color: "yellow",  slug: "water-resources",                            subject: "Geography" },
+  { id: 9,  chapter: "Agriculture",                          icon: "A", color: "emerald", slug: "agriculture",                                subject: "Geography" },
+  { id: 10, chapter: "Minerals and Energy Resources",        icon: "M", color: "teal",    slug: "minerals-and-energy-resources",              subject: "Geography" },
+  { id: 11, chapter: "Manufacturing Industries",             icon: "I", color: "cyan",    slug: "manufacturing-industries",                   subject: "Geography" },
+  { id: 12, chapter: "Lifelines of National Economy",        icon: "L", color: "sky",     slug: "lifelines-of-national-economy",              subject: "Geography" },
+  { id: 13, chapter: "Power Sharing",                        icon: "P", color: "violet",  slug: "power-sharing",                              subject: "Civics" },
+  { id: 14, chapter: "Federalism",                           icon: "F", color: "fuchsia", slug: "federalism",                                 subject: "Civics" },
+  { id: 15, chapter: "Gender, Religion and Caste",           icon: "G", color: "pink",    slug: "gender-religion-and-caste",                  subject: "Civics" },
+  { id: 16, chapter: "Political Parties",                    icon: "P", color: "lime",    slug: "political-parties",                          subject: "Civics" },
+  { id: 17, chapter: "Outcomes of Democracy",                icon: "O", color: "amber",   slug: "outcomes-of-democracy",                      subject: "Civics" },
+  { id: 18, chapter: "Development",                          icon: "D", color: "stone",   slug: "development",                                subject: "Economics" },
+  { id: 19, chapter: "Sectors of the Indian Economy",        icon: "S", color: "slate",   slug: "sectors-of-the-indian-economy",              subject: "Economics" },
+  { id: 20, chapter: "Money and Credit",                     icon: "M", color: "zinc",    slug: "money-and-credit",                           subject: "Economics" },
+  { id: 21, chapter: "Globalisation and the Indian Economy", icon: "G", color: "blue",    slug: "globalisation-and-the-indian-economy",       subject: "Economics" },
+  { id: 22, chapter: "Consumer Rights",                      icon: "C", color: "purple",  slug: "consumer-rights",                            subject: "Economics" },
+];
+export default sst10;
