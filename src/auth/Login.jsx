@@ -1,31 +1,29 @@
 import { useState } from "react";
 import { supabase } from "../lib/supabase";
-import { Link } from "react-router-dom";
+import { Link , useNavigate } from "react-router-dom";
 
 
 
 
 
 
-export default function Signup() {
+export default function Login() {
     const [email, setEmail] = useState("") ;
 const [password, setPassword] = useState("");
 const [message , setMessage] = useState("");
 const [isError , setIsError] = useState(false);
 const [loading , setLoading] = useState(false);
-const [confirmPassword , setConfirmPassword] = useState("");
+
+const navigate = useNavigate();
+
  async function handleSubmit(e){
     e.preventDefault();
 
-    if (password !== confirmPassword) {
-        setIsError(true);
-        setMessage("Password do not match");
-        return;
-    }
-
+   
+     setMessage("");
      setLoading(true);
 
-    const {data , error } = await supabase.auth.signUp({
+    const {data , error } = await supabase.auth.signInWithPassword({
         email , 
         password,
     });
@@ -33,14 +31,15 @@ const [confirmPassword , setConfirmPassword] = useState("");
     setLoading(false);
 
     if (error) {
-        console.log("Signup failed" , error );
+        console.log("Login failed" , error );
         setIsError(true);
         setMessage(error.message)
 
     } else {
-        console.log("Sign-up successful:" , data);
+        console.log("Log-in successful:" , data);
         setIsError(false);
-         setMessage("Signup successfull! Please check you email.")
+        navigate("/");
+        
     };
     
 };
@@ -57,7 +56,7 @@ const [confirmPassword , setConfirmPassword] = useState("");
              
              {/*Card */}
              <div className="w-full max-w-md bg-white border border-blue-100 rounded-2xl shadow-md p-6 sm:p-8" >
-                <h1 className="text-xl sm:text-2xl font-bold text-blue-900 text-center" >Create your account</h1>
+                <h1 className="text-xl sm:text-2xl font-bold text-blue-900 text-center" >Welcome Back</h1>
                 <p className="text-sm text-gray-500 text-center mt-1 mb-6" >
                     Start studying smarter - everything in one place
                 </p>
@@ -74,21 +73,17 @@ const [confirmPassword , setConfirmPassword] = useState("");
             <input id="password" required minLength={6}  value={password} placeholder="At least 6 characters"  type="password" onChange={(e) =>{setPassword(e.target.value)}}
              className="border border-slate-200 rounded-xl px-4 py-2.5 focus:ring-2 focus:ring-blue-100 transition-all"/>
             </div>
-            <div className="flex flex-col gap-1.5">
-                <label htmlFor="confirmPassword" className="text-sm font-semibold text-slate-700">Confirm Password</label>
-            <input id="confirmPassword" required value={confirmPassword}  type="password" placeholder="Re-enter password" onChange={(e) => {setConfirmPassword(e.target.value)}}
-              className="border border-slate-200 rounded-xl px-4 py-2.5 focus:ring-2 focus:ring-blue-100 transition-all"/>
-            </div>
-            <button type="submit" disabled={loading} className="bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold py-2.5 rounded-xl mt-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed" >{loading ? "Signing Up" : " Sign Up"}</button>
+            
+            <button type="submit" disabled={loading} className="bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold py-2.5 rounded-xl mt-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed" > {loading ? "Logging in" : "Log in "}</button>
             
            </form>
            {message && (
-            <p className={`mt-4 text-sm text-center font-medium  ${ isError ? "text-red-600" : "text-emerald-600"}` } >{message}</p>
+            <p className={`mt-4 text-sm text-center font-medium ${ isError ? "text-red-600" : "text-emerald-600"}` } >{message}</p>
            )}
            <p className="text-sm text-gray-500 text-center mt-6" >
-            Already have an account ?{ " "}
-            <Link to="/login" className="text-blue-600 font-semibold hover:text-blue-700" >
-            Log in
+            Don't have an account  ?{ " "}
+            <Link to="/signup" className="text-blue-600 font-semibold hover:text-blue-700" >
+            Sign up
             </Link>
            </p>
            </div>

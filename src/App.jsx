@@ -18,6 +18,8 @@ import SubjectlistPage from "./app/SubjectlistPage";
 import Chapterlist from "./app/Chapterlist";
 import ChapterlistPage from "./app/ChapterlistPage";
 import Signup from "./auth/Signup";
+import Login from "./auth/Login";
+
 
 
 
@@ -50,6 +52,7 @@ function App() {
      <Route path="/home/:classId/:tool" element={<SubjectlistPage /> } />
       <Route path="/home/:classId/:tool/:subject" element={<ChapterlistPage />} />
       <Route path="/signup" element={<Signup />} />
+      <Route path="/login" element={<Login/>} />
      
      
     </Routes> 
