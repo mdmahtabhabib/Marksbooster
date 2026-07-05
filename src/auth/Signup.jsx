@@ -9,22 +9,34 @@ export default function Signup() {
     const [email, setEmail] = useState("") ;
 const [password, setPassword] = useState("");
 const [message , setMessage] = useState("");
+const [loading , setLoading] = useState(false);
+const [confirmPassword , setConfirmPassword] = useState("");
  async function handleSubmit(e){
     e.preventDefault();
+
+    if (password !== confirmPassword) {
+        setMessage("Password do not match");
+        return;
+    }
+
+     setLoading(true);
+
     const {data , error } = await supabase.auth.signUp({
         email , 
         password,
     });
+
+    setLoading(false);
+
     if (error) {
         console.log("Signup failed" , error );
-    } else {
-        console.log("Signup successful:" , data)
-    };
-    if (error){
         setMessage(error.message)
-    }else{
-        setMessage("Signup successfull! Please check you email.")
-    }
+
+    } else {
+        console.log("Signup successful:" , data);
+         setMessage("Signup successfull! Please check you email.")
+    };
+    
 };
     return (
         
@@ -32,7 +44,8 @@ const [message , setMessage] = useState("");
            <form onSubmit={handleSubmit} >
             <input className="border rounded-lg px-3 py-2" value={email} type="email" onChange={(e) =>{setEmail(e.target.value)}} />
             <input className="border rounded-lg px-3 py-2" value={password} type="password" onChange={(e) =>{setPassword(e.target.value)}} />
-            <button type="submit" >Sign Up</button>
+            <input className="border rounded-lg px-3 py-2" value={confirmPassword}  type="password" onChange={(e) => {setConfirmPassword(e.target.value)}} />
+            <button className="bg-blue-600 text-white p-2 rounded-xl" type="submit" disabled={loading} >{loading ? "Signing Up" : " Sign Up"}</button>
             
            </form>
            <p>{message}</p>
