@@ -15,9 +15,9 @@ const [password, setPassword] = useState("");
         password,
     });
     if (error) {
-        console.log("ERROR" , error );
+        console.log("Signup failed" , error );
     } else {
-        console.log("SUCCESS:" , data)
+        console.log("Signup successful:" , data)
     }
 };
     return (
@@ -31,4 +31,4 @@ const [password, setPassword] = useState("");
            </form>
         </div>
     );
-};
+}
