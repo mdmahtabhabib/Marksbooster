@@ -8,6 +8,7 @@ import { supabase } from "../lib/supabase";
 export default function Signup() {
     const [email, setEmail] = useState("") ;
 const [password, setPassword] = useState("");
+const [message , setMassage] = useState("");
  async function handleSubmit(e){
     e.preventDefault();
     const {data , error } = await supabase.auth.signUp({
@@ -18,6 +19,11 @@ const [password, setPassword] = useState("");
         console.log("Signup failed" , error );
     } else {
         console.log("Signup successful:" , data)
+    };
+    if (error){
+        setMassage(error.message)
+    }else{
+        setMassage("Signup successfull! Please check you email.")
     }
 };
     return (
@@ -29,6 +35,7 @@ const [password, setPassword] = useState("");
             <button type="submit" >Sign Up</button>
             
            </form>
+           <p>{message}</p>
         </div>
     );
 }
