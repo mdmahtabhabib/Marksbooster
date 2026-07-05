@@ -8,7 +8,7 @@ import { supabase } from "../lib/supabase";
 export default function Signup() {
     const [email, setEmail] = useState("") ;
 const [password, setPassword] = useState("");
-const [message , setMassage] = useState("");
+const [message , setMessage] = useState("");
  async function handleSubmit(e){
     e.preventDefault();
     const {data , error } = await supabase.auth.signUp({
@@ -21,9 +21,9 @@ const [message , setMassage] = useState("");
         console.log("Signup successful:" , data)
     };
     if (error){
-        setMassage(error.message)
+        setMessage(error.message)
     }else{
-        setMassage("Signup successfull! Please check you email.")
+        setMessage("Signup successfull! Please check you email.")
     }
 };
     return (
