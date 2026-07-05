@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Login from "../auth/Login";
 
 function Nav(){
 return(
@@ -16,10 +17,11 @@ return(
         <a href="#" className="hover:text-blue-600 transition-colors">FAQ</a>
       </div>
       <div className="flex items-center gap-3">
-        
+        <Link to="/login">
         <a href="#" className="bg-blue-700 text-white text-sm px-5 py-2 rounded-xl transition-colors hover:bg-blue-800">
           Login/Register
         </a>
+        </Link>
       </div>
     </nav>
 )} ;
