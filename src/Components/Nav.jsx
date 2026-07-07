@@ -1,7 +1,19 @@
 import { Link } from "react-router-dom";
 import Login from "../auth/Login";
+import { useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
+import { supabase } from "../lib/supabase";
 
 function Nav(){
+  const session = useContext(AuthContext);
+
+  async function handleLogout(){
+    const {error} = await supabase.auth.signOut();
+
+    if ( error) { 
+      console.log("Logout failed" , error.message)
+    }
+  }
 return(
 <nav className="bg-white border-2 border-blue-100 px-5 py-5 flex items-center justify-between shadow-sm sticky top-0 z-50  ">
       <div className="text-xl font-bold text-blue-900 tracking-tight">
@@ -17,11 +29,16 @@ return(
         <a href="#" className="hover:text-blue-600 transition-colors">FAQ</a>
       </div>
       <div className="flex items-center gap-3">
-        <Link to="/login">
-        <a href="#" className="bg-blue-700 text-white text-sm px-5 py-2 rounded-xl transition-colors hover:bg-blue-800">
-          Login/Register
-        </a>
-        </Link>
+        <div to="/login" className="bg-blue-700 text-white text-sm px-5 py-2 rounded-xl transition-colors hover:bg-blue-800">
+        
+        { session ? ( 
+          <button onClick={handleLogout} > Logout</button>
+        ):(
+          <Link to="/login" > Login/register</Link>
+        )
+      }
+        
+        </div>
       </div>
     </nav>
 )} ;

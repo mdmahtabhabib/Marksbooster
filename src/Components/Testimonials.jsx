@@ -13,7 +13,7 @@ function Testimonials(){
                  {Testimonials.map((t ,i) => 
                  <div key={i} className="bg-[#F0F4FF] rounded-2xl p-6 border border-blue-100  " > 
                  <div className="flex gap-1 mb-4"  >
-                    {[...Array(t.stars)].map((_, j) => <span className="text-yellow-400 text-sm" >★</span> )}
+                    {[...Array(t.stars)].map((_, j) => <span key={j} className="text-yellow-400 text-sm" >★</span> )}
                  </div>
                    <p className="text-sm text-gray-600 leading-relaxed mb-5" >{t.text}</p>
                    <div>

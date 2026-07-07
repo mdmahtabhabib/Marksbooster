@@ -10,7 +10,7 @@ import chemistry9 from "../Components/data/Chapters/class9/chemistry9";
 import biology9 from "../Components/data/Chapters/class9/biology9";
 import english9 from "../Components/data/Chapters/class9/english9";
 import sst9 from "../Components/data/Chapters/class9/sst9";
-import maths9 from "../Components/data/Chapters/class9/maths9,js";
+import maths9 from "../Components/data/Chapters/class9/maths9.js";
 import physics8 from "../Components/data/Chapters/class8/physics8";
 import chemistry8 from "../Components/data/Chapters/class8/chemistry8";
 import biology8 from "../Components/data/Chapters/class8/biology8";
