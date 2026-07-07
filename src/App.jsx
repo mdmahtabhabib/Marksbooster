@@ -13,6 +13,7 @@ import ChapterlistPage from "./app/ChapterlistPage";
 import Signup from "./auth/Signup";
 import Login from "./auth/Login";
 import { AuthContext } from "./context/AuthContext";
+import ProtectedRoute from "./auth/ProtectedRoute";
 
 
 
@@ -21,15 +22,18 @@ import { AuthContext } from "./context/AuthContext";
 
 function App() {
   const [session , setSession] = useState(null);
+  const [authLoading , setAuthLoading] = useState(true);
 
   useEffect(() => {
      async function checkSession() {
       const { data , error } = await supabase.auth.getSession();
       if (error) {
         console.log("Session check failed" , error.message);
+        setAuthLoading(false);
         return;
       }
       setSession(data.session);
+      setAuthLoading(false);
     } 
     checkSession();
 
@@ -42,7 +46,7 @@ function App() {
       , [] );
       
   return (
-    <AuthContext.Provider value={session}>
+    <AuthContext.Provider value={session }>
     <div>
   <BrowserRouter>
    < ScrollToTop />
@@ -51,10 +55,10 @@ function App() {
      <Route path="/Neetlist" element={< Neetlist />} />
      <Route path="/ComingSoon" element={< ComingSoon />} />
      <Route path="/Neetlist/:slug" element={<DynamicChapter />} />
-     <Route path="/home/:classId"  element={ <DashboardPage />} />
+     <Route path="/home/:classId"  element={ <ProtectedRoute> <DashboardPage /> </ProtectedRoute> } />
     
-     <Route path="/home/:classId/:tool" element={<SubjectlistPage /> } />
-      <Route path="/home/:classId/:tool/:subject" element={<ChapterlistPage />} />
+     <Route path="/home/:classId/:tool" element={<ProtectedRoute> <SubjectlistPage /></ProtectedRoute> } />
+      <Route path="/home/:classId/:tool/:subject" element={<ProtectedRoute><ChapterlistPage /></ProtectedRoute>} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/login" element={<Login/>} />
      

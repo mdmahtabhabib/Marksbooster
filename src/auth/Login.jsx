@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { supabase } from "../lib/supabase";
-import { Link , useNavigate } from "react-router-dom";
+import { Link , useNavigate , useLocation } from "react-router-dom";
 
 
 
@@ -15,6 +15,9 @@ const [isError , setIsError] = useState(false);
 const [loading , setLoading] = useState(false);
 
 const navigate = useNavigate();
+const location = useLocation();
+console.log(location);
+const from = location.state?.from?.pathname || "/";
 
  async function handleSubmit(e){
     e.preventDefault();
@@ -38,7 +41,7 @@ const navigate = useNavigate();
     } else {
         console.log("Log-in successful:" , data);
         setIsError(false);
-        navigate("/");
+        navigate(from);
         
     };
     
