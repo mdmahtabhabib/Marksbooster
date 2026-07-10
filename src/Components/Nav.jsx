@@ -5,7 +5,7 @@ import { AuthContext } from "../context/AuthContext";
 import { supabase } from "../lib/supabase";
 
 function Nav(){
-  const session = useContext(AuthContext);
+  const {session} = useContext(AuthContext);
 
   async function handleLogout(){
     const {error} = await supabase.auth.signOut();

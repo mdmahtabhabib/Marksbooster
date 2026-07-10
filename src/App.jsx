@@ -39,6 +39,7 @@ function App() {
 
     const {data} = supabase.auth.onAuthStateChange((event , session) => {
       setSession(session);
+      setAuthLoading(false);
     });
 
     return () => {data.subscription.unsubscribe()}
@@ -46,7 +47,7 @@ function App() {
       , [] );
       
   return (
-    <AuthContext.Provider value={session }>
+    <AuthContext.Provider value={{session , authLoading }}>
     <div>
   <BrowserRouter>
    < ScrollToTop />
