@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import Login from "../auth/Login";
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { supabase } from "../lib/supabase";
@@ -29,7 +28,7 @@ return(
         <a href="#" className="hover:text-blue-600 transition-colors">FAQ</a>
       </div>
       <div className="flex items-center gap-3">
-        <div to="/login" className="bg-blue-700 text-white text-sm px-5 py-2 rounded-xl transition-colors hover:bg-blue-800">
+        <div  className="bg-blue-700 text-white text-sm px-5 py-2 rounded-xl transition-colors hover:bg-blue-800">
         
         { session ? ( 
           <button onClick={handleLogout} > Logout</button>

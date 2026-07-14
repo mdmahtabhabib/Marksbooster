@@ -41,7 +41,7 @@ const from = location.state?.from?.pathname || "/";
     } else {
         console.log("Log-in successful:" , data);
         setIsError(false);
-        navigate(from);
+        navigate(from , {replace: true});
         
     };
     

@@ -14,6 +14,7 @@ import Signup from "./auth/Signup";
 import Login from "./auth/Login";
 import { AuthContext } from "./context/AuthContext";
 import ProtectedRoute from "./auth/ProtectedRoute";
+import Studytimer from "./Features/Studytimer";
 
 
 
@@ -62,6 +63,7 @@ function App() {
       <Route path="/home/:classId/:tool/:subject" element={<ProtectedRoute><ChapterlistPage /></ProtectedRoute>} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/login" element={<Login/>} />
+      <Route path="/timer" element = {<Studytimer/>} />
      
      
     </Routes> 

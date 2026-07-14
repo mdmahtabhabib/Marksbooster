@@ -1,3 +1,6 @@
+import { Link } from "react-router-dom";
+
+
 function Features(){
  const Feature = [
    { icon:"🗂" , title: "Flashcard", desc:"Every conept covered chapter by chapter for all subject"},
