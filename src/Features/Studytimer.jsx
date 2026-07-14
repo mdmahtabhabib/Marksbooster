@@ -2,9 +2,6 @@ import { useState, useEffect, useRef } from "react";
 
 // ================= CONFIG =================
 const STORAGE_KEY = "mb_study_log"; // format: { "2026-07-14": minutes }
-// NOTE: Aapki dono photos base64 format me is file ke SABSE NEECHE hain
-// (BG_WIDE / BG_PORTRAIT) — photo code ke andar hi embed hai, isliye
-// koi alag image file ki zaroorat nahi.
 
 // localStorage safe wrapper — agar browser block kare to memory fallback,
 // taaki component kabhi crash na ho
@@ -44,7 +41,7 @@ function fmt(totalSec) {
   return h > 0 ? `${h}:${mm}:${ss}` : `${mm}:${ss}`;
 }
 
-export default function Studytimer() {
+export default function StudyTimer() {
   const [mode, setMode] = useState("idle");    // idle | focus | break
   const [accFocus, setAccFocus] = useState(0); // bank kiya hua focus (ms)
   const [accBreak, setAccBreak] = useState(0); // bank kiya hua break (ms)
@@ -131,7 +128,7 @@ export default function Studytimer() {
 
   return (
     <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden text-white select-none">
-      {/* Fallback gradient (photo load hone se pehle / fail hone par dikhega) */}
+      {/* Gradient background */}
       <div
         className="absolute inset-0"
         style={{
@@ -139,9 +136,6 @@ export default function Studytimer() {
             "linear-gradient(180deg, #a985d1 0%, #e58fae 28%, #f79f78 45%, #8b6cab 62%, #45497c 80%, #1d2340 100%)",
         }}
       />
-      {/* Ek hi photo, har screen size par object-cover se auto-crop hokar
-          poori screen bharti hai — laptop ho, tablet ho, ya phone */}
-      <img src={BG_PHOTO} alt="" className="absolute inset-0 w-full h-full object-cover" />
       {/* Halka dark overlay — white text har device par readable rahe */}
       <div
         className="absolute inset-0"
@@ -267,6 +261,3 @@ export default function Studytimer() {
     </div>
   );
 }
-
-// ============ AAPKI PHOTO (file path se — public/ folder me daalo) ============
-const BG_PHOTO = "/sunset.jpg";
