@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 
 
 export default function Signup() {
+    const [name , SetName] = useState("");
     const [email, setEmail] = useState("") ;
 const [password, setPassword] = useState("");
 const [message , setMessage] = useState("");
@@ -28,6 +29,11 @@ const [confirmPassword , setConfirmPassword] = useState("");
     const {data , error } = await supabase.auth.signUp({
         email , 
         password,
+        options:{
+            data:{
+                full_name:name,
+            },
+        },
     });
 
     setLoading(false);
@@ -62,6 +68,12 @@ const [confirmPassword , setConfirmPassword] = useState("");
                     Start studying smarter - everything in one place
                 </p>
            <form onSubmit={handleSubmit} className="flex flex-col gap-4" >
+
+            <div className="flex flex-col gap-1.5" >
+                <label htmlFor="name" className="text-sm font-semibold text-slate-700" >Name</label>
+            <input id="name" required value={name} type="text" placeholder="virat kohli" onChange={(e) =>{SetName(e.target.value)}}
+            className="border border-slate-200 rounded-xl px-4 py-2.5 focus:ring-2 focus:ring-blue-100 transition-all" />
+            </div>
 
             <div className="flex flex-col gap-1.5" >
                 <label htmlFor="email" className="text-sm font-semibold text-slate-700" >Email</label>
