@@ -24,6 +24,7 @@ const colorMap = {
   amber : {bg: "bg-amber-50" , text: "text-amber-600" , border:"group-hover:border-amber-200" },
   rose: {bg: "bg-rose-50" , text: "text-rose-600" , border:"group-hover:border-rose-200" },
   violet : {bg: "bg-violet-50" , text: "text-violet-600" , border:"group-hover:border-violet-200" },
+  cyan: { bg: "bg-cyan-50", text: "text-cyan-600", border: "group-hover:border-cyan-200" },
 }
 
 function Dashboard({ student, todayStudyMinutes, dailyGoalMinutes, syllabusPercent, continueChapter, tools}) {
