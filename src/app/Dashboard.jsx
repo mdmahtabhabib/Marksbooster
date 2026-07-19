@@ -1,6 +1,6 @@
 
-import Nav from "../Components/Nav"
-import Footer from "../Components/Footer";
+import Nav from "../Components/hometype/Nav";
+import Footer from "../Components/hometype/Footer";
 import { BookOpen, Clock, Target , AlertCircle , Flame , ChevronRight, CheckCircle2 , TrendingUp , Layers, FileText , HelpCircle , Bot , MapIcon , MessageSquare  , Bookmark, Route, icons, Bluetooth} from "lucide-react"
 
 

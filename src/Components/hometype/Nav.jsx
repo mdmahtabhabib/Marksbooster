@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useContext } from "react";
-import { AuthContext } from "../context/AuthContext";
-import { supabase } from "../lib/supabase";
+import { AuthContext } from "../../context/AuthContext";
+import { supabase } from "../../lib/supabase";
 
 function Nav(){
   const {session} = useContext(AuthContext);

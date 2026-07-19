@@ -1,5 +1,5 @@
-import Nav from "../Components/Nav";
-import Footer from "../Components/Footer";
+import Nav from "../Components/hometype/Nav";
+import Footer from "../Components/hometype/Footer";
 function ComingSoon (){
     return(
          <div>

@@ -1,5 +1,5 @@
-import Nav from "../Components/Nav";
-import Footer from "../Components/Footer" ;
+import Nav from "../Components/hometype/Nav";
+import Footer from "../Components/hometype/Footer" ;
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 

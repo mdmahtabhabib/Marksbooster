@@ -7,7 +7,7 @@ import Testimonials from "./Testimonials";
 import Faq from "./Faq";
 import Banner from "./Banner";
 import Footer from "./Footer";
-import ComingSoon from "../Pages/ComingSoon";
+import ComingSoon from "../../Pages/ComingSoon";
 import { Helmet } from "react-helmet-async";
 
 function Home(){

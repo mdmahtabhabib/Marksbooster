@@ -2,9 +2,9 @@
 import {  BrowserRouter, Routes, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { supabase } from "./lib/supabase" ;
-import Home from "./Components/Home";
+import Home from "./Components/hometype/Home";
 import Neetlist from "./Pages/Neetlist";
-import ScrollToTop from "./Components/ScrollToTop";
+import ScrollToTop from "./Components/hometype/ScrollToTop";
 import ComingSoon from "./Pages/ComingSoon";
 import DynamicChapter from "./Pages/DynamicChapter";
 import DashboardPage from "./app/DashboardPage";
@@ -15,6 +15,7 @@ import Login from "./auth/Login";
 import { AuthContext } from "./context/AuthContext";
 import ProtectedRoute from "./auth/ProtectedRoute";
 import Studytimer from "./Features/Studytimer";
+import Test from "./comp/test";
 
 
 
@@ -64,6 +65,7 @@ function App() {
       <Route path="/signup" element={<Signup />} />
       <Route path="/login" element={<Login/>} />
       <Route path="/timer" element = {<Studytimer/>} />
+      <Route path="/notes" element = {<Test/>} />
      
      
     </Routes> 
