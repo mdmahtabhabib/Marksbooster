@@ -16,7 +16,7 @@ import { AuthContext } from "./context/AuthContext";
 import ProtectedRoute from "./auth/ProtectedRoute";
 import Studytimer from "./Features/Studytimer";
 import Test from "./comp/test";
-import FlashcardlistPage from "./Features/flashcard/flashcardlistPage";
+import FlashcardlistPage from "./Features/Flashcard/FlashcardlistPage";
 
 
 

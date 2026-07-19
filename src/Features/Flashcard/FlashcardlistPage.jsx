@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useState , useEffect } from "react";
-import Flashcard from "./flashcard";
+import Flashcard from "./Flashcard";
 import { supabase } from "../../lib/supabase";
 
 function FlashcardlistPage(){
