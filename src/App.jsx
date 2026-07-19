@@ -16,6 +16,7 @@ import { AuthContext } from "./context/AuthContext";
 import ProtectedRoute from "./auth/ProtectedRoute";
 import Studytimer from "./Features/Studytimer";
 import Test from "./comp/test";
+import FlashcardlistPage from "./Features/flashcard/flashcardlistPage";
 
 
 
@@ -62,6 +63,7 @@ function App() {
     
      <Route path="/home/:classId/:tool" element={<ProtectedRoute> <SubjectlistPage /></ProtectedRoute> } />
       <Route path="/home/:classId/:tool/:subject" element={<ProtectedRoute><ChapterlistPage /></ProtectedRoute>} />
+      <Route path="/home/:classId/:tool/:subject/:chapterSlug" element={<ProtectedRoute><FlashcardlistPage /></ProtectedRoute>} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/login" element={<Login/>} />
       <Route path="/timer" element = {<Studytimer/>} />
