@@ -1,7 +1,7 @@
 -- One row per signed-up student. Shares identity with Supabase Auth.
 create table students (
   id uuid primary key references auth.users (id) on delete cascade,
-  full_name text not null,
+  full_name text,
   email text not null,
   phone text,
   created_at timestamptz not null default now()

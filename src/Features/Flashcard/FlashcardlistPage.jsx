@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useState , useEffect } from "react";
 import Flashcard from "./Flashcard";
 import { supabase } from "../../lib/supabase";
+import Spinner from "../../Components/ui/Spinner";
 
 function FlashcardlistPage(){
     const {chapterSlug}  = useParams();
@@ -30,7 +31,7 @@ function FlashcardlistPage(){
             
         
    
-     if(loading) return <p>Loading...</p>
+     if(loading) return <Spinner />
     return( <Flashcard title={chapter.title} flashcards={chapter.flashcards} />)
 }
 
