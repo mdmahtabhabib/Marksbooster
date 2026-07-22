@@ -3,17 +3,25 @@ import { useState, useEffect } from "react";
 // Aaj ki date ka localStorage key, e.g. "study-Mon Jul 20 2026"
 const todayKey = "study-" + new Date().toDateString();
 
-// ms -> "MM:SS"
+// ms -> "MM:SS", ya ghante ke baad "H:MM:SS"
 function format(ms) {
   const totalSec = Math.floor(ms / 1000);
-  const min = String(Math.floor(totalSec / 60)).padStart(2, "0");
-  const sec = String(totalSec % 60).padStart(2, "0");
-  return min + ":" + sec;
+  const hr = Math.floor(totalSec / 3600); // pura ghante
+  const min = String(Math.floor(totalSec / 60) % 60).padStart(2, "0"); // 00-59
+  const sec = String(totalSec % 60).padStart(2, "0"); // 00-59
+  return (hr > 0 ? hr + ":" : "") + min + ":" + sec;
 }
 
 // ms -> centiseconds "00" se "99" (1 second ke 100 hisse)
 function centi(ms) {
   return String(Math.floor(ms / 10) % 100).padStart(2, "0");
+}
+
+// minutes -> "40m" ya ghante ke baad "1h 40m"
+function formatMin(mins) {
+  const hr = Math.floor(mins / 60); // pura ghante
+  const min = mins % 60; // bacha hua minute (0-59)
+  return (hr > 0 ? hr + "h " : "") + min + "m";
 }
 
 export default function StudyTimer() {
@@ -131,7 +139,7 @@ export default function StudyTimer() {
 
       {/* Aaj ka saved total */}
       <div className="text-xs text-zinc-400">
-        Today: <b className="text-white">{todayMin} min</b> saved
+        Today: <b className="text-white">{formatMin(todayMin)}</b> saved
       </div>
     </div>
   );

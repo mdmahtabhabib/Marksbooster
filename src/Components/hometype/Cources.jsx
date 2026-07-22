@@ -4,6 +4,7 @@ function Cources(){
         {class: "Class 8" , tag: "Foundation" , price: 499 , Subjects: ["Mathematic" , "Science" , "Social Science" , "English" , "Hindi"], desc:"Perfect for building strong fundamentals in class 8" , label: "Buy Now" , cnt:"/home/class8"  } ,
         {class: "Class 9" , tag: "Foundation" , price: 499 , Subjects: ["Mathematic" , "Science" , "Social Science" , "English" , "Hindi"], desc:"Ideal for class 9 foundation students   ", label: "Buy Now" , cnt:"/home/class9"} ,
         {class: "Class 10" , tag: "Board" , price: 499 , Subjects: ["Mathematic" , "Science" , "Social Science" , "English" , "Hindi"], desc:"Everything you need to ace your class 10 board exams", label: "Buy Now" , cnt:"/home/class10"} ,
+        {class: "Complete NEET",tag: "NEET",price: 999,Subjects: ["Physics", "Chemistry", "Zoology", "botany", "all subjects"], desc: "Everything you need to crack NEET ", label: "Start Now" , cnt:"/home/neet"},
         {class: "NEET Biology",tag: "Free",price: 0,Subjects: ["Cell Biology", "Genetics", "Physiology", "Ecology", "Evolution"], desc: "All chapter flashcards for NEET Biology ", label: "Start Now" , cnt:"/Neetlist"}
     ];
     
@@ -12,7 +13,7 @@ return(
         <p className="text-xl text-gray-500 text-center tracking-widest mb-2 " >PRICING</p>
          <h1 className="text-2xl md:text-3xl text-center font-bold text-blue-900 mb-4" >Choose your class</h1>
          <p className="text-center text-gray-500 text-sm mb-10 " >Same price, Same features, just pick up your class</p>
-         <div className=" grid grid-cols-1 sm:grid-cols-4 gap-6 items-start" >
+         <div className=" grid grid-cols-1 sm:grid-cols-3 gap-6 items-start" >
             {Cources.map((Course , i) => (
                 <div key={i} className="bg-white rounded-3xl border p-7  relative transition-all border-blue-100 hover:border-blue-300 hover:shadow-md " > 
                 <div className="mb-5" >

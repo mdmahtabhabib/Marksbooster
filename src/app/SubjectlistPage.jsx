@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import Subject8 from "../Components/data/Subject/SubjectlistdataClass8";
 import Subject9 from "../Components/data/Subject/SubjectlistdataClass9";
 import Subject10 from "../Components/data/Subject/SubjectlistdataClass10";
+import Subjectneet from "../Components/data/Subject/SubjectlistdataClassneet";
 import Subjectlist from "./Subjectlist";
 
 function SubjectlistPage (){
@@ -11,6 +12,7 @@ function SubjectlistPage (){
     class8 : Subject8 ,
     class9 : Subject9 ,
     class10 : Subject10,
+    neet : Subjectneet,
   };
 const subjects = subjectMap[classId];
 

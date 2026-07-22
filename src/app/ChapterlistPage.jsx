@@ -17,8 +17,13 @@ import biology8 from "../Components/data/Chapters/class8/biology8";
 import sst8 from "../Components/data/Chapters/class8/sst";
 import maths8 from "../Components/data/Chapters/class8/maths8";
 import english8 from "../Components/data/Chapters/class8/english8";
+import physicsneet from "../Components/data/Chapters/neet/physicsneet";
+import chemistryneet from "../Components/data/Chapters/neet/chemistryneet";
+import zoologyneet from "../Components/data/Chapters/neet/zoologyneet";
+import botanyneet from "@/Components/data/Chapters/neet/botanyneet";
 
 import Chapterlist from "./Chapterlist";
+
 
 
 function ChapterlistPage(){
@@ -47,7 +52,13 @@ function ChapterlistPage(){
                maths : maths10,
                socialscience : sst10 , 
                english : english10
-        }  
+        },
+        neet :{ physics : physicsneet ,
+                chemistry : chemistryneet ,
+                zoology : zoologyneet , 
+                botany : botanyneet
+
+        }
     };
     const chapters = chapterMap[classId][subject];
      

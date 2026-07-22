@@ -6,6 +6,8 @@ import { class10Data } from "../Components/data/Dashboard/class10";
 import tools10 from "../Components/data/Dashboard/Dashboardtoolsclass10";
 import tools9 from "../Components/data/Dashboard/Dashboardtoolsclass9";
 import tools8 from "../Components/data/Dashboard/Dashboardtoolsclass8";
+import { neetData } from "../Components/data/Dashboard/classneet";
+import toolsneet from "../Components/data/Dashboard/Daschboardtoolsneet";
 
 export default function DashboardPage () {
     const {classId}  = useParams();
@@ -13,13 +15,15 @@ export default function DashboardPage () {
     const dataMap = {
          class8 : class8Data ,
           class9: class9Data ,
-          class10 : class10Data
+          class10 : class10Data ,
+          neet    : neetData,
         };
 
         const toolsMap = {
           class8 : tools8 ,
           class9: tools9 ,
-          class10 : tools10
+          class10 : tools10,
+          neet : toolsneet
 
      }; 
 
