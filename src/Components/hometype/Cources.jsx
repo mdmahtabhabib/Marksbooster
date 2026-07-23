@@ -5,7 +5,7 @@ function Cources(){
         {class: "Class 9" , tag: "Foundation" , price: 499 , Subjects: ["Mathematic" , "Science" , "Social Science" , "English" , "Hindi"], desc:"Ideal for class 9 foundation students   ", label: "Buy Now" , cnt:"/home/class9"} ,
         {class: "Class 10" , tag: "Board" , price: 499 , Subjects: ["Mathematic" , "Science" , "Social Science" , "English" , "Hindi"], desc:"Everything you need to ace your class 10 board exams", label: "Buy Now" , cnt:"/home/class10"} ,
         {class: "Complete NEET",tag: "NEET",price: 999,Subjects: ["Physics", "Chemistry", "Zoology", "botany", "all subjects"], desc: "Everything you need to crack NEET ", label: "Start Now" , cnt:"/home/neet"},
-        {class: "NEET Biology",tag: "Free",price: 0,Subjects: ["Cell Biology", "Genetics", "Physiology", "Ecology", "Evolution"], desc: "All chapter flashcards for NEET Biology ", label: "Start Now" , cnt:"/Neetlist"}
+        
     ];
     
 return(

@@ -3,10 +3,10 @@ import {  BrowserRouter, Routes, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { supabase } from "./lib/supabase" ;
 import Home from "./Components/hometype/Home";
-import Neetlist from "./Pages/Neetlist";
+
 import ScrollToTop from "./Components/hometype/ScrollToTop";
 import ComingSoon from "./Pages/ComingSoon";
-import DynamicChapter from "./Pages/DynamicChapter";
+
 import DashboardPage from "./app/DashboardPage";
 import SubjectlistPage from "./app/SubjectlistPage";
 import ChapterlistPage from "./app/ChapterlistPage";
@@ -55,12 +55,9 @@ function App() {
   <BrowserRouter>
    < ScrollToTop />
     <Routes>
-     <Route path="/" element={<Home />} />
-     <Route path="/Neetlist" element={< Neetlist />} />
+     <Route path="/" element={<Home />} />    
      <Route path="/ComingSoon" element={< ComingSoon />} />
-     <Route path="/Neetlist/:slug" element={<DynamicChapter />} />
      <Route path="/home/:classId"  element={ <ProtectedRoute> <DashboardPage /> </ProtectedRoute> } />
-    
      <Route path="/home/:classId/:tool" element={<ProtectedRoute> <SubjectlistPage /></ProtectedRoute> } />
       <Route path="/home/:classId/:tool/:subject" element={<ProtectedRoute><ChapterlistPage /></ProtectedRoute>} />
       <Route path="/home/:classId/:tool/:subject/:chapterSlug" element={<ProtectedRoute><FlashcardlistPage /></ProtectedRoute>} />
