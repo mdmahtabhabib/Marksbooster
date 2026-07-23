@@ -1,8 +1,8 @@
 import { useParams } from "react-router-dom";
-import Subject8 from "../Components/data/Subject/SubjectlistdataClass8";
-import Subject9 from "../Components/data/Subject/SubjectlistdataClass9";
-import Subject10 from "../Components/data/Subject/SubjectlistdataClass10";
-import Subjectneet from "../Components/data/Subject/SubjectlistdataClassneet";
+import Subject8 from "../data/class8/SubjectlistdataClass8";
+import Subject9 from "../data/class9/SubjectlistdataClass9";
+import Subject10 from "../data/class10/SubjectlistdataClass10";
+import Subjectneet from "../data/neet/SubjectlistdataClassneet";
 import Subjectlist from "./Subjectlist";
 
 function SubjectlistPage (){
