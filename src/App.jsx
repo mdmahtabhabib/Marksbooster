@@ -78,9 +78,9 @@ function App() {
      <Route path="/" element={<Home />} />    
      <Route path="/ComingSoon" element={< ComingSoon />} />
      <Route path="/home/:classId"  element={ <ProtectedRoute> <PurchaseRoute > <DashboardPage /></PurchaseRoute> </ProtectedRoute> } />
-     <Route path="/home/:classId/:tool" element={<ProtectedRoute> <SubjectlistPage /></ProtectedRoute> } />
-      <Route path="/home/:classId/:tool/:subject" element={<ProtectedRoute><ChapterlistPage /></ProtectedRoute>} />
-      <Route path="/home/:classId/:tool/:subject/:chapterSlug" element={<ProtectedRoute><FlashcardlistPage /></ProtectedRoute>} />
+     <Route path="/home/:classId/:tool" element={<ProtectedRoute><PurchaseRoute > <SubjectlistPage /></PurchaseRoute ></ProtectedRoute> } />
+      <Route path="/home/:classId/:tool/:subject" element={<ProtectedRoute><PurchaseRoute ><ChapterlistPage /></ PurchaseRoute ></ProtectedRoute>} />
+      <Route path="/home/:classId/:tool/:subject/:chapterSlug" element={<ProtectedRoute><PurchaseRoute ><FlashcardlistPage /></ PurchaseRoute ></ProtectedRoute>} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/login" element={<Login/>} />
       <Route path="/timer" element = {<Studytimer/>} />
