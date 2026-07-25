@@ -11,6 +11,16 @@ create table products (
   price numeric(10,2) not null
     check (price >= 0),
 
+  -- Which class dashboard this product opens. Must match the URL's
+  -- :classId and the chapters.class values.
+  unlocks_class text not null
+    check (
+      unlocks_class in (
+        'class6', 'class7', 'class8', 'class9',
+        'class10', 'class11', 'class12', 'neet'
+      )
+    ),
+
   currency text not null default 'INR'
     check (currency in ('INR')),
 
@@ -35,6 +45,7 @@ insert into products (
   name,
   description,
   price,
+  unlocks_class,
   access_until
 )
 values (
@@ -42,5 +53,6 @@ values (
   'Class 9 Premium 2027',
   'Complete premium access for Class 9 students.',
   499.00,
+  'class9',
   '2027-03-31 23:59:59+05:30'
 );

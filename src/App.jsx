@@ -17,6 +17,7 @@ import ProtectedRoute from "./auth/ProtectedRoute";
 import Studytimer from "./Features/Studytimer";
 import Test from "./comp/test";
 import FlashcardlistPage from "./Features/Flashcard/FlashcardlistPage";
+import PurchaseRoute from "./auth/PurchaseRoute";
 
 
 
@@ -26,8 +27,21 @@ import FlashcardlistPage from "./Features/Flashcard/FlashcardlistPage";
 function App() {
   const [session , setSession] = useState(null);
   const [authLoading , setAuthLoading] = useState(true);
+  const [unlockedClasses , setUnlockedClasses] = useState([]);
 
   useEffect(() => {
+    async function loadUnlockedClasses(session){
+      if (!session){
+         setUnlockedClasses([]);
+         return;
+      }
+      const { data : rows } = await supabase
+      .from("purchases")
+      .select("products(unlocks_class)")
+      .eq("payment_status" , "completed");
+      setUnlockedClasses(rows.map((row) => row.products.unlocks_class ));
+    }
+
      async function checkSession() {
       const { data , error } = await supabase.auth.getSession();
       if (error) {
@@ -36,28 +50,34 @@ function App() {
         return;
       }
       setSession(data.session);
+     await loadUnlockedClasses(data.session)
+
       setAuthLoading(false);
     } 
     checkSession();
 
     const {data} = supabase.auth.onAuthStateChange((event , session) => {
       setSession(session);
+      loadUnlockedClasses(session);
       setAuthLoading(false);
     });
 
     return () => {data.subscription.unsubscribe()}
      } 
       , [] );
+
+      
+      
       
   return (
-    <AuthContext.Provider value={{session , authLoading }}>
+    <AuthContext.Provider value={{session , authLoading , unlockedClasses }}>
     <div>
   <BrowserRouter>
    < ScrollToTop />
     <Routes>
      <Route path="/" element={<Home />} />    
      <Route path="/ComingSoon" element={< ComingSoon />} />
-     <Route path="/home/:classId"  element={ <ProtectedRoute> <DashboardPage /> </ProtectedRoute> } />
+     <Route path="/home/:classId"  element={ <ProtectedRoute> <PurchaseRoute > <DashboardPage /></PurchaseRoute> </ProtectedRoute> } />
      <Route path="/home/:classId/:tool" element={<ProtectedRoute> <SubjectlistPage /></ProtectedRoute> } />
       <Route path="/home/:classId/:tool/:subject" element={<ProtectedRoute><ChapterlistPage /></ProtectedRoute>} />
       <Route path="/home/:classId/:tool/:subject/:chapterSlug" element={<ProtectedRoute><FlashcardlistPage /></ProtectedRoute>} />

@@ -13,7 +13,8 @@ create table chapters (
         'class9',
         'class10',
         'class11',
-        'class12'
+        'class12',
+        'neet'
       )
     ),
 
@@ -25,7 +26,9 @@ create table chapters (
         'biology',
         'english',
         'socialscience',
-        'maths'
+        'maths',
+        'zoology',
+        'botany'
       )
     ),
 

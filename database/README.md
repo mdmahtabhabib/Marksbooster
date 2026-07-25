@@ -36,6 +36,7 @@ directly as a human-readable key elsewhere.
 | description | text | optional |
 | price | numeric(10,2) | not null, >= 0 |
 | currency | text | default 'INR', only 'INR' allowed for now |
+| unlocks_class | text | not null — which class dashboard this product opens; same allowed values as `chapters.class` |
 | access_until | timestamptz | not null — when access to this product expires |
 | is_active | boolean | default true — inactive products are hidden from browsing |
 | created_at | timestamptz | default now() |
@@ -77,8 +78,8 @@ in URLs and referenced by `flashcards`.
 | column | type | notes |
 |---|---|---|
 | slug | text | PK, human-readable key |
-| class | text | not null, one of `class6`..`class12` |
-| subject | text | not null, one of physics/chemistry/biology/english/socialscience/maths |
+| class | text | not null, one of `class6`..`class12` or `neet` |
+| subject | text | not null, one of physics/chemistry/biology/english/socialscience/maths/zoology/botany |
 | title | text | not null |
 
 RLS: any `authenticated` user can `select` every chapter.
@@ -144,5 +145,6 @@ payment-gateway reference fields, and the `purchases -> products` FK.)
 - **Expiry source of truth:** both `products.access_until` (per product) and
   `purchases.expires_at` (per purchase) now exist. Decide which one governs
   access before relying on either.
-- **Content ↔ commerce link:** `chapters` has no column pointing at the
-  product that unlocks it — gating is currently done in application code.
+- **Content ↔ commerce link:** resolved via `products.unlocks_class` —
+  a completed purchase joined to its product tells the app which class
+  the student may open. The guard compares it to the URL's `:classId`.
