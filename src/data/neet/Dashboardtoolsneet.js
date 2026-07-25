@@ -17,16 +17,16 @@ import { BookOpen, Clock, Target , AlertCircle , Flame , ChevronRight, CheckCirc
       color : "indigo",
     } ,
     {
-      name : "Mind Maps" ,
-      desc : "Visual chapter summaries ",
+       name : "Short notes" , 
+      desc : "A whole chapter on one page" ,
       icon : MapIcon , 
       route : "/home/neet/mindmap" ,
       color : "violet",
 
     },
     {
-      name : "Topic-wise Questions" ,
-      desc : "Find questions by topic" ,
+    name : "Concept check" ,
+      desc : "Check if you're exam ready ",
       icon : HelpCircle ,
       route : "/home/neet/topic-question",
       color : "rose",

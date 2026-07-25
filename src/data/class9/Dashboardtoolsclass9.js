@@ -10,23 +10,23 @@ import { BookOpen, Clock, Target , AlertCircle , Flame , ChevronRight, CheckCirc
       
     } , 
     {
-      name : "PYQ Papers" , 
-      desc : "Previous year papers" ,
+      name : "Short notes" , 
+      desc : "A whole chapter on one page" ,
       icon : FileText ,
       route : "/home/class9/pyq" ,
       color : "indigo",
     } ,
     {
-      name : "Mind Maps" ,
-      desc : "Visual chapter summaries ",
+      name : "Concept check" ,
+      desc : "Check if you're exam ready ",
       icon : MapIcon , 
       route : "/home/class9/mindmap" ,
       color : "violet",
 
     },
     {
-      name : "Topic-wise Questions" ,
-      desc : "Find questions by topic" ,
+      name : "Important Q&A" ,
+      desc : "	Exam-oriented, all question types" ,
       icon : HelpCircle ,
       route : "/home/class9/topic-question",
       color : "rose",
@@ -41,7 +41,7 @@ import { BookOpen, Clock, Target , AlertCircle , Flame , ChevronRight, CheckCirc
     },
     {
       name : "Study Timer" ,
-      desc : "pomodoro + break reminders", 
+      desc : "Focus time, tracked", 
       icon : Clock,
       route : "/timer",
       color : "amber",

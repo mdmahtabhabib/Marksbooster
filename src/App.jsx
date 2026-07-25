@@ -2,9 +2,9 @@
 import {  BrowserRouter, Routes, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { supabase } from "./lib/supabase" ;
-import Home from "./Components/hometype/Home";
+import Home from "./Components/home/Home";
 
-import ScrollToTop from "./Components/hometype/ScrollToTop";
+import ScrollToTop from "./Components/home/ScrollToTop";
 import ComingSoon from "./Pages/ComingSoon";
 
 import DashboardPage from "./app/DashboardPage";

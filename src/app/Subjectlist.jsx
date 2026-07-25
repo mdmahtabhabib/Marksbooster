@@ -1,6 +1,6 @@
-import Nav from "../Components/hometype/Nav";
+import Nav from "../Components/home/Nav";
 import { Atom , FlaskConical ,Leaf , BookOpenText , Globe2 , Calculator , ChevronRight , Lock } from "lucide-react";
-import Footer from "../Components/hometype/Footer";
+import Footer from "../Components/home/Footer";
 import { Link } from "react-router-dom";
 
 
