@@ -2,6 +2,7 @@
 import Nav from "../Components/home/Nav";
 import Footer from "../Components/home/Footer";
 import { BookOpen, Clock, Target , AlertCircle , Flame , ChevronRight, CheckCircle2 , TrendingUp , Layers, FileText , HelpCircle , Bot , MapIcon , MessageSquare  , Bookmark, Route, icons, Bluetooth} from "lucide-react"
+import { Link } from "react-router-dom";
 
 
 
@@ -47,7 +48,7 @@ function Dashboard({ student, todayStudyMinutes, dailyGoalMinutes, syllabusPerce
 
   {/* continue sttudying (tip priority action ) */}
 
-  <a href={continueChapter.route} className="bg-white border border-slate-200 rounded-2xl p-4 flex items-center gap-4 hover:border-blue-300 hover:shadow-sm transition-all group"  >
+  <Link to={continueChapter.route} className="bg-white border border-slate-200 rounded-2xl p-4 flex items-center gap-4 hover:border-blue-300 hover:shadow-sm transition-all group"  >
    <div className="w-11 h-11 rounded-xl bg-blue-50 flex items-center justify-center shrink-0" >
     <BookOpen size={20} className="text-blue-600" />
    </div>
@@ -60,7 +61,7 @@ function Dashboard({ student, todayStudyMinutes, dailyGoalMinutes, syllabusPerce
     <div className="text-sm font-bold text-blue-600 mb-1" >{continueChapter.progress}%</div>
     <ChevronRight size={18} className="text-slate-400 group-hover:text-blue-500 transition-colors ml-auto"  />
    </div>
-  </a>
+  </Link>
 
   {/* --- Today strip --- */}
   <div className="bg-white border border-slate-200 rounded-2xl p-4  flex items-center gap-5" >
@@ -103,7 +104,7 @@ function Dashboard({ student, todayStudyMinutes, dailyGoalMinutes, syllabusPerce
       const Icon = tool.icon;
       const c = colorMap[tool.color];
       return( 
-        <a key={tool.name}  href={tool.route} className={`bg-white border border-slate-200 rounded-2xl p-4 flex flex-col gap-2 hover:shadow-sm transition-all group ${c.border}`} >
+        <Link key={tool.name}  to={tool.route} className={`bg-white border border-slate-200 rounded-2xl p-4 flex flex-col gap-2 hover:shadow-sm transition-all group ${c.border}`} >
           <div className={`w-10 h-10 rounded-xl ${c.bg} flex items-center justify-center `} >
             <Icon size={19} className={c.text} />
           </div>
@@ -115,7 +116,7 @@ function Dashboard({ student, todayStudyMinutes, dailyGoalMinutes, syllabusPerce
               {tool.desc}
             </div>
           </div>
-        </a>
+        </Link>
        );
     })}
     
