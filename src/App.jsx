@@ -27,7 +27,7 @@ import PurchaseRoute from "./auth/PurchaseRoute";
 function App() {
   const [session , setSession] = useState(null);
   const [authLoading , setAuthLoading] = useState(true);
-  const [unlockedClasses , setUnlockedClasses] = useState([]);
+  const [unlockedClasses , setUnlockedClasses] = useState(null);
 
   useEffect(() => {
     async function loadUnlockedClasses(session){

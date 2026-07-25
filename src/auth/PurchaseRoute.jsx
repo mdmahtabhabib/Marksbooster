@@ -8,7 +8,7 @@ export default function PurchaseRoute({children}){
     const {classId } = useParams();
     const location = useLocation();
 
-    if(authLoading) {
+    if(authLoading || unlockedClasses === null ) {
         return <Spinner/>;
     }
 
