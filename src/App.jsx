@@ -35,11 +35,19 @@ function App() {
          setUnlockedClasses([]);
          return;
       }
-      const { data : rows } = await supabase
+      const { data : rows , error } = await supabase
       .from("purchases")
       .select("products(unlocks_class)")
       .eq("payment_status" , "completed");
+
+       if (error){
+        console.error(error);
+        setUnlockedClasses([]);
+        return
+      }
+
       setUnlockedClasses(rows.map((row) => row.products.unlocks_class ));
+
     }
 
      async function checkSession() {
@@ -50,7 +58,7 @@ function App() {
         return;
       }
       setSession(data.session);
-     await loadUnlockedClasses(data.session)
+     await loadUnlockedClasses(data.session);
 
       setAuthLoading(false);
     } 
