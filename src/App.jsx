@@ -16,8 +16,8 @@ import { AuthContext } from "./context/AuthContext";
 import ProtectedRoute from "./auth/ProtectedRoute";
 import Studytimer from "./Features/Studytimer";
 import Test from "./comp/test";
-import FlashcardlistPage from "./Features/Flashcard/FlashcardlistPage";
 import PurchaseRoute from "./auth/PurchaseRoute";
+import ToolLeaf from "./app/ToolLeaf";
 
 
 
@@ -88,7 +88,7 @@ function App() {
      <Route path="/home/:classId"  element={ <ProtectedRoute> <PurchaseRoute > <DashboardPage /></PurchaseRoute> </ProtectedRoute> } />
      <Route path="/home/:classId/:tool" element={<ProtectedRoute><PurchaseRoute > <SubjectlistPage /></PurchaseRoute ></ProtectedRoute> } />
       <Route path="/home/:classId/:tool/:subject" element={<ProtectedRoute><PurchaseRoute ><ChapterlistPage /></ PurchaseRoute ></ProtectedRoute>} />
-      <Route path="/home/:classId/:tool/:subject/:chapterSlug" element={<ProtectedRoute><PurchaseRoute ><FlashcardlistPage /></ PurchaseRoute ></ProtectedRoute>} />
+      <Route path="/home/:classId/:tool/:subject/:chapterSlug" element={<ProtectedRoute><PurchaseRoute ><ToolLeaf /></ PurchaseRoute ></ProtectedRoute>} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/login" element={<Login/>} />
       <Route path="/timer" element = {<Studytimer/>} />
