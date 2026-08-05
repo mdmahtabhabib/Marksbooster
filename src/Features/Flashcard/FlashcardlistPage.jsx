@@ -12,6 +12,7 @@ function FlashcardlistPage(){
 
     useEffect( () =>{
         async function loadchapter(){
+         setLoading(true);
          const {data , error } = await supabase
          .from("chapters")
          .select("title, flashcards(*)")
@@ -21,6 +22,7 @@ function FlashcardlistPage(){
 
          if (error) {
             console.log(error.message);
+            setChapter(null);
          }else{
             setChapter(data);
          }
@@ -31,7 +33,15 @@ function FlashcardlistPage(){
             
         
    
-     if(loading) return <Spinner />
+     if(loading) return <Spinner /> ;
+
+     if (!chapter || chapter.flashcards.length ===0) {
+      return (
+         <div className="min-h-screen bg-slate-950 flex items-center justify-center px-6 " >
+            <p className="text-slate-400 text-center" >No flashcards for this chapter yet . check back soon .</p>
+         </div>
+      )
+     }
     return( <Flashcard title={chapter.title} flashcards={chapter.flashcards} />)
 }
 
