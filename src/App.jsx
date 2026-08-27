@@ -18,6 +18,7 @@ import Studytimer from "./Features/Studytimer";
 import Test from "./comp/test";
 import PurchaseRoute from "./auth/PurchaseRoute";
 import ToolLeaf from "./app/ToolLeaf";
+import SyllabusTracker from "./Features/Syllabustracker/Syllabustracker";
 
 
 
@@ -92,6 +93,8 @@ function App() {
       <Route path="/signup" element={<Signup />} />
       <Route path="/login" element={<Login/>} />
       <Route path="/timer" element = {<Studytimer/>} />
+      <Route path="/tracker" element = {<SyllabusTracker/>} />
+      <Route path="/syllabus" element = {<SyllabusTracker/>} />
       <Route path="/notes" element = {<Test/>} />
      
      
