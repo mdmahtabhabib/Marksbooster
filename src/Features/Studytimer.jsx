@@ -164,23 +164,41 @@ function BigClock({ timer }) {
   }, [timer.mode]);
 
   const time = splitTime(getFocusMs(timer));
+  const clockText = time.hoursText + time.minutes + ":" + time.seconds;
+
+  /* Ghanta aate hi "MM:SS" (5 character) "HH:MM:SS" (8 character) ban jaata
+     hai — tabhi fixed text-7xl phone par baahar nikal jaata tha. Isliye size
+     ab text ki chaudai se nikaalte hain: har digit ~0.6em, colon ~0.3em, aur
+     0.9em dono taraf ke centisecond blocks ke liye. 96 matlab dabbe ka 96% —
+     4% saans lene ke liye chhoda hai. */
+  let widthInEm = 0.9;
+  for (const character of clockText) widthInEm += character === ":" ? 0.3 : 0.6;
+  const clockFontSize = `clamp(2.25rem, ${Math.floor(96 / widthInEm)}cqi, 8rem)`;
+
+  const centisClass = "text-[0.3em] leading-none tabular-nums";
 
   return (
-    <div className="my-5 flex items-baseline justify-center text-7xl font-medium leading-none tracking-tight text-neutral-100 sm:text-8xl lg:my-8 lg:text-9xl">
-      {/* Bayein taraf utni hi khaali jagah jitni centiseconds leti hain,
-          taaki MM:SS theek beech me rahe */}
-      <span className="w-12 sm:w-14 lg:w-16" aria-hidden="true" />
+    /* cqi = IS dabbe ki chaudai ka 1% (vw nahi — vw poori screen naapta hai,
+       padding aur max-width ka hisaab nahi rakhta). Isliye clock har jagah
+       apne asli available space me khud ko fit kar leta hai: 320px phone se
+       laptop tak, ghante ke saath ya uske bina. */
+    <div className="my-5 lg:my-8" style={{ containerType: "inline-size" }}>
+      <div
+        className="flex items-baseline justify-center text-6xl font-medium leading-none tracking-tight text-neutral-100"
+        style={{ fontSize: clockFontSize }}
+      >
+        {/* Bilkul wahi text, bas invisible — dayein wale centiseconds jitni
+            jagah bayein bhi ghere, to MM:SS theek beech me rehta hai. Fixed
+            w-12/w-14 se behtar: font ya size kuch bhi ho, dono taraf ki
+            chaudai apne aap barabar rehti hai. */}
+        <span className={centisClass + " invisible"} aria-hidden="true">
+          .{time.centis}
+        </span>
 
-      <span className="tabular-nums">
-        {time.hoursText}{time.minutes}:{time.seconds}
-      </span>
+        <span className="tabular-nums">{clockText}</span>
 
-      {/* Fixed width isko sthir rakhta hai — digit badalne par layout hilta
-          nahi. Poora clock ab sans me hai, jiske numerals barabar chaudai
-          ke hote hain, isliye andar bhi kuch nahi khiskta. */}
-      <span className="w-12 text-left text-2xl tabular-nums text-neutral-600 sm:w-14 sm:text-3xl lg:w-16 lg:text-4xl">
-        .{time.centis}
-      </span>
+        <span className={centisClass + " text-neutral-600"}>.{time.centis}</span>
+      </div>
     </div>
   );
 }
