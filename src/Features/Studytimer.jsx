@@ -13,7 +13,6 @@ const STORAGE_LOG = "mb_study_log";
 const STORAGE_TIMER = "mb_timer_state";
 const STORAGE_GOAL = "mb_daily_goal";
 
-const STREAK_MINIMUM_SECONDS = 20 * 60;
 const HEAT_COLORS = ["#16161c", "#4B3FB0", "#B0357A", "#EF5F3C", "#F7A823"];
 const GOAL_CHOICES = [30, 60, 90, 120, 180, 240];
 
@@ -31,10 +30,6 @@ const EMPTY_TIMER = {
    IST padhai galti se agle din ke khaate me chali jaati. */
 function toDateKey(date) {
   return date.toLocaleDateString("en-CA");
-}
-
-function fromDateKey(dateKey) {
-  return new Date(dateKey + "T00:00:00");
 }
 
 function addDays(date, howMany) {
@@ -235,7 +230,8 @@ function GoalSheet({ goalMinutes, onPick, onClose }) {
         </div>
 
         <p className="mt-4 text-xs leading-relaxed text-neutral-600">
-          Streak ke liye rozana 20 minute kaafi hai. Goal sirf aapka apna target hai.
+          Goal sirf aapka apna target hai — week chart aur month calendar isi ke
+          hisaab se rang badalte hain.
         </p>
 
         <button className={BUTTON + " mt-4 w-full"} onClick={onClose}>Done</button>
@@ -453,31 +449,6 @@ function StudyAnalysisPage({ onBack }) {
     ? Math.round(((thisWeekSeconds - lastWeekSeconds) / lastWeekSeconds) * 100)
     : null;
 
-  /* --- current streak (aaj adhoora ho to streak todte nahi) --- */
-  let currentStreak = 0;
-  let cursorDate = new Date();
-  if (secondsOn(todayKey) < STREAK_MINIMUM_SECONDS) cursorDate = addDays(cursorDate, -1);
-  while (secondsOn(toDateKey(cursorDate)) >= STREAK_MINIMUM_SECONDS) {
-    currentStreak++;
-    cursorDate = addDays(cursorDate, -1);
-  }
-
-  /* --- best streak: poore record me sabse lambi lagataar chain --- */
-  const qualifyingDays = Object.keys(studyLog)
-    .filter((dateKey) => studyLog[dateKey] >= STREAK_MINIMUM_SECONDS)
-    .sort();
-  let bestStreak = 0;
-  let runLength = 0;
-  let previousKey = null;
-  for (const dateKey of qualifyingDays) {
-    const isNextDay =
-      previousKey !== null && toDateKey(addDays(fromDateKey(previousKey), 1)) === dateKey;
-    runLength = isNextDay ? runLength + 1 : 1;
-    if (runLength > bestStreak) bestStreak = runLength;
-    previousKey = dateKey;
-  }
-  if (currentStreak > bestStreak) bestStreak = currentStreak;
-
   /* --- is mahine ka calendar --- */
   const now = new Date();
   const blankCellsBefore = (new Date(now.getFullYear(), now.getMonth(), 1).getDay() + 6) % 7;
@@ -496,9 +467,19 @@ function StudyAnalysisPage({ onBack }) {
   const studiedDays = monthDays.filter((day) => day.seconds > 0);
   const monthTotal = studiedDays.reduce((sum, day) => sum + day.seconds, 0);
 
+  /* Aaj ka total = jama kiya hua + abhi chal raha timer (secondsOn khud
+     jodta hai), isliye "kitna bacha hai" live ghatta rehta hai */
+  const todaySeconds = secondsOn(todayKey);
+  const goalRemaining = Math.max(0, goalSeconds - todaySeconds);
+
+  /* Goal pura hone par "0m bacha hai" dikhana bekaar aur thoda demotivating
+     hai — us waqt tile inaam ban jaata hai */
+  const goalDoneTile = { label: "Left to goal", value: "Goal met", unit: formatDuration(todaySeconds) + " today", highlight: true };
+  const goalLeftTile = { label: "Left to goal", value: formatDuration(goalRemaining), unit: "of " + formatDuration(goalSeconds) + " goal" };
+
   const stats = [
-    { label: "Current streak", value: currentStreak, unit: currentStreak === 1 ? "day" : "days", highlight: currentStreak > 0 },
-    { label: "Best streak", value: bestStreak, unit: bestStreak === 1 ? "day" : "days" },
+    goalRemaining === 0 ? goalDoneTile : goalLeftTile,
+    { label: "Total this week", value: formatDuration(thisWeekSeconds), unit: elapsedDays.length + (elapsedDays.length === 1 ? " day" : " days") + " so far" },
     { label: "Total this month", value: formatDuration(monthTotal), unit: studiedDays.length + " days" },
     { label: "Daily average", value: formatDuration(studiedDays.length ? monthTotal / studiedDays.length : 0), unit: "active days" },
   ];
