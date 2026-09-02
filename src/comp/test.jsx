@@ -1,253 +1,379 @@
-import React from "react";
+/*
+  chapter02Cell  = the content.  PART 1 — later this comes from Supabase.
+  ChapterNotes   = the renderer. PART 2 — knows nothing about any chapter.
+  To split later: cut PART 1 into its own file and import it.
 
-const cardCls = "break-inside-avoid mb-3 rounded-xl bg-white border border-[oklch(0.91_0.008_260)] p-4 shadow-[0_1px_4px_#1e293b0f] transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_8px_22px_#1e293b21]";
-const h3Cls = "font-['Archivo'] text-[16px] font-bold text-[oklch(0.25_0.02_260)] m-0 border-b border-[oklch(0.93_0.008_260)] pb-[7px] mb-2";
-const ulCls = "m-0 list-disc pl-[19px] space-y-1 text-[15px] leading-[1.5]";
-const tableCls = "w-full border-collapse font-['Archivo'] text-[12px]";
-const thCls = "border border-[oklch(0.8_0.02_260)] px-[7px] py-[6px] text-left font-bold";
-const tdCls = "border border-[oklch(0.8_0.02_260)] px-[7px] py-[6px] align-top";
-const boxCls = "font-['Archivo'] text-[13px] leading-[1.55] bg-[var(--tint)] rounded-lg px-[11px] py-[9px] mt-2.5";
-const metaYear = "text-[13px] font-medium text-[var(--accent)] ml-1.5";
-const metaDesc = "text-[13px] font-medium italic text-[oklch(0.5_0.01_260)] ml-1.5";
-const primLbl = "[column-span:all] break-inside-avoid font-['Archivo'] text-[12px] font-bold tracking-[0.08em] uppercase text-[var(--accent)] mt-5 mb-2.5 mx-0.5 flex items-center gap-2";
-const subLbl = "[column-span:all] break-inside-avoid font-['Archivo'] text-[11px] font-bold tracking-[0.06em] uppercase text-[oklch(0.5_0.01_260)] mt-4 mb-2 mx-0.5";
-const html = s => ({ dangerouslySetInnerHTML: { __html: s } });
-const h = React.createElement;
+  Data shape:
+  section = { label , variant?: "sub" , items }
+  item    = { t: title,
+              m: [text , "accent" | "muted"],
+              i: intro bullets shown above a table,
+              b: main bullets,
+              tbl: { h: [headers] , rows: [[cells]] },
+              box: highlighted note at the bottom }
 
-function Card({ item }) {
-  const m = item.m;
-  return h("div", { className: cardCls },
-    h("h3", { className: h3Cls }, item.t, m && h("span", { className: m[1] === "year" ? metaYear : metaDesc }, m[0])),
-    item.i && h("ul", { className: ulCls + " mb-2.5" }, item.i.map((b, j) => h("li", { key: j, ...html(b) }))),
-    item.b && h("ul", { className: ulCls + (item.box ? " mb-2.5" : "") }, item.b.map((b, j) => h("li", { key: j, ...html(b) }))),
-    item.tbl && h("table", { className: tableCls },
-      h("thead", null, h("tr", { className: "bg-[var(--tint)]" }, item.tbl.h.map((c, j) => h("th", { key: j, className: thCls, ...html(c) })))),
-      h("tbody", null, item.tbl.rows.map((r, ri) => h("tr", { key: ri }, r.map((c, ci) => h("td", { key: ci, className: tdCls, ...html(c) })))))),
-    item.box && h("div", { className: boxCls, ...html(item.box) })
-  );
+  Only t is required. Text is plain — no HTML. It can hold four markers:
+
+    **bold**    _italic_    %muted%    \n line break
+
+  Nothing else is allowed, which is the point: this data is going into Supabase,
+  and a row must never be able to inject HTML into the page. See RichText below.
+
+  Styling is Tailwind. The design uses exact pixel values, so almost every class
+  is an arbitrary value — text-[15px], columns-[320px] — instead of Tailwind's
+  rem scale. That is on purpose: rem utilities move if the root font-size ever
+  changes, px arbitrary values do not.
+
+  The two fonts come from the <link> in index.html and are named in index.css
+  under @theme, which is what gives us font-newsreader and font-archivo.
+*/
+
+/* ========================= PART 1 — CHAPTER DATA ========================= */
+
+export const chapter02Cell = {
+  kicker: "NCERT · Class 9 Science · Ch 2",
+  title: "Cell: The Building Block of Life test",
+  subtitle: "Quick revision · point-wise notes",
+  footer: "End of Chapter 2 · Cell notes",
+
+  sections: [
+    { label: "Introduction", items: [
+      { t: "Origin of Life", b: [
+        "Life is believed to have **originated in water**, possibly in small water pools such as **hot springs**.",
+        "_Eg:_ hot springs of **Puga Valley, Ladakh** — near boiling even in cold climate; like early Earth ~**3.5 billion years ago**.",
+        "Home to **thermophiles** — heat-loving **unicellular** bacteria.",
+        "**Birbal Sahni Institute** (Lucknow): calcium carbonate deposits protected early molecules & may have formed the **first protective membrane** — the barrier that defines a cell.",
+      ]},
+      { t: "Cell", b: [
+        "Basic **structural & functional unit** of all living organisms.",
+        "**Unicellular** = one cell (bacteria, yeast).",
+        "**Multicellular** = many cells together (plants, humans).",
+      ]},
+      { t: "Levels of Organisation", b: [
+        "Cells → tissues → organs → organ systems.",
+        "_Eg:_ nasal cavity, trachea & lungs → respiratory system.",
+        "Cell stays the fundamental unit throughout.",
+      ]},
+    ]},
+
+    { label: "2.1 · How to Study Cells", items: [
+      { t: "Limit of Resolution", b: [
+        "Ability to see two close points as **separate & distinct**.",
+        "Human eye = **0.1 mm** (at near point, ~25 cm); cells are smaller → need microscopes.",
+      ]},
+      { t: "Magnification", b: [
+        "Lens makes an object appear larger.",
+        "**Total magnification = eyepiece × objective** (eg 10X × 10X = 100X).",
+      ]},
+      { t: "Robert Hooke", m: ["(1665)", "accent"], b: [
+        "First to observe cells.",
+        "Saw box-like compartments in cork; named them **‘cells’**.",
+      ]},
+      { t: "Microscopes & Cell Size", b: [
+        "**Light microscope:** uses visible light + objective lenses.",
+        "**Electron microscope:** uses electron beam; detail at nanometre scale (1 nm = one-billionth of a metre).",
+        "Cell size = field diameter ÷ number of cells across. **1 mm = 1000 μm.**",
+        "3 key features improved: **resolution, contrast, magnification.**",
+      ]},
+    ]},
+
+    { label: "2.2 · Structure of a Cell", items: [
+      { t: "Cell Membrane (Plasma Membrane)", b: [
+        "Thin outer boundary that **defines the cell's individuality**.",
+        "**Selectively permeable** — allows some substances, blocks others.",
+        "About **7–10 nm** thick; made of lipids + proteins.",
+      ]},
+      { t: "Diffusion & Osmosis", b: [
+        "**Diffusion:** net movement of particles from higher → lower concentration. Occurs even without a membrane.",
+        "**Osmosis:** diffusion of water across a selectively permeable membrane, dilute → concentrated side.",
+        "_Eg:_ plant roots absorb water from soil by osmosis.",
+      ]},
+      { t: "Cell in Different Solutions", tbl: { h: ["Solution", "Effect on cell"], rows: [
+        ["**Isotonic**\n%solute = inside%", "No net change"],
+        ["**Hypotonic**\n%solute < inside%", "Water enters → cell **swells**"],
+        ["**Hypertonic**\n%solute > inside%", "Water leaves → cell **shrinks**"],
+      ]}},
+      { t: "Fluid-Mosaic Model", b: [
+        "Explains membrane structure: a **lipid bilayer** (water-attracting heads out, water-repelling tails in) with embedded proteins.",
+        "Molecules move sideways → **fluid**; arranged like tiles → **mosaic**.",
+        "Proteins act as **gatekeepers**.",
+      ]},
+      { t: "Cell Wall", b: [
+        "Rigid, **permeable** covering outside the membrane.",
+        "Present in **plants, fungi, bacteria**; made of **cellulose**.",
+        "Gives shape & support; keeps plants upright.",
+        "_Exception:_ animal cells have **no** cell wall. Dietary cellulose = roughage.",
+      ]},
+    ]},
+
+    { label: "2.3 · The Cell Interior", items: [
+      { t: "Three Basic Parts", b: [
+        "**Plasma membrane** — outer boundary.",
+        "**Cytoplasm** — semi-fluid jelly-like substance holding organelles.",
+        "**Nucleus** — prominent control body.",
+      ]},
+      { t: "Prokaryotic vs Eukaryotic",
+        i: [
+          "**Prokaryotic** = no true nucleus, no membrane-bound organelles (_pro_ = primitive).",
+          "**Eukaryotic** = true nucleus + membrane-bound organelles (_eu_ = true).",
+        ],
+        tbl: { h: ["Feature", "Prokaryotic", "Eukaryotic"], rows: [
+          ["Diameter", "1–10 μm", "10–100 μm"],
+          ["True nucleus", "Absent", "Present"],
+          ["Membrane-bound organelles", "Absent", "Present"],
+          ["Cells", "Usually unicellular", "Uni/multicellular"],
+        ]}},
+      { t: "Cytoskeleton & Cell Inclusions", b: [
+        "**Cytoskeleton:** network of fine fibres in eukaryotes; gives support, shape, movement & internal transport.",
+        "**Cell inclusions:** stored starch, or crystals of calcium oxalate / silica in some plant cells.",
+      ]},
+      { t: "Acellular Agents", b: [
+        "No cells; infectious.",
+        "**Viruses:** genetic material + protein coat.",
+        "**Viroids:** genetic material, no protein coat.",
+        "**Prions:** misfolded proteins, no genetic material.",
+      ]},
+    ]},
+
+    { label: "Cell Organelles", variant: "sub", items: [
+      { t: "Nucleus", m: ["— control centre", "muted"], b: [
+        "Controls all cell activities.",
+        "Double-layered **nuclear membrane** with pores.",
+        "**Nucleolus** makes ribosomal subunits.",
+        "Holds **chromosomes** (DNA + proteins); **genes** = functional DNA segments.",
+        "**Chromatin:** in a non-dividing cell DNA is thread-like chromatin; before division it coils into rod-shaped **chromosomes**.",
+        "_Prokaryotes:_ DNA lies free in a region called **nucleoid**.",
+        "_Eg:_ mature **RBCs** lack a nucleus (enucleate) → more room for haemoglobin; live ~120 days.",
+      ]},
+      { t: "Ribosomes", m: ["— protein factories", "muted"], b: [
+        "Tiny structures; free in cytoplasm or attached to ER.",
+        "Site of **protein synthesis**.",
+      ]},
+      { t: "Endoplasmic Reticulum (ER)",
+        i: ["Network of membranes; synthesises & transports proteins, fats, some hormones."],
+        tbl: { h: ["Rough ER (RER)", "Smooth ER (SER)"], rows: [
+          ["Has ribosomes", "No ribosomes"],
+          ["Protein synthesis & secretion", "Fat & hormone synthesis/storage"],
+        ]}},
+      { t: "Golgi Apparatus", m: ["— packaging centre", "muted"], b: [
+        "Stacks of flattened sacs.",
+        "Modifies, sorts & packages proteins/lipids into vesicles for transport, secretion or lysosome formation.",
+        "_Discovered by_ **Camillo Golgi (1898)**.",
+      ]},
+      { t: "Lysosomes", m: ["— clean-up system", "muted"], b: [
+        "Single membrane-bound sacs filled with enzymes.",
+        "Break down waste, worn-out organelles, proteins, carbs & fats.",
+        "_Eg:_ sperm lysosomal enzymes break the egg's outer layer during **fertilisation**.",
+      ]},
+      { t: "Mitochondria", m: ["— powerhouse", "muted"], b: [
+        "Double-membraned; inner membrane folds into **cristae** (↑ surface area).",
+        "Release energy from glucose via **cellular respiration**, stored as **ATP** (energy currency).",
+        "Have their own DNA & ribosomes → mitochondria & plastids share an **evolutionary link with bacteria**.",
+      ]},
+      { t: "Plastids", m: ["— plant cells only", "muted"],
+        i: ["Double-membraned; food synthesis & storage; own DNA & ribosomes."],
+        tbl: { h: ["Type", "Role"], rows: [
+          ["**Chloroplast**", "Green (chlorophyll); photosynthesis; has **stroma** inside."],
+          ["**Chromoplast**", "Yellow/orange/red pigments; colour flowers & fruits → **attract pollinators** (pollination) & fruit-eaters (seed dispersal)."],
+          ["**Leucoplast**", "Colourless; stores starch, oils, proteins. _Eg:_ potato & taro (Colocasia) store starch."],
+        ]}},
+      { t: "Vacuoles", m: ["— storage & support", "muted"], b: [
+        "Plant cells: one **large central vacuole** with **cell sap**.",
+        "Stores water, minerals, sugars, waste; keeps cell firm (water loss → wilting).",
+        "Animal cells: small vacuoles, if present.",
+      ]},
+    ]},
+
+    { label: "2.4 · Cell Growth & Division", items: [
+      { t: "Cell Division", b: [
+        "Forming new cells from **pre-existing cells**.",
+        "Enables growth, repair & reproduction.",
+        "Two types: **mitosis** & **meiosis**. Eukaryotes divide via the **cell cycle**.",
+      ]},
+      { t: "Mitosis vs Meiosis", tbl: { h: ["Mitosis", "Meiosis"], rows: [
+        ["2 identical daughter cells", "4 daughter cells"],
+        ["Same chromosome no.", "Half chromosome no."],
+        ["Growth, repair, asexual reprod.", "Sexual reprod.; makes gametes"],
+        ["All body cells", "Only reproductive cells"],
+      ]}},
+      { t: "Errors in Division", b: [
+        "**Mitosis errors** → uncontrolled division → tumours, abnormal chromosome number.",
+        "**Meiosis errors** → genetic disorders, reduced fertility, pregnancy loss.",
+      ]},
+      { t: "Arun Kumar Sharma", m: ["— Indian scientist", "muted"], b: [
+        "Famous for his work on **chromosomes**; a botanist known for plant taxonomy, evolution & development.",
+        "Invented many lab methods to study chromosomes in plants.",
+        "Honours: **Shanti Swarup Bhatnagar** award & **Padma Bhushan**.",
+      ]},
+      { t: "Cell Culture & Synthetic Cell", b: [
+        "**Cell culture:** growing plant/animal cells outside the body in a nutrient-rich medium under sterile conditions (right temperature, pH, moisture).",
+        "Used to study cells & to produce biochemicals, food, medicines & vaccines.",
+        "**Synthetic cell (J. Craig Venter, 2010):** lab-made DNA inserted into a cell → it grew & divided → showed **DNA controls a cell's structure & activities**.",
+      ]},
+    ]},
+
+    { label: "2.5 · Cell Theory", items: [
+      { t: "Cell Theory",
+        b: [
+          "All living organisms are made of one or more cells.",
+          "Cell is the basic unit of structure & function.",
+          "All cells arise from pre-existing cells.",
+        ],
+        box: "**Schleiden (1838)** — all plants are cells\n**Schwann (1839)** — all animals are cells\n**Virchow (1855)** — cells arise from pre-existing cells" },
+      { t: "Contact Inhibition & Cancer", b: [
+        "Every cell has a definite life span.",
+        "**Contact inhibition:** animal cell division stops on touching neighbours.",
+        "**Cancer cells** lose this control → divide uncontrollably → tumours (**benign** or **malignant**; malignant invade & spread to other parts).",
+        "Plant cells (rigid walls) show no contact inhibition.",
+      ]},
+      { t: "Programmed Cell Death (PCD)", b: [
+        "Genetically regulated, organised destruction of selected cells.",
+        "Essential for normal development.",
+        "_Eg:_ forms fingers by removing cells between digits (else webbed hands).",
+      ]},
+      { t: "Totipotency", m: ["— Haberlandt (1902)", "accent"], b: [
+        "Ability of any living plant cell to grow into a complete plant under suitable conditions.",
+        "Basis of **Plant Tissue Culture**.",
+      ]},
+    ]},
+  ],
+};
+
+/* ========================= PART 2 — RENDERER ========================= */
+
+/* The only two class strings used on more than one element. Everything else
+   sits inline on the element it styles. */
+const ulBase = "pl-[19px] list-disc text-[15px] leading-[1.5] [&_li+li]:mt-[4px]";
+const cellBase = "px-[7px] py-[6px] border border-[oklch(0.8_0.02_260)] align-top";
+
+/* Turns our small markup into React elements.
+
+     **bold**    _italic_    %muted%    \n = line break
+
+   The only tags this can ever produce are the four written below, so content
+   coming from the database can never inject HTML of its own — there is no
+   dangerouslySetInnerHTML anywhere in this file.
+
+   The trick is split() with a CAPTURING group: the parentheses make JS keep
+   the separators in the result, so we get alternating plain / marked chunks
+   and only have to look at each chunk's first character.
+
+     "a **b** c".split(/(\*\*[^*]+\*\*)/)  ->  ["a ", "**b**", " c"]
+
+   No nesting is supported and none is needed — an unclosed ** simply stays
+   as literal text instead of breaking the page. */
+const MARKUP = /(\*\*[^*]+\*\*|_[^_]+_|%[^%]+%|\n)/;
+
+function RichText({ text }){
+    return text.split(MARKUP).map((part , i) => {
+        if (part === "\n")         return <br key={i} />;
+        if (part.startsWith("**")) return <strong key={i} >{part.slice(2 , -2)}</strong>;
+        if (part.startsWith("_"))  return <em key={i} >{part.slice(1 , -1)}</em>;
+        if (part.startsWith("%"))  return <span key={i} className="text-[color:oklch(0.5_0.01_260)]" >{part.slice(1 , -1)}</span>;
+        return part;
+    });
 }
 
-function Section({ sec }) {
-  return h(React.Fragment, null,
-    sec.variant === "sub"
-      ? h("div", { className: subLbl }, sec.label)
-      : h("div", { className: primLbl }, h("span", { className: "inline-block w-[22px] h-[3px] rounded-sm bg-[var(--accent)]" }), sec.label),
-    sec.items.map((it, j) => h(Card, { key: j, item: it }))
-  );
+function Card({ item }){
+    return(
+        <div className="break-inside-avoid mb-[12px] p-[16px] bg-white border border-[oklch(0.91_0.008_260)] rounded-[12px] shadow-[0_1px_4px_#1e293b0f] transition-[transform,box-shadow] duration-200 ease-[ease] hover:[transform:translateY(-2px)] hover:shadow-[0_8px_22px_#1e293b21]" >
+            <h3 className="mb-[8px] pb-[7px] border-b border-b-[oklch(0.93_0.008_260)] font-archivo text-[16px] font-bold text-[color:oklch(0.25_0.02_260)]" >
+                {item.t}
+                {item.m && (
+                    <span className={item.m[1] === "accent"
+                        ? "ml-[6px] text-[13px] font-medium text-[color:var(--accent)]"
+                        : "ml-[6px] text-[13px] font-medium italic text-[color:oklch(0.5_0.01_260)]"} >{item.m[0]}</span>
+                )}
+            </h3>
+
+            {/* intro bullets — only used above a table */}
+            {item.i && (
+                <ul className={`${ulBase} mb-[10px]`} >
+                    {item.i.map((text , j) => <li key={j} ><RichText text={text} /></li>)}
+                </ul>
+            )}
+
+            {/* main bullets — need bottom margin only if a table or box follows */}
+            {item.b && (
+                <ul className={item.tbl || item.box ? `${ulBase} mb-[10px]` : ulBase} >
+                    {item.b.map((text , j) => <li key={j} ><RichText text={text} /></li>)}
+                </ul>
+            )}
+
+            {item.tbl && (
+                <table className="w-full border-collapse font-archivo text-[12px]" >
+                    <thead>
+                        <tr>
+                            {item.tbl.h.map((cell , j) => (
+                                <th key={j} className={`${cellBase} bg-[var(--tint)] text-left font-bold`} ><RichText text={cell} /></th>
+                            ))}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {item.tbl.rows.map((row , ri) => (
+                            <tr key={ri} >
+                                {row.map((cell , ci) => <td key={ci} className={cellBase} ><RichText text={cell} /></td>)}
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            )}
+
+            {item.box && (
+                <div className="mt-[10px] px-[11px] py-[9px] bg-[var(--tint)] rounded-[8px] font-archivo text-[13px] leading-[1.55]" ><RichText text={item.box} /></div>
+            )}
+        </div>
+    );
 }
 
-const SECTIONS = [
-  { label: "Introduction", items: [
-    { t: "Origin of Life", b: [
-      "Life is believed to have <b>originated in water</b>, possibly in small water pools such as <b>hot springs</b>.",
-      "<i>Eg:</i> hot springs of <b>Puga Valley, Ladakh</b> — near boiling even in cold climate; like early Earth ~<b>3.5 billion years ago</b>.",
-      "Home to <b>thermophiles</b> — heat-loving <b>unicellular</b> bacteria.",
-      "<b>Birbal Sahni Institute</b> (Lucknow): calcium carbonate deposits protected early molecules &amp; may have formed the <b>first protective membrane</b> — the barrier that defines a cell.",
-    ]},
-    { t: "Cell", b: [
-      "Basic <b>structural &amp; functional unit</b> of all living organisms.",
-      "<b>Unicellular</b> = one cell (bacteria, yeast).",
-      "<b>Multicellular</b> = many cells together (plants, humans).",
-    ]},
-    { t: "Levels of Organisation", b: [
-      "Cells → tissues → organs → organ systems.",
-      "<i>Eg:</i> nasal cavity, trachea &amp; lungs → respiratory system.",
-      "Cell stays the fundamental unit throughout.",
-    ]},
-  ]},
-  { label: "2.1 · How to Study Cells", items: [
-    { t: "Limit of Resolution", b: [
-      "Ability to see two close points as <b>separate &amp; distinct</b>.",
-      "Human eye = <b>0.1 mm</b> (at near point, ~25 cm); cells are smaller → need microscopes.",
-    ]},
-    { t: "Magnification", b: [
-      "Lens makes an object appear larger.",
-      "<b>Total magnification = eyepiece × objective</b> (eg 10X × 10X = 100X).",
-    ]},
-    { t: "Robert Hooke", m: ["(1665)", "year"], b: [
-      "First to observe cells.",
-      "Saw box-like compartments in cork; named them <b>‘cells’</b>.",
-    ]},
-    { t: "Microscopes & Cell Size", b: [
-      "<b>Light microscope:</b> uses visible light + objective lenses.",
-      "<b>Electron microscope:</b> uses electron beam; detail at nanometre scale (1 nm = one-billionth of a metre).",
-      "Cell size = field diameter ÷ number of cells across. <b>1 mm = 1000 μm.</b>",
-      "3 key features improved: <b>resolution, contrast, magnification.</b>",
-    ]},
-  ]},
-  { label: "2.2 · Structure of a Cell", items: [
-    { t: "Cell Membrane (Plasma Membrane)", b: [
-      "Thin outer boundary that <b>defines the cell's individuality</b>.",
-      "<b>Selectively permeable</b> — allows some substances, blocks others.",
-      "About <b>7–10 nm</b> thick; made of lipids + proteins.",
-    ]},
-    { t: "Diffusion & Osmosis", b: [
-      "<b>Diffusion:</b> net movement of particles from higher → lower concentration. Occurs even without a membrane.",
-      "<b>Osmosis:</b> diffusion of water across a selectively permeable membrane, dilute → concentrated side.",
-      "<i>Eg:</i> plant roots absorb water from soil by osmosis.",
-    ]},
-    { t: "Cell in Different Solutions", tbl: { h: ["Solution", "Effect on cell"], rows: [
-      ["<b>Isotonic</b><br><span class=\"text-[oklch(0.5_0.01_260)]\">solute = inside</span>", "No net change"],
-      ["<b>Hypotonic</b><br><span class=\"text-[oklch(0.5_0.01_260)]\">solute &lt; inside</span>", "Water enters → cell <b>swells</b>"],
-      ["<b>Hypertonic</b><br><span class=\"text-[oklch(0.5_0.01_260)]\">solute &gt; inside</span>", "Water leaves → cell <b>shrinks</b>"],
-    ]}},
-    { t: "Fluid-Mosaic Model", b: [
-      "Explains membrane structure: a <b>lipid bilayer</b> (water-attracting heads out, water-repelling tails in) with embedded proteins.",
-      "Molecules move sideways → <b>fluid</b>; arranged like tiles → <b>mosaic</b>.",
-      "Proteins act as <b>gatekeepers</b>.",
-    ]},
-    { t: "Cell Wall", b: [
-      "Rigid, <b>permeable</b> covering outside the membrane.",
-      "Present in <b>plants, fungi, bacteria</b>; made of <b>cellulose</b>.",
-      "Gives shape &amp; support; keeps plants upright.",
-      "<i>Exception:</i> animal cells have <b>no</b> cell wall. Dietary cellulose = roughage.",
-    ]},
-  ]},
-  { label: "2.3 · The Cell Interior", items: [
-    { t: "Three Basic Parts", b: [
-      "<b>Plasma membrane</b> — outer boundary.",
-      "<b>Cytoplasm</b> — semi-fluid jelly-like substance holding organelles.",
-      "<b>Nucleus</b> — prominent control body.",
-    ]},
-    { t: "Prokaryotic vs Eukaryotic",
-      i: [
-        "<b>Prokaryotic</b> = no true nucleus, no membrane-bound organelles (<i>pro</i> = primitive).",
-        "<b>Eukaryotic</b> = true nucleus + membrane-bound organelles (<i>eu</i> = true).",
-      ],
-      tbl: { h: ["Feature", "Prokaryotic", "Eukaryotic"], rows: [
-        ["Diameter", "1–10 μm", "10–100 μm"],
-        ["True nucleus", "Absent", "Present"],
-        ["Membrane-bound organelles", "Absent", "Present"],
-        ["Cells", "Usually unicellular", "Uni/multicellular"],
-      ]}},
-    { t: "Cytoskeleton & Cell Inclusions", b: [
-      "<b>Cytoskeleton:</b> network of fine fibres in eukaryotes; gives support, shape, movement &amp; internal transport.",
-      "<b>Cell inclusions:</b> stored starch, or crystals of calcium oxalate / silica in some plant cells.",
-    ]},
-    { t: "Acellular Agents", b: [
-      "No cells; infectious.",
-      "<b>Viruses:</b> genetic material + protein coat.",
-      "<b>Viroids:</b> genetic material, no protein coat.",
-      "<b>Prions:</b> misfolded proteins, no genetic material.",
-    ]},
-  ]},
-  { label: "Cell Organelles", variant: "sub", items: [
-    { t: "Nucleus", m: ["— control centre", "desc"], b: [
-      "Controls all cell activities.",
-      "Double-layered <b>nuclear membrane</b> with pores.",
-      "<b>Nucleolus</b> makes ribosomal subunits.",
-      "Holds <b>chromosomes</b> (DNA + proteins); <b>genes</b> = functional DNA segments.",
-      "<b>Chromatin:</b> in a non-dividing cell DNA is thread-like chromatin; before division it coils into rod-shaped <b>chromosomes</b>.",
-      "<i>Prokaryotes:</i> DNA lies free in a region called <b>nucleoid</b>.",
-      "<i>Eg:</i> mature <b>RBCs</b> lack a nucleus (enucleate) → more room for haemoglobin; live ~120 days.",
-    ]},
-    { t: "Ribosomes", m: ["— protein factories", "desc"], b: [
-      "Tiny structures; free in cytoplasm or attached to ER.",
-      "Site of <b>protein synthesis</b>.",
-    ]},
-    { t: "Endoplasmic Reticulum (ER)",
-      i: ["Network of membranes; synthesises &amp; transports proteins, fats, some hormones."],
-      tbl: { h: ["Rough ER (RER)", "Smooth ER (SER)"], rows: [
-        ["Has ribosomes", "No ribosomes"],
-        ["Protein synthesis &amp; secretion", "Fat &amp; hormone synthesis/storage"],
-      ]}},
-    { t: "Golgi Apparatus", m: ["— packaging centre", "desc"], b: [
-      "Stacks of flattened sacs.",
-      "Modifies, sorts &amp; packages proteins/lipids into vesicles for transport, secretion or lysosome formation.",
-      "<i>Discovered by</i> <b>Camillo Golgi (1898)</b>.",
-    ]},
-    { t: "Lysosomes", m: ["— clean-up system", "desc"], b: [
-      "Single membrane-bound sacs filled with enzymes.",
-      "Break down waste, worn-out organelles, proteins, carbs &amp; fats.",
-      "<i>Eg:</i> sperm lysosomal enzymes break the egg's outer layer during <b>fertilisation</b>.",
-    ]},
-    { t: "Mitochondria", m: ["— powerhouse", "desc"], b: [
-      "Double-membraned; inner membrane folds into <b>cristae</b> (↑ surface area).",
-      "Release energy from glucose via <b>cellular respiration</b>, stored as <b>ATP</b> (energy currency).",
-      "Have their own DNA &amp; ribosomes → mitochondria &amp; plastids share an <b>evolutionary link with bacteria</b>.",
-    ]},
-    { t: "Plastids", m: ["— plant cells only", "desc"],
-      i: ["Double-membraned; food synthesis &amp; storage; own DNA &amp; ribosomes."],
-      tbl: { h: ["Type", "Role"], rows: [
-        ["<b>Chloroplast</b>", "Green (chlorophyll); photosynthesis; has <b>stroma</b> inside."],
-        ["<b>Chromoplast</b>", "Yellow/orange/red pigments; colour flowers &amp; fruits → <b>attract pollinators</b> (pollination) &amp; fruit-eaters (seed dispersal)."],
-        ["<b>Leucoplast</b>", "Colourless; stores starch, oils, proteins. <i>Eg:</i> potato &amp; taro (Colocasia) store starch."],
-      ]}},
-    { t: "Vacuoles", m: ["— storage & support", "desc"], b: [
-      "Plant cells: one <b>large central vacuole</b> with <b>cell sap</b>.",
-      "Stores water, minerals, sugars, waste; keeps cell firm (water loss → wilting).",
-      "Animal cells: small vacuoles, if present.",
-    ]},
-  ]},
-  { label: "2.4 · Cell Growth & Division", items: [
-    { t: "Cell Division", b: [
-      "Forming new cells from <b>pre-existing cells</b>.",
-      "Enables growth, repair &amp; reproduction.",
-      "Two types: <b>mitosis</b> &amp; <b>meiosis</b>. Eukaryotes divide via the <b>cell cycle</b>.",
-    ]},
-    { t: "Mitosis vs Meiosis", tbl: { h: ["Mitosis", "Meiosis"], rows: [
-      ["2 identical daughter cells", "4 daughter cells"],
-      ["Same chromosome no.", "Half chromosome no."],
-      ["Growth, repair, asexual reprod.", "Sexual reprod.; makes gametes"],
-      ["All body cells", "Only reproductive cells"],
-    ]}},
-    { t: "Errors in Division", b: [
-      "<b>Mitosis errors</b> → uncontrolled division → tumours, abnormal chromosome number.",
-      "<b>Meiosis errors</b> → genetic disorders, reduced fertility, pregnancy loss.",
-    ]},
-    { t: "Arun Kumar Sharma", m: ["— Indian scientist", "year"], b: [
-      "Famous for his work on <b>chromosomes</b>; a botanist known for plant taxonomy, evolution &amp; development.",
-      "Invented many lab methods to study chromosomes in plants.",
-      "Honours: <b>Shanti Swarup Bhatnagar</b> award &amp; <b>Padma Bhushan</b>.",
-    ]},
-    { t: "Cell Culture & Synthetic Cell", b: [
-      "<b>Cell culture:</b> growing plant/animal cells outside the body in a nutrient-rich medium under sterile conditions (right temperature, pH, moisture).",
-      "Used to study cells &amp; to produce biochemicals, food, medicines &amp; vaccines.",
-      "<b>Synthetic cell (J. Craig Venter, 2010):</b> lab-made DNA inserted into a cell → it grew &amp; divided → showed <b>DNA controls a cell's structure &amp; activities</b>.",
-    ]},
-  ]},
-  { label: "2.5 · Cell Theory", items: [
-    { t: "Cell Theory",
-      b: [
-        "All living organisms are made of one or more cells.",
-        "Cell is the basic unit of structure &amp; function.",
-        "All cells arise from pre-existing cells.",
-      ],
-      box: "<b>Schleiden (1838)</b> — all plants are cells<br><b>Schwann (1839)</b> — all animals are cells<br><b>Virchow (1855)</b> — cells arise from pre-existing cells" },
-    { t: "Contact Inhibition & Cancer", b: [
-      "Every cell has a definite life span.",
-      "<b>Contact inhibition:</b> animal cell division stops on touching neighbours.",
-      "<b>Cancer cells</b> lose this control → divide uncontrollably → tumours (<b>benign</b> or <b>malignant</b>; malignant invade &amp; spread to other parts).",
-      "Plant cells (rigid walls) show no contact inhibition.",
-    ]},
-    { t: "Programmed Cell Death (PCD)", b: [
-      "Genetically regulated, organised destruction of selected cells.",
-      "Essential for normal development.",
-      "<i>Eg:</i> forms fingers by removing cells between digits (else webbed hands).",
-    ]},
-    { t: "Totipotency", m: ["— Haberlandt (1902)", "year"], b: [
-      "Ability of any living plant cell to grow into a complete plant under suitable conditions.",
-      "Basis of <b>Plant Tissue Culture</b>.",
-    ]},
-  ]},
-];
+function Section({ sec }){
+    return(
+        <>
+            {sec.variant === "sub"
+                ? <div className="[column-span:all] break-inside-avoid font-archivo font-bold uppercase mt-[16px] mx-[2px] mb-[8px] text-[11px] tracking-[0.06em] text-[color:oklch(0.5_0.01_260)]" >{sec.label}</div>
+                : <div className="[column-span:all] break-inside-avoid font-archivo font-bold uppercase flex items-center gap-[8px] mt-[20px] mx-[2px] mb-[10px] text-[12px] tracking-[0.08em] text-[color:var(--accent)]" >
+                      <span className="inline-block w-[22px] h-[3px] rounded-[2px] bg-[var(--accent)]" ></span>{sec.label}
+                  </div>}
 
-function Test({ accent = "oklch(0.45 0.13 250)", tint = "oklch(0.95 0.02 155)" }) {
-  return h("div", {
-    className: "min-h-screen pb-10 font-['Newsreader'] text-[oklch(0.23_0.015_260)] bg-[oklch(0.955_0.008_255)]",
-    style: { "--accent": accent, "--tint": tint },
-  },
-    h("div", { className: "max-w-[1080px] mx-auto" },
-      h("header", {
-        className: "font-['Archivo'] text-white px-[22px] pt-[22px] pb-5 sticky top-0 z-10",
-        style: { background: "linear-gradient(180deg,oklch(1 0 0/0.10),oklch(0 0 0/0.07))," + accent, boxShadow: "0 2px 10px #1e293b26" },
-      },
-        h("div", { className: "text-[11px] tracking-[0.16em] uppercase font-bold opacity-85" }, "NCERT · Class 9 Science · Ch 2"),
-        h("div", { className: "font-['Newsreader'] font-bold text-[26px] leading-[1.15] mt-[3px] -tracking-[0.01em]" }, "Cell: The Building Block of Life"),
-        h("div", { className: "text-[12px] font-medium opacity-80 mt-[5px]" }, "Quick revision · point-wise notes")),
-      h("div", { className: "pt-6 px-[22px] columns-[320px] gap-x-[30px] [column-rule:1px_solid_oklch(0.9_0.01_260)]" },
-        SECTIONS.map((sec, i) => h(Section, { key: i, sec })),
-        h("div", { className: "[column-span:all] text-center font-['Archivo'] text-[11px] text-[oklch(0.6_0.01_260)] pt-[22px] pb-1.5" }, "End of Chapter 2 · Cell notes"))));
+            {sec.items.map((item , j) => <Card key={j} item={item} />)}
+        </>
+    );
 }
 
-export default Test;
+/*
+  <ChapterNotes chapter={chapter02Cell} />
+  <ChapterNotes chapter={chapter03Tissues} accent="oklch(0.45 0.13 20)" />
+*/
+export function ChapterNotes({ chapter , accent = "oklch(0.45 0.13 250)" , tint = "oklch(0.95 0.02 155)" }){
+    if(!chapter) return null;   // nothing to draw yet — matters once data is fetched
+
+    return(
+        <div className="min-h-screen pb-[40px] bg-[oklch(0.955_0.008_255)] text-[color:oklch(0.23_0.015_260)] font-newsreader"
+             style={{ "--accent": accent , "--tint": tint }} >
+
+            <div className="max-w-[1080px] mx-auto" >
+                <header className="sticky top-0 z-10 px-[22px] pt-[22px] pb-[20px] text-white font-archivo shadow-[0_2px_10px_#1e293b26]"
+                        style={{ background: `linear-gradient(180deg,oklch(1 0 0/0.10),oklch(0 0 0/0.07)),${accent}` }} >
+                    {chapter.kicker && <div className="text-[11px] font-bold tracking-[0.16em] uppercase opacity-[0.85]" >{chapter.kicker}</div>}
+                    <div className="mt-[3px] font-newsreader text-[26px] font-bold leading-[1.15] tracking-[-0.01em]" >{chapter.title}</div>
+                    {chapter.subtitle && <div className="mt-[5px] text-[12px] font-medium opacity-[0.8]" >{chapter.subtitle}</div>}
+                </header>
+
+                {/* the masonry flow: browser fits as many 320px columns as it can */}
+                <div className="px-[22px] pt-[24px] columns-[320px] gap-x-[30px] [column-rule:1px_solid_oklch(0.9_0.01_260)]" >
+                    {chapter.sections.map((sec , i) => <Section key={i} sec={sec} />)}
+                    {chapter.footer && (
+                        <div className="[column-span:all] pt-[22px] pb-[6px] text-center font-archivo text-[11px] text-[color:oklch(0.6_0.01_260)]" >{chapter.footer}</div>
+                    )}
+                </div>
+            </div>
+        </div>
+    );
+}
+
+/* ========================= PART 3 — WIRING ========================= */
+
+function Chapter02Page(){
+    return <ChapterNotes chapter={chapter02Cell} />;
+}
+export default Chapter02Page;

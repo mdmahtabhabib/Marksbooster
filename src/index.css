@@ -1,1 +1,8 @@
 @import "tailwindcss";
+
+/* Notes page fonts — the actual files are loaded by the <link> in index.html.
+   Declaring them here turns them into font-newsreader / font-archivo classes. */
+@theme {
+  --font-newsreader: "Newsreader", Georgia, serif;
+  --font-archivo: "Archivo", system-ui, sans-serif;
+}

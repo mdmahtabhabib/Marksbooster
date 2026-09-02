@@ -55,8 +55,12 @@ function padTwo(number) {
 function splitTime(milliseconds) {
   const safeMs = Math.max(0, milliseconds);
   const totalSeconds = Math.floor(safeMs / 1000);
+  const hours = Math.floor(totalSeconds / 3600);
   return {
-    minutes: padTwo(Math.floor(totalSeconds / 60)),
+    /* Ghante tabhi dikhte hain jab ek ghanta poora ho jaaye — chhote
+       session me "00:" bekaar jagah nahi gherta */
+    hoursText: hours > 0 ? padTwo(hours) + ":" : "",
+    minutes: padTwo(Math.floor(totalSeconds / 60) % 60),
     seconds: padTwo(totalSeconds % 60),
     centis: padTwo(Math.floor((safeMs % 1000) / 10)),
   };
@@ -168,7 +172,7 @@ function BigClock({ timer }) {
       <span className="w-12 sm:w-14 lg:w-16" aria-hidden="true" />
 
       <span className="tabular-nums">
-        {time.minutes}:{time.seconds}
+        {time.hoursText}{time.minutes}:{time.seconds}
       </span>
 
       {/* Fixed width isko sthir rakhta hai — digit badalne par layout hilta
@@ -322,7 +326,7 @@ function StudyTimerPage({ onAnalyse }) {
 
         {getBreakMs(timer) > 0 && (
           <p className="mt-4 font-sans text-sm tabular-nums text-cyan-400">
-            ● break {breakTime.minutes}:{breakTime.seconds}
+            ● break {breakTime.hoursText}{breakTime.minutes}:{breakTime.seconds}
           </p>
         )}
 
