@@ -559,7 +559,7 @@ function ChapterNotes({ chapter }) {
         {/* hairline keeps a crisp edge against the slate page */}
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-white/15" />
 
-        <div className="relative mx-auto max-w-[1080px] px-[22px] pb-[17px] pt-[19px]">
+        <div className="relative mx-auto max-w-[1080px] px-[22px] pb-[15px] pt-[17px]">
 
           {chapter.kicker && (
             <div className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/65">
@@ -570,13 +570,6 @@ function ChapterNotes({ chapter }) {
           <h1 className="mt-[6px] text-[25px] font-bold leading-[1.15] tracking-[-0.015em] sm:text-[29px]">
             {chapter.title}
           </h1>
-
-          {chapter.subtitle && (
-            <div className="mt-[8px] flex items-center gap-[8px] text-[12px] font-medium text-white/70">
-              <span className="h-[2px] w-[18px] shrink-0 rounded-full bg-white/40" />
-              {chapter.subtitle}
-            </div>
-          )}
 
         </div>
 
