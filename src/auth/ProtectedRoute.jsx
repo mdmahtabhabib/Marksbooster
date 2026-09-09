@@ -11,6 +11,6 @@ export default function ProtectedRoute({children}){
         return <Spinner/>;
     }
 
-    return session? children :<Navigate to="/login" state={{from : location}} /> ;
+    return session ? children :<Navigate to="/login" state={{from : location}} /> ;
     
 }

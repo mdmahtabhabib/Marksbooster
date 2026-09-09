@@ -13,14 +13,14 @@ import { BookOpen, Clock, Target , AlertCircle , Flame , ChevronRight, CheckCirc
       name : "Short notes" , 
       desc : "A whole chapter on one page" ,
       icon : FileText ,
-      route : "/home/class9/pyq" ,
+      route : "/home/class9/short-notes" ,
       color : "indigo",
     } ,
     {
       name : "Concept check" ,
       desc : "Check if you're exam ready ",
       icon : MapIcon , 
-      route : "/home/class9/mindmap" ,
+      route : "/home/class9/concept-check" ,
       color : "violet",
 
     },
@@ -28,7 +28,7 @@ import { BookOpen, Clock, Target , AlertCircle , Flame , ChevronRight, CheckCirc
       name : "Important Q&A" ,
       desc : "	Exam-oriented, all question types" ,
       icon : HelpCircle ,
-      route : "/home/class9/topic-question",
+      route : "/home/class9/important-question",
       color : "rose",
     } ,
     
@@ -36,14 +36,14 @@ import { BookOpen, Clock, Target , AlertCircle , Flame , ChevronRight, CheckCirc
       name : "Syllabus Tracker",
     desc : "Track your syllabus progress",
     icon : Layers,
-    route : "/syllabus",
+    route : "/home/class9/syllabus-tracker",
     color : "emerald",
     },
     {
       name : "Study Timer" ,
       desc : "Focus time, tracked", 
       icon : Clock,
-      route : "/timer",
+      route : "/home/class9/timer",
       color : "amber",
     } ,
     
