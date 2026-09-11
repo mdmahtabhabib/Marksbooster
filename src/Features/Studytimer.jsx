@@ -562,28 +562,62 @@ function StudyAnalysisPage({ onBack }) {
                 className="absolute inset-x-0 border-t border-dashed border-neutral-700"
                 style={{ bottom: (goalSeconds / chartTop) * 100 + "%" }}
               />
-              {weekDays.map((day, index) => (
+              {weekDays.map((day, index) => {
+                const barPercent = (day.seconds / chartTop) * 100;
+                const level = heatLevel(day.seconds);
+                const overflowSeconds = day.seconds - goalSeconds;
+
+                /* Bar ke andar tabhi likhte hain jab itni lambi ho ki text
+                   saans le sake — ek line ko ~20px chahiye, "+2h" wali doosri
+                   line ke saath ~32px. Chart 144px ka hai, isliye 14% / 22%.
+                   Isse chhoti bar par label bar ke thoda upar chala jaata hai,
+                   warna aadha number bar se baahar latak jaata. */
+                const labelFitsInside = barPercent >= (overflowSeconds > 0 ? 22 : 14);
+
+                /* Dono jagah ka text ek hi — sirf rang aur jagah badalti hai */
+                const labelText = (
+                  <>
+                    <span className="text-xs font-semibold tabular-nums lg:text-sm">
+                      {formatDuration(day.seconds)}
+                    </span>
+                    {overflowSeconds > 0 && (
+                      <span className="text-[9px] font-medium tabular-nums opacity-80 lg:text-[11px]">
+                        {formatOverflow(overflowSeconds)}
+                      </span>
+                    )}
+                  </>
+                );
+
+                return (
                 <div key={day.dateKey} className="flex min-h-0 flex-col justify-end gap-2">
                   <div className="flex min-h-0 flex-1 items-end">
                     {day.isFuture ? (
                       <div className="h-full w-full rounded border border-dashed border-neutral-900" />
                     ) : (
                       <div
-                        className="flex w-full items-start justify-center rounded-t pt-1 transition-all duration-500"
+                        className="relative flex w-full items-center justify-center rounded-t transition-all duration-500"
                         title={day.dateKey + ": " + formatDuration(day.seconds)}
                         style={{
-                          height: (day.seconds / chartTop) * 100 + "%",
-                          background: HEAT_COLORS[heatLevel(day.seconds)],
+                          height: barPercent + "%",
+                          background: HEAT_COLORS[level],
                         }}
                       >
-                        {/* Goal paar karne wali bar hamesha sabse lambi hoti hai
-                            (chartTop khud usi se banta hai), isliye tag ke liye
-                            upar jagah pakki rehti hai */}
-                        {day.seconds > goalSeconds && (
-                          <span className="text-[10px] font-semibold leading-none text-black lg:text-xs">
-                            {formatOverflow(day.seconds - goalSeconds)}
-                          </span>
-                        )}
+                        {/* Bina padhe din par "0m" likhna kaam ka nahi */}
+                        {day.seconds > 0 &&
+                          (labelFitsInside ? (
+                            /* Amber/orange bar par kaala, gehre indigo/pink par
+                               safed — wahi niyam jo month calendar use karta hai */
+                            <span
+                              className="flex flex-col items-center gap-0.5 leading-none"
+                              style={{ color: level > 2 ? "#000" : "#eee" }}
+                            >
+                              {labelText}
+                            </span>
+                          ) : (
+                            <span className="absolute inset-x-0 bottom-full mb-1 flex flex-col items-center gap-0.5 leading-none text-neutral-400">
+                              {labelText}
+                            </span>
+                          ))}
                       </div>
                     )}
                   </div>
@@ -596,7 +630,8 @@ function StudyAnalysisPage({ onBack }) {
                     {["M", "T", "W", "T", "F", "S", "S"][index]}
                   </span>
                 </div>
-              ))}
+                );
+              })}
             </div>
 
             <p className="mt-3 text-xs text-neutral-500">
