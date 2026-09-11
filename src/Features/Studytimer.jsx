@@ -66,18 +66,21 @@ function splitTime(milliseconds) {
   };
 }
 
+/* "3.5h" jaisa dashamlav timer par ajeeb lagta hai — aadha ghanta dimaag me
+   khud convert karna padta hai. Isliye ghanta aur minute alag: 3h 30m.
+   Poore ghante par minute chhod dete hain (3h), aur ghante se kam par
+   sirf minute (45m) — har jagah sabse chhota theek padhne wala roop. */
 function formatDuration(seconds) {
-  if (seconds < 3600) return Math.round(seconds / 60) + "m";
-  return (seconds / 3600).toFixed(1) + "h";
+  const totalMinutes = Math.round(Math.max(0, seconds) / 60);
+  if (totalMinutes < 60) return totalMinutes + "m";
+  const hours = Math.floor(totalMinutes / 60);
+  const minutes = totalMinutes % 60;
+  return minutes ? hours + "h " + minutes + "m" : hours + "h";
 }
 
-/* Goal se kitna ZYADA padha — bar ke upar "+2h" jaisa chhota tag banta hai.
-   Poore ghante par ".0" nahi lagta, warna patli bar me jagah bekaar jaati */
+/* Goal se kitna ZYADA padha — bar ke upar "+2h 30m" jaisa chhota tag */
 function formatOverflow(seconds) {
-  if (seconds < 3600) return "+" + Math.round(seconds / 60) + "m";
-  const hours = seconds / 3600;
-  const rounded = Math.round(hours * 10) / 10;
-  return "+" + (Number.isInteger(rounded) ? rounded : rounded.toFixed(1)) + "h";
+  return "+" + formatDuration(seconds);
 }
 
 /* ----------------------------------------------------------- timer math */
@@ -567,26 +570,15 @@ function StudyAnalysisPage({ onBack }) {
                 const level = heatLevel(day.seconds);
                 const overflowSeconds = day.seconds - goalSeconds;
 
-                /* Bar ke andar tabhi likhte hain jab itni lambi ho ki text
-                   saans le sake — ek line ko ~20px chahiye, "+2h" wali doosri
-                   line ke saath ~32px. Chart 144px ka hai, isliye 14% / 22%.
-                   Isse chhoti bar par label bar ke thoda upar chala jaata hai,
-                   warna aadha number bar se baahar latak jaata. */
-                const labelFitsInside = barPercent >= (overflowSeconds > 0 ? 22 : 14);
+                const hasOverflow = overflowSeconds > 0;
 
-                /* Dono jagah ka text ek hi — sirf rang aur jagah badalti hai */
-                const labelText = (
-                  <>
-                    <span className="text-xs font-semibold tabular-nums lg:text-sm">
-                      {formatDuration(day.seconds)}
-                    </span>
-                    {overflowSeconds > 0 && (
-                      <span className="text-[9px] font-medium tabular-nums opacity-80 lg:text-[11px]">
-                        {formatOverflow(overflowSeconds)}
-                      </span>
-                    )}
-                  </>
-                );
+                /* Bar ke andar tabhi likhte hain jab itni lambi ho ki text
+                   saans le sake. "3h 30m" patli column me do line me tut
+                   sakta hai, isliye akele total ke liye ~26px aur upar "+2h 30m"
+                   wale tag ke saath ~46px maanke chalte hain. Chart 144px ka
+                   hai → 18% / 32%. Isse chhoti bar par label bar ke thoda upar
+                   chala jaata hai, warna aadha number bar se baahar latak jaata. */
+                const labelFitsInside = barPercent >= (hasOverflow ? 32 : 18);
 
                 return (
                 <div key={day.dateKey} className="flex min-h-0 flex-col justify-end gap-2">
@@ -600,22 +592,39 @@ function StudyAnalysisPage({ onBack }) {
                         style={{
                           height: barPercent + "%",
                           background: HEAT_COLORS[level],
+                          /* Amber/orange bar par kaala, gehre indigo/pink par
+                             safed — wahi niyam jo month calendar use karta hai.
+                             Yahan rakhne se andar ke dono number khud rang le
+                             lete hain */
+                          color: level > 2 ? "#000" : "#eee",
                         }}
                       >
                         {/* Bina padhe din par "0m" likhna kaam ka nahi */}
                         {day.seconds > 0 &&
                           (labelFitsInside ? (
-                            /* Amber/orange bar par kaala, gehre indigo/pink par
-                               safed — wahi niyam jo month calendar use karta hai */
-                            <span
-                              className="flex flex-col items-center gap-0.5 leading-none"
-                              style={{ color: level > 2 ? "#000" : "#eee" }}
-                            >
-                              {labelText}
-                            </span>
+                            <>
+                              {/* Extra bar ke bilkul upar — total beech me */}
+                              {hasOverflow && (
+                                <span className="absolute inset-x-0 top-1 text-center text-[10px] font-semibold tabular-nums opacity-75 lg:text-xs">
+                                  {formatOverflow(overflowSeconds)}
+                                </span>
+                              )}
+                              <span className="text-center text-xs font-semibold leading-tight tabular-nums lg:text-sm">
+                                {formatDuration(day.seconds)}
+                              </span>
+                            </>
                           ) : (
+                            /* Bar chhoti hai — dono number bar ke upar, wahi
+                               tarteeb: extra sabse upar, total uske neeche */
                             <span className="absolute inset-x-0 bottom-full mb-1 flex flex-col items-center gap-0.5 leading-none text-neutral-400">
-                              {labelText}
+                              {hasOverflow && (
+                                <span className="text-[9px] font-medium tabular-nums lg:text-[11px]">
+                                  {formatOverflow(overflowSeconds)}
+                                </span>
+                              )}
+                              <span className="text-center text-xs font-semibold leading-tight tabular-nums lg:text-sm">
+                                {formatDuration(day.seconds)}
+                              </span>
                             </span>
                           ))}
                       </div>
