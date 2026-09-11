@@ -611,6 +611,6 @@ function ChapterNotes({ chapter }) {
 // PAGE
 // =====================================================
 
-export default function Chapter02Page() {
+export default function NotesPage() {
   return <ChapterNotes chapter={chapter02} />;
 }

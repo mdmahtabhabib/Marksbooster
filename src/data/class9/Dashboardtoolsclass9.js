@@ -43,7 +43,7 @@ import { BookOpen, Clock, Target , AlertCircle , Flame , ChevronRight, CheckCirc
       name : "Study Timer" ,
       desc : "Focus time, tracked", 
       icon : Clock,
-      route : "/home/class9/timer",
+      route : "/timer",
       color : "amber",
     } ,
     

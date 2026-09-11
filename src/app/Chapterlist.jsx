@@ -56,7 +56,7 @@ function Chapterlist ({ chapters,  subject , classId , tool}){
                         <div className={`${c.text}`}>{list.icon}</div>
                         </div>
                         <div>
-                <div className="font-semibold  " >{list.chapter}</div>
+                <div className="font-semibold" >{list.chapter}</div>
                 
                 </div>
                 <ChevronRight className="text-right ml-auto " />

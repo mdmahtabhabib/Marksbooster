@@ -99,7 +99,10 @@ within a chapter.
 Table rule: unique on `(chapter_slug, position)` — no two cards in a chapter
 share a slot. Index `idx_flashcards_chapter` on `chapter_slug`.
 
-RLS: any `authenticated` user can `select` every flashcard.
+RLS: a student can `select` only the flashcards of chapters whose `class`
+they have a completed purchase for, via `has_class_access(chapters.class)`.
+The original open "any authenticated user" policy was replaced by
+`migrations/001_flashcards_purchase_policy.sql`.
 
 ## How they connect
 
@@ -118,13 +121,60 @@ each other and can be created in either order, but both must exist before
 the schema files are numbered `01_students.sql`, `02_products.sql`,
 `03_purchases.sql`, `04_chapters.sql`, `05_flashcards.sql`.
 
+## Seeding content
+
+**A chapter row must exist before any of its flashcards.**
+`flashcards.chapter_slug` is a foreign key to `chapters.slug`, so inserting
+cards for a slug that isn't in `chapters` yet fails with:
+
+```
+ERROR: insert or update on table "flashcards" violates foreign key constraint
+DETAIL: Key (chapter_slug)=(...) is not present in table "chapters".
+```
+
+A multi-row `INSERT ... VALUES (...), (...), ...` is a single statement, so
+this is all-or-nothing — every card is rejected, nothing is half-written.
+Add the parent row and re-run.
+
+Order for a new chapter:
+
+```sql
+-- 1. the chapter
+insert into chapters (slug, class, subject, title)
+values ('tissues-in-action', 'class9', 'biology', 'Tissues in Action');
+
+-- 2. then its cards
+insert into flashcards (chapter_slug, question, answer, position)
+values ('tissues-in-action', '...', '...', 1),
+       ('tissues-in-action', '...', '...', 2);
+```
+
+Things that are easy to get wrong:
+
+- **`slug` must match the frontend exactly.** The nav lists live in code
+  (`src/data/<class>/chapters/*.js`) and are *not* generated from this
+  table — the two are kept in sync by hand. A mismatch gives a working
+  link that loads an empty page.
+- **`class` gates access, not just the FK.** Flashcard reads go through
+  `has_class_access(chapters.class)` (see `migrations/001`), so a chapter
+  filed under the wrong class shows an empty deck to students who
+  legitimately bought it.
+- **`position` is scoped per chapter,** because the unique constraint is on
+  the pair `(chapter_slug, position)`. Every chapter's deck starts at 1 —
+  don't continue numbering from the previous chapter's last card.
+- **`subject` and `class` are `check`-constrained** to the lists in
+  `schema/04_chapters.sql`. Anything else is rejected.
+- Escape apostrophes in question/answer text by doubling them
+  (`nature''s`), since the values are single-quoted string literals.
+
 ## Security
 
 Row Level Security (RLS) is enabled on all five tables, since the
 Supabase anon key is public in the frontend:
 - Students can `select` only their own row/purchases.
 - Anyone can `select` active products.
-- Any logged-in student can `select` every chapter and flashcard.
+- Any logged-in student can `select` every chapter (titles only, no content).
+- Flashcards are readable only for classes the student has purchased.
 - There is no `insert` policy on `purchases` — the admin adds rows manually
   via Supabase's Table Editor after confirming payment.
 - Likewise there's no `insert`/`update` policy on `chapters` or `flashcards`

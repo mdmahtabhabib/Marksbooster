@@ -15,8 +15,7 @@ import Login from "./auth/Login";
 import { AuthContext } from "./context/AuthContext";
 import ProtectedRoute from "./auth/ProtectedRoute";
 import Studytimer from "./Features/Studytimer";
-import Test from "./comp/test";
-import Test2 from "./comp/notes2";
+import NotesPage from "./Features/shortnotes/shortnotes";
 import PurchaseRoute from "./auth/PurchaseRoute";
 import ToolLeaf from "./app/ToolLeaf";
 import SyllabusTracker from "./Features/Syllabustracker/Syllabustracker";
@@ -96,8 +95,8 @@ function App() {
       <Route path="/timer" element = {<Studytimer/>} />
       <Route path="/tracker" element = {<SyllabusTracker/>} />
       <Route path="/syllabus" element = {<SyllabusTracker/>} />
-      <Route path="/notes" element = {<Test/>} />
-     <Route path="/notes2" element = {<Test2/>} />
+      <Route path="/notes" element = {<NotesPage/>} />
+    
      
      
     </Routes> 

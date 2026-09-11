@@ -16,6 +16,11 @@ const STORAGE_GOAL = "mb_daily_goal";
 const HEAT_COLORS = ["#16161c", "#4B3FB0", "#B0357A", "#EF5F3C", "#F7A823"];
 const GOAL_CHOICES = [30, 60, 90, 120, 180, 240];
 
+/* Manual goal ki hadd: 15 minute se 14 ghante tak, 15-15 minute ki chhalaang */
+const GOAL_MIN_MINUTES = 15;
+const GOAL_MAX_MINUTES = 14 * 60;
+const GOAL_STEP_MINUTES = 15;
+
 const EMPTY_TIMER = {
   mode: "idle",
   startedAt: 0,
@@ -64,6 +69,15 @@ function splitTime(milliseconds) {
 function formatDuration(seconds) {
   if (seconds < 3600) return Math.round(seconds / 60) + "m";
   return (seconds / 3600).toFixed(1) + "h";
+}
+
+/* Goal se kitna ZYADA padha — bar ke upar "+2h" jaisa chhota tag banta hai.
+   Poore ghante par ".0" nahi lagta, warna patli bar me jagah bekaar jaati */
+function formatOverflow(seconds) {
+  if (seconds < 3600) return "+" + Math.round(seconds / 60) + "m";
+  const hours = seconds / 3600;
+  const rounded = Math.round(hours * 10) / 10;
+  return "+" + (Number.isInteger(rounded) ? rounded : rounded.toFixed(1)) + "h";
 }
 
 /* ----------------------------------------------------------- timer math */
@@ -200,7 +214,7 @@ function BigClock({ timer }) {
 
 /* ============================== GOAL SHEET ============================== */
 
-function GoalSheet({ goalMinutes, onPick, onClose }) {
+function GoalSheet({ goalMinutes, onPick, onChange, onClose }) {
   return (
     <div
       className="fixed inset-0 z-40 flex items-end justify-center bg-black/70 p-4 sm:items-center"
@@ -227,6 +241,34 @@ function GoalSheet({ goalMinutes, onPick, onClose }) {
               {formatDuration(minutes * 60)}
             </button>
           ))}
+        </div>
+
+        {/* Chips sirf 6 aam target dete hain. Jise 4h 45m chahiye uske liye
+            ye slider — 15 minute ke step me 14 ghante tak. Slider sheet band
+            nahi karta, taaki value tasalli se set ho sake. */}
+        <div className="mt-5 text-left">
+          <div className="flex items-baseline justify-between gap-2">
+            <p className={EYEBROW}>Or set manually</p>
+            <span className="font-serif text-lg tabular-nums text-neutral-100">
+              {formatDuration(goalMinutes * 60)}
+            </span>
+          </div>
+
+          <input
+            type="range"
+            min={GOAL_MIN_MINUTES}
+            max={GOAL_MAX_MINUTES}
+            step={GOAL_STEP_MINUTES}
+            value={goalMinutes}
+            onChange={(event) => onChange(Number(event.target.value))}
+            aria-label="Daily goal minutes"
+            className="mt-2 w-full accent-neutral-100"
+          />
+
+          <div className="flex justify-between text-xs text-neutral-700">
+            <span>15m</span>
+            <span>14h</span>
+          </div>
         </div>
 
         <p className="mt-4 text-xs leading-relaxed text-neutral-600">
@@ -383,6 +425,7 @@ function StudyTimerPage({ onAnalyse }) {
       {isGoalSheetOpen && (
         <GoalSheet
           goalMinutes={goalMinutes}
+          onChange={setGoalMinutes}
           onPick={(minutes) => { setGoalMinutes(minutes); setIsGoalSheetOpen(false); }}
           onClose={() => setIsGoalSheetOpen(false)}
         />
@@ -526,13 +569,22 @@ function StudyAnalysisPage({ onBack }) {
                       <div className="h-full w-full rounded border border-dashed border-neutral-900" />
                     ) : (
                       <div
-                        className="w-full rounded-t transition-all duration-500"
+                        className="flex w-full items-start justify-center rounded-t pt-1 transition-all duration-500"
                         title={day.dateKey + ": " + formatDuration(day.seconds)}
                         style={{
                           height: (day.seconds / chartTop) * 100 + "%",
                           background: HEAT_COLORS[heatLevel(day.seconds)],
                         }}
-                      />
+                      >
+                        {/* Goal paar karne wali bar hamesha sabse lambi hoti hai
+                            (chartTop khud usi se banta hai), isliye tag ke liye
+                            upar jagah pakki rehti hai */}
+                        {day.seconds > goalSeconds && (
+                          <span className="text-[10px] font-semibold leading-none text-black lg:text-xs">
+                            {formatOverflow(day.seconds - goalSeconds)}
+                          </span>
+                        )}
+                      </div>
                     )}
                   </div>
                   <span

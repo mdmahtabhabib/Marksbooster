@@ -6,5 +6,6 @@ export default function ToolLeaf() {
     const { tool } = useParams() ;
 
     if (tool === "flashcard") return <FlashcardlistPage />;
-    return <ComingSoon />
+    return <ComingSoon /> ;
+    
 };
