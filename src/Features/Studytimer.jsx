@@ -572,6 +572,13 @@ function StudyAnalysisPage({ onBack }) {
 
                 const hasOverflow = overflowSeconds > 0;
 
+                /* Goal poora ho gaya to beech me goal hi likhte hain, poora
+                   total nahi — "4h" (goal) + upar "+2h 30m" padhne me saaf
+                   hai, jabki "6h 30m" ke saath "+2h 30m" do alag-alag number
+                   lagte hain aur dimaag ko ghatana padta hai. Asli poora total
+                   hover/tooltip me waise hi milta hai. */
+                const barLabelSeconds = hasOverflow ? goalSeconds : day.seconds;
+
                 /* Bar ke andar tabhi likhte hain jab itni lambi ho ki text
                    saans le sake. "3h 30m" patli column me do line me tut
                    sakta hai, isliye akele total ke liye ~26px aur upar "+2h 30m"
@@ -610,7 +617,7 @@ function StudyAnalysisPage({ onBack }) {
                                 </span>
                               )}
                               <span className="text-center text-xs font-semibold leading-tight tabular-nums lg:text-sm">
-                                {formatDuration(day.seconds)}
+                                {formatDuration(barLabelSeconds)}
                               </span>
                             </>
                           ) : (
@@ -623,7 +630,7 @@ function StudyAnalysisPage({ onBack }) {
                                 </span>
                               )}
                               <span className="text-center text-xs font-semibold leading-tight tabular-nums lg:text-sm">
-                                {formatDuration(day.seconds)}
+                                {formatDuration(barLabelSeconds)}
                               </span>
                             </span>
                           ))}

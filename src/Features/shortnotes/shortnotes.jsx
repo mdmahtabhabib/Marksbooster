@@ -1,6 +1,7 @@
-// Chapter02.jsx
+// cell-the-building-block-of-life
 
-export const chapter02 = {
+export const cellTheBuildingBlockOfLife = {
+  slug: "cell-the-building-block-of-life",
   kicker: "NCERT · Class 9 Science · Ch 2",
   title: "Cell: The Building Block of Life",
   subtitle: "Quick revision · point-wise notes",
@@ -407,7 +408,6 @@ export const chapter02 = {
   ]
 };
 
-
 // =====================================================
 // CARD
 // =====================================================
@@ -537,10 +537,10 @@ function Section({ section }) {
 
 
 // =====================================================
-// CHAPTER NOTES
+// SHORT NOTES
 // =====================================================
 
-function ChapterNotes({ chapter }) {
+function ShortNotes({ chapter }) {
 
   if (!chapter) {
     return null;
@@ -612,5 +612,5 @@ function ChapterNotes({ chapter }) {
 // =====================================================
 
 export default function NotesPage() {
-  return <ChapterNotes chapter={chapter02} />;
+  return <ShortNotes chapter={cellTheBuildingBlockOfLife} />;
 }
