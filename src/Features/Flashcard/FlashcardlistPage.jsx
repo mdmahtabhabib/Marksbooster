@@ -11,6 +11,9 @@ function FlashcardlistPage(){
     const [loading , setLoading ] = useState(true);
 
     useEffect( () =>{
+       
+        let cancelled = false;
+
         async function loadchapter(){
          setLoading(true);
          const {data , error } = await supabase
@@ -19,6 +22,9 @@ function FlashcardlistPage(){
          .eq("slug" , chapterSlug)
          .order ("position" , {foreignTable : "flashcards"})
          .single();
+
+
+        if (cancelled) return;
 
          if (error) {
             console.log(error.message);
@@ -29,6 +35,8 @@ function FlashcardlistPage(){
          setLoading(false)
         }
          loadchapter();
+
+         return() => {cancelled = true ;};
         },[chapterSlug]);
             
         

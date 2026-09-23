@@ -91,7 +91,7 @@ function Section({ section }) {
        {section.title}
       </div>
 
-      {section.items.map((item, index )=>(
+      {section.items && section.items.map((item, index )=>(
         <Card key={`${section.title}-${index}`} item={item}/>
       ))}
     </section>
@@ -123,7 +123,11 @@ export default function ShortNotes ({ chapter }){
               {chapter.title}
             </h1>
             
-          
+          {chapter.subtitle &&(
+            <div className="mt-[6px] text-white/70" >
+              {chapter.subtitle}
+            </div>
+          )}
           </div> 
         
       </header>
