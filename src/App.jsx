@@ -19,6 +19,7 @@ import Studytimer from "./Features/Studytimer";
 import PurchaseRoute from "./auth/PurchaseRoute";
 import ToolLeaf from "./app/ToolLeaf";
 import SyllabusTracker from "./Features/Syllabustracker/Syllabustracker";
+import ConceptCheck from "./Features/Conceptcheck/Conceptcheck";
 
 
 
@@ -95,6 +96,7 @@ function App() {
       <Route path="/timer" element = {<Studytimer/>} />
       <Route path="/tracker" element = {<SyllabusTracker/>} />
       <Route path="/syllabus" element = {<SyllabusTracker/>} />
+      <Route path="/conceptcheck" element = {<ConceptCheck/>} />
       
     
      
