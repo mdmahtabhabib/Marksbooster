@@ -97,7 +97,7 @@ function App() {
       <Route path="/timer" element = {<Studytimer/>} />
       <Route path="/tracker" element = {<SyllabusTracker/>} />
       <Route path="/syllabus" element = {<SyllabusTracker/>} />
-      <Route path="/impotant-question" element = {<ImportantquestionsPage/>} />
+      <Route path="/important-question" element = {<ImportantquestionsPage/>} />
       
       
     
