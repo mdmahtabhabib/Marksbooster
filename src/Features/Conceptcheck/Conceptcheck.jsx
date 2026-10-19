@@ -247,17 +247,7 @@ return(
       ))}
       </div>
 
-      {/* Explaination, only after answering  */}
-      {hasAnswered && (
-        <div className="bg-slate-900 border border-slate-800 rounded-xl p-4 mb-5" >
-        <p className={`font-semibold mb-1 ${isCorrect ? "text-emerald-400" : "text-red-400"}`} >
-         {isCorrect ? "✓ Correct!" :"✗ Wrong" }
-        </p>
-        {q.explanation && (
-          <p className="text-sm lg:text-base text-slate-400 whitespace-pre-line">{q.explanation}</p>
-        )}
-        </div>
-      )}
+      
 
       {/*Navigation*/}
       <div className="flex items-center justify-between" >
@@ -269,6 +259,17 @@ return(
        {nextLabel}
      </button>
       </div>
+      {/* Explaination, only after answering  */}
+      {hasAnswered && (
+        <div className="bg-slate-900 border border-slate-800 rounded-xl p-4  mt-5" >
+        <p className={`font-semibold mb-1 ${isCorrect ? "text-emerald-400" : "text-red-400"}`} >
+         {isCorrect ? "✓ Correct!" :"✗ Wrong" }
+        </p>
+        {q.explanation && (
+          <p className="text-sm lg:text-base text-slate-400 whitespace-pre-line">{q.explanation}</p>
+        )}
+        </div>
+      )}
 
     </div>
 
