@@ -1,65 +1,5 @@
 import { useState } from "react";
 
-// ---------------------------------------------
-// 1. DATA
-// ---------------------------------------------
-// Sample questions for testing. Later these will come from Supabase.
-//
-// id          -> unique number
-// question    -> the question text (use \n for a new line)
-// options     -> list of answer choices
-// answer      -> the correct option, written exactly the same as in options
-// explanation -> shown after answering (optional)
-// image       -> link to a diagram (optional)
-// keepOrder   -> true = don't shuffle options, e.g. "All of the above" (optional)
-//
-// Tip: write formulas with real characters: H₂O, CO₂, x², 10⁻³, →
-
-const mcqData = [
-  {
-    id: 1,
-    question: "What is the SI unit of force?",
-    options: ["Joule", "Newton", "Watt", "Pascal"],
-    answer: "Newton",
-    explanation: "Force is measured in Newton (N). 1 N = 1 kg·m/s².",
-  },
-  {
-    id: 2,
-    question: "Which gas do plants take in during photosynthesis?",
-    options: ["Oxygen", "Nitrogen", "Carbon dioxide", "Hydrogen"],
-    answer: "Carbon dioxide",
-    explanation: "Plants take in carbon dioxide (CO₂) and give out oxygen (O₂).",
-  },
-  {
-    id: 3,
-    question: "What is the chemical formula of water?",
-    options: ["H₂O", "CO₂", "O₂", "H₂O₂"],
-    answer: "H₂O",
-    explanation: "Water has 2 hydrogen atoms and 1 oxygen atom: H₂O.",
-  },
-  {
-    id: 4,
-    question: "Which of these are greenhouse gases?",
-    options: ["Carbon dioxide", "Methane", "Water vapour", "All of the above"],
-    answer: "All of the above",
-    explanation: "CO₂, methane and water vapour all trap heat in the atmosphere.",
-    keepOrder: true,
-  },
-  {
-    id: 5,
-    question:
-      "Assertion: The heart pumps blood to every part of the body.\nReason: The heart is made of cardiac muscle that contracts rhythmically.",
-    options: [
-      "Both are true and Reason explains Assertion",
-      "Both are true but Reason does not explain Assertion",
-      "Assertion is true, Reason is false",
-      "Assertion is false, Reason is true",
-    ],
-    answer: "Both are true and Reason explains Assertion",
-    explanation: "Cardiac muscle contracting is what pumps the blood, so the Reason explains the Assertion.",
-    keepOrder: true,
-  },
-];
 
 // ---------------------------------------------
 // 2. HELPERS (small plain functions)
@@ -82,7 +22,7 @@ function shuffle(list){
 // shuffle the options of every question (except questions marked keeporder)
 function shuffleOptions(questions) {
   return questions.map((q) => {
-    if (q.keepOrder) {
+    if (q.keep_order) {
       return q ;
     }
     return {...q, options: shuffle(q.options)} ; 
@@ -342,12 +282,10 @@ return(
 // ---------------------------------------------
 // It checks the data first, then shows the quiz.
 //
-// Now:   <ConceptCheck />
+
 // Later: <ConceptCheck title={chapter.title} mcqs={chapter.mcqs} />
 //        (no key needed - it resets by itself when the chapter changes, see quizKey below)
-//
-// ⚠️ When you connect Supabase, delete section 1 and "= mcqData" below.
-function Conceptcheck({mcqs = mcqData, title = "concept Check"}) {
+function Conceptcheck({mcqs , title = "concept Check"}) {
   // keep only good questions (protects against broken or AI-made data)
 let goodQuestions = [];
 const seenIds = new Set(); // ids of the questions we have already kept 
