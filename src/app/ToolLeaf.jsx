@@ -3,6 +3,7 @@ import ComingSoon from "@/Pages/ComingSoon";
 import FlashcardlistPage from "@/Features/Flashcard/FlashcardlistPage";
 import ShortNotesListPage from "@/Features/shortnotes/shortnoteslistPage";
 import ConceptchecklistPage from "@/Features/Conceptcheck/ConceptchecklistPage";
+import ImportantquestionslistPage from "@/Features/Importantquestion/ImportantquestionslistPage";
 
 export default function ToolLeaf() {
     const { tool } = useParams() ;
@@ -10,6 +11,7 @@ export default function ToolLeaf() {
     if (tool === "flashcard") return <FlashcardlistPage />;
     else if (tool === "short-notes") return <ShortNotesListPage />;
     else if (tool === "concept-check") return <ConceptchecklistPage />
+    else if (tool === "important-question") return <ImportantquestionslistPage/>
     return <ComingSoon /> ;
     
    
