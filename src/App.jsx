@@ -19,6 +19,7 @@ import Studytimer from "./Features/Studytimer";
 import PurchaseRoute from "./auth/PurchaseRoute";
 import ToolLeaf from "./app/ToolLeaf";
 import SyllabusTracker from "./Features/Syllabustracker/Syllabustracker";
+import NotFound from "./Pages/NotFound";
 
 
 
@@ -30,27 +31,13 @@ function App() {
   const [session , setSession] = useState(null);
   const [authLoading , setAuthLoading] = useState(true);
   const [unlockedClasses , setUnlockedClasses] = useState(null);
+    const userId = session?.user?.id;
+
 
   useEffect(() => {
-    async function loadUnlockedClasses(session){
-      if (!session){
-         setUnlockedClasses([]);
-         return;
-      }
-      const { data : rows , error } = await supabase
-      .from("purchases")
-      .select("products(unlocks_class)")
-      .eq("payment_status" , "completed");
+  
 
-       if (error){
-        console.error(error);
-        setUnlockedClasses([]);
-        return
-      }
 
-      setUnlockedClasses(rows.map((row) => row.products.unlocks_class ));
-
-    }
 
      async function checkSession() {
       const { data , error } = await supabase.auth.getSession();
@@ -60,7 +47,7 @@ function App() {
         return;
       }
       setSession(data.session);
-     await loadUnlockedClasses(data.session);
+     
 
       setAuthLoading(false);
     } 
@@ -68,13 +55,40 @@ function App() {
 
     const {data} = supabase.auth.onAuthStateChange((event , session) => {
       setSession(session);
-      loadUnlockedClasses(session);
+     
       setAuthLoading(false);
     });
 
     return () => {data.subscription.unsubscribe()}
      } 
       , [] );
+      
+  useEffect(() => {
+    let cancelled = false;
+
+    async function loadUnlockedClasses(){
+      setUnlockedClasses(null);
+      if (!userId) return;
+
+      const { data : rows , error } = await supabase
+      .from("purchases")
+      .select("products(unlocks_class)")
+      .eq("payment_status" , "completed");
+      if (cancelled) return;
+
+      if (error){
+        console.error(error);
+        setUnlockedClasses([]);
+        return;
+      }
+
+      setUnlockedClasses(rows.filter((row) => row.products !== null).map((row) => row.products.unlocks_class));
+    }
+
+    loadUnlockedClasses();
+    return () => { cancelled = true; };
+  }, [userId]);
+
 
       
       
@@ -96,6 +110,7 @@ function App() {
       <Route path="/timer" element = {<Studytimer/>} />
       <Route path="/tracker" element = {<SyllabusTracker/>} />
       <Route path="/syllabus" element = {<SyllabusTracker/>} />
+      <Route path="*" element={< NotFound />} />
 
 
       
