@@ -14,6 +14,4 @@ export default function ToolLeaf() {
     else if (tool === "important-question") return <ImportantquestionslistPage/>
     return <ComingSoon /> ;
     
-   
-    
 };

@@ -23,7 +23,9 @@ function Home(){
     <Stats />
     <Features />
     <Cources />
-    <Testimonials />
+
+   {/* <Testimonials /> */}
+
     <Faq />
     <Banner />
     <Footer />

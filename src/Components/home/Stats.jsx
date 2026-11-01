@@ -1,10 +1,10 @@
 function Stats(){
     const stats = [
-        {val:" ₹499" , label:"per year"} ,
-        {val:"Unlimited Question" , label:"solve without limits"},
-        {val:"AI powered" , label:"doubt solving"},
+        {val:" ₹499" , label:"	per year, all tools included"} ,
+        {val:"Exam-focused" , label:"most-asked questions with answers"},
+        {val:"6 Tools" , label:"everything in one platform"},
         {val:"Smart Revision" , label:"Revise faster"},
-        {val:"8 Tools" , label:"in one platform"},
+        {val:"NCERT based" , label:"aligned with CBSE syllabus"},
         {val:"All in one" , label:"just in one click"}
         
     ];

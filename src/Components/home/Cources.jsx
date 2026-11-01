@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
 function Cources(){
     const Cources = [
-        {class: "Class 8" , tag: "Foundation" , price: 499 , Subjects: ["Mathematic" , "Science" , "Social Science" , "English" , "Hindi"], desc:"Perfect for building strong fundamentals in class 8" , label: "Buy Now" , cnt:"/home/class8"  } ,
-        {class: "Class 9" , tag: "Foundation" , price: 499 , Subjects: ["Mathematic" , "Science" , "Social Science" , "English" , "Hindi"], desc:"Ideal for class 9 foundation students   ", label: "Buy Now" , cnt:"/home/class9"} ,
-        {class: "Class 10" , tag: "Board" , price: 499 , Subjects: ["Mathematic" , "Science" , "Social Science" , "English" , "Hindi"], desc:"Everything you need to ace your class 10 board exams", label: "Buy Now" , cnt:"/home/class10"} ,
-        {class: "Complete NEET",tag: "NEET",price: 999,Subjects: ["Physics", "Chemistry", "Zoology", "botany", "all subjects"], desc: "Everything you need to crack NEET ", label: "Start Now" , cnt:"/home/neet"},
+        {class: "Class 8" , tag: "Foundation" , price: 499 , permonth:"That's just ₹41/month", Subjects: ["Mathematics" , "Science" , "Social Science" , "English" , "Hindi"], desc:"Perfect for building strong fundamentals in class 8" , label: "Buy Now" , cnt:"/home/class8"  } ,
+        {class: "Class 9" , tag: "Foundation" , price: 499 ,permonth:"That's just ₹41/month", Subjects: ["Mathematics" , "Science" , "Social Science" , "English" , "Computer"], desc:"Ideal for class 9 foundation students   ", label: "Buy Now" , cnt:"/home/class9"} ,
+        {class: "Class 10" , tag: "Board" , price: 499 ,permonth:"That's just ₹41/month", Subjects: ["Mathematics" , "Science" , "Social Science" , "English" , "Hindi"], desc:"Everything you need to ace your class 10 board exams", label: "Buy Now" , cnt:"/home/class10"} ,
+        {class: "Class 11" , tag: "Board" , price: 499 , permonth:"That's just ₹41/month", Subjects: ["Mathematics" , "Physics" , "Chemistry" , "Biology" , "English"], desc:"Everything you need to ace your class 10 board exams", label: "Buy Now" , cnt:"/home/class10"} ,
+        {class: "Class 12" , tag: "Board" , price: 499 , permonth:"That's just ₹41/month", Subjects: ["Mathematics" , "Physics" , "Chemistry" , "Biology" , "English"], desc:"Everything you need to ace your class 10 board exams", label: "Buy Now" , cnt:"/home/class10"} ,
+        {class: "Complete NEET",tag: "NEET",price: 999 , permonth:"That's just ₹82/month",Subjects: ["Physics", "Chemistry", "Zoology", "botany", "all subjects"], desc: "Everything you need to crack NEET ", label: "Start Now" , cnt:"/home/neet"},
         
     ];
     
@@ -25,7 +27,7 @@ return(
                     <span className="text-4xl font-bold text-blue-900" >{Course.price}</span>
                     <span className="text-gray-500 text-sm mb-1" >/year</span>
                 </div> 
-                <p className="text-sm text-gray-500 mb-6" >That's just ₹41/month </p>
+                <p className="text-sm text-gray-500 mb-6" >{Course.permonth} </p>
                 <div className="space-y-2 mb-8" >
                  <p className="text-sm font-semibold text-gray-600 uppercase tracking-wide mb-3" >Subject covered</p> 
                  {Course.Subjects.map((sub , j) => (
@@ -37,7 +39,7 @@ return(
                 )}
                 <div className="flex items-center gap-2 pt-2" >
                 <div className="w-4 h-4 bg-blue-100 rounded-full flex items-center justify-center justify-center text-sm text-blue-600" >✓</div> 
-                <p className="text-sm text-gray-700" >All 8 tools included</p>
+                <p className="text-sm text-gray-700" >All 6 tools included</p>
                 </div>      
                 </div>
                 <Link to={Course.cnt} >
