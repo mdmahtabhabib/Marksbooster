@@ -23,6 +23,7 @@ import zoologyneet from "../data/neet/chapters/zoologyneet";
 import botanyneet from "../data/neet/chapters/botanyneet";
 
 import Chapterlist from "./Chapterlist";
+import NotFound from "@/Pages/NotFound";
 
 
 
@@ -60,7 +61,8 @@ function ChapterlistPage(){
 
         }
     };
-    const chapters = chapterMap[classId][subject];
+    const chapters = chapterMap[classId]?.[subject];
+    if (!chapters) return <NotFound />
      
    return ( <Chapterlist chapters ={chapters} classId={classId} tool={tool} subject={subject} />);
 
