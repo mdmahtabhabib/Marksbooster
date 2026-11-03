@@ -26,7 +26,7 @@ const from = location.state?.from?.pathname || "/";
      setMessage("");
      setLoading(true);
 
-    const {data , error } = await supabase.auth.signInWithPassword({
+    const { error } = await supabase.auth.signInWithPassword({
         email , 
         password,
     });
@@ -39,7 +39,7 @@ const from = location.state?.from?.pathname || "/";
         setMessage(error.message)
 
     } else {
-        console.log("Log-in successful:" , data);
+       
         setIsError(false);
         navigate(from , {replace: true});
         

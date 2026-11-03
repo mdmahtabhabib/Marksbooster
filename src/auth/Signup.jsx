@@ -26,7 +26,7 @@ const [confirmPassword , setConfirmPassword] = useState("");
 
      setLoading(true);
 
-    const {data , error } = await supabase.auth.signUp({
+    const { error } = await supabase.auth.signUp({
         email , 
         password,
         options:{
@@ -44,7 +44,7 @@ const [confirmPassword , setConfirmPassword] = useState("");
         setMessage(error.message)
 
     } else {
-        console.log("Sign-up successful:" , data);
+       
         setIsError(false);
          setMessage("Signup successfull! Please check you email.")
     };
