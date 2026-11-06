@@ -4,7 +4,8 @@ import { AuthContext } from "../../context/AuthContext";
 import { supabase } from "../../lib/supabase";
 
 function Nav(){
-  const {session} = useContext(AuthContext);
+  const {session , unlockedClasses } = useContext(AuthContext);
+  const myClass = unlockedClasses?.[0];
 
   async function handleLogout(){
     const {error} = await supabase.auth.signOut();
@@ -28,6 +29,13 @@ return(
         <a href="#" className="hover:text-blue-600 transition-colors">FAQ</a>
       </div>
       <div className="flex items-center gap-3">
+      
+      {myClass && (
+        <Link to={`/home/${myClass}`} className="text-sm font-semibold text-blue-700 hover:text-blue-900" >
+        My Dashboard
+        </Link>
+      )}
+
         <div  className="bg-blue-700 text-white text-sm px-5 py-2 rounded-xl transition-colors hover:bg-blue-800">
         
         { session ? ( 

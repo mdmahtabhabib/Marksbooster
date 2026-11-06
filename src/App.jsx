@@ -21,6 +21,8 @@ import ToolLeaf from "./app/ToolLeaf";
 import SyllabusTracker from "./Features/Syllabustracker/Syllabustracker";
 import NotFound from "./Pages/NotFound";
 
+import DashboardRedirect from "./auth/DashboardRedirect";
+
 
 
 
@@ -110,6 +112,7 @@ function App() {
       <Route path="/timer" element = {<Studytimer/>} />
       <Route path="/tracker" element = {<SyllabusTracker/>} />
       <Route path="/syllabus" element = {<SyllabusTracker/>} />
+      <Route path="/dashboard" element = {<ProtectedRoute> <DashboardRedirect /> </ProtectedRoute>} />
       <Route path="*" element={< NotFound />} />
 
 

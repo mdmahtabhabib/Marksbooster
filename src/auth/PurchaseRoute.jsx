@@ -12,6 +12,6 @@ export default function PurchaseRoute({children}){
         return <Spinner/>;
     }
 
-    return unlockedClasses.includes(classId) ? children :<Navigate to="/" state={{from : location}} /> ;
+    return unlockedClasses.includes(classId) ? children :<Navigate to="/" state={{from : location}} replace /> ;
     
 }
