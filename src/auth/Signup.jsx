@@ -33,7 +33,9 @@ const [confirmPassword , setConfirmPassword] = useState("");
             data:{
                 full_name:name,
             },
+            emailRedirectTo: `${window.location.origin}/dashboard`,
         },
+        
     });
 
     setLoading(false);
@@ -46,7 +48,7 @@ const [confirmPassword , setConfirmPassword] = useState("");
     } else {
        
         setIsError(false);
-         setMessage("Signup successfull! Please check you email.")
+         setMessage("Signup successful! Please check you email.")
     };
     
 };
