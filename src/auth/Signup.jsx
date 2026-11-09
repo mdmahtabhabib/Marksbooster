@@ -48,7 +48,7 @@ const [confirmPassword , setConfirmPassword] = useState("");
     } else {
        
         setIsError(false);
-         setMessage("Signup successful! Please check you email.")
+         setMessage("Signup successful! Please check your email.")
     };
     
 };

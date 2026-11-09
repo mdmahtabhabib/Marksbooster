@@ -22,6 +22,7 @@ import SyllabusTracker from "./Features/Syllabustracker/Syllabustracker";
 import NotFound from "./Pages/NotFound";
 
 import DashboardRedirect from "./auth/DashboardRedirect";
+import ForgotPassword from "./auth/ForgotPassword";
 
 
 
@@ -113,7 +114,9 @@ function App() {
       <Route path="/tracker" element = {<SyllabusTracker/>} />
       <Route path="/syllabus" element = {<SyllabusTracker/>} />
       <Route path="/dashboard" element = {<ProtectedRoute> <DashboardRedirect /> </ProtectedRoute>} />
+      <Route path="/forgot-password" element={<ForgotPassword />} />
       <Route path="*" element={< NotFound />} />
+      
 
 
       
