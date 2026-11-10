@@ -23,6 +23,7 @@ import NotFound from "./Pages/NotFound";
 
 import DashboardRedirect from "./auth/DashboardRedirect";
 import ForgotPassword from "./auth/ForgotPassword";
+import ResetPassword from "./auth/ResetPassword";
 
 
 
@@ -115,6 +116,7 @@ function App() {
       <Route path="/syllabus" element = {<SyllabusTracker/>} />
       <Route path="/dashboard" element = {<ProtectedRoute> <DashboardRedirect /> </ProtectedRoute>} />
       <Route path="/forgot-password" element={<ForgotPassword />} />
+      <Route path="/reset-password" element={<ResetPassword />} />
       <Route path="*" element={< NotFound />} />
       
 
