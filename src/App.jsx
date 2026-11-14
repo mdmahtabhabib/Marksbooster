@@ -24,6 +24,7 @@ import NotFound from "./Pages/NotFound";
 import DashboardRedirect from "./auth/DashboardRedirect";
 import ForgotPassword from "./auth/ForgotPassword";
 import ResetPassword from "./auth/ResetPassword";
+import VerifyEmail from "./auth/VerifyEmail";
 
 
 
@@ -117,6 +118,7 @@ function App() {
       <Route path="/dashboard" element = {<ProtectedRoute> <DashboardRedirect /> </ProtectedRoute>} />
       <Route path="/forgot-password" element={<ForgotPassword />} />
       <Route path="/reset-password" element={<ResetPassword />} />
+      <Route path="/verify-email" element={<VerifyEmail/>} />
       <Route path="*" element={< NotFound />} />
       
 
