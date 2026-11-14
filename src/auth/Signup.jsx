@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 
 
 
+
 export default function Signup() {
     const [name , SetName] = useState("");
     const [email, setEmail] = useState("") ;
@@ -15,12 +16,13 @@ const [message , setMessage] = useState("");
 const [isError , setIsError] = useState(false);
 const [loading , setLoading] = useState(false);
 const [confirmPassword , setConfirmPassword] = useState("");
+const [signedUp , setSignedUp ] = useState(false);
  async function handleSubmit(e){
     e.preventDefault();
 
     if (password !== confirmPassword) {
         setIsError(true);
-        setMessage("Password do not match");
+        setMessage("Passwords do not match");
         return;
     }
 
@@ -48,10 +50,30 @@ const [confirmPassword , setConfirmPassword] = useState("");
     } else {
        
         setIsError(false);
-         setMessage("Signup successful! Please check your email.")
+         setMessage(`We sent a confirmation link to ${email}. Check your inbox and spam folder `);
+         setSignedUp(true);
     };
     
 };
+
+async function handleResend(){
+    setLoading(true);
+    const { error } = await supabase.auth.resend({
+        type : "signup" , 
+        email , 
+        options : { emailRedirectTo: `${window.location.origin}/dashboard`} ,
+
+    }) ;
+    setLoading(false);
+
+    if (error ) {
+        setIsError(true) ;
+        setMessage(error.message);
+    }else{
+        setIsError(false);
+        setMessage(`New link sent to ${email}. Check your inbox and spam folder.`)
+    }
+}
     return (
         <>
         
@@ -99,6 +121,14 @@ const [confirmPassword , setConfirmPassword] = useState("");
            {message && (
             <p className={`mt-4 text-sm text-center font-medium  ${ isError ? "text-red-600" : "text-emerald-600"}` } >{message}</p>
            )}
+
+           {signedUp &&(
+            <button type="button" onClick={handleResend} disabled={loading} 
+            className="mt-3 w-full text-sm font-semibold text-blue-600 hover:text-blue-700 disabled:opacity-50 ">
+            {loading ? "Sending..." : "Didn't get it ? Resend email"}
+            </button>
+           )}
+
            <p className="text-sm text-gray-500 text-center mt-6" >
             Already have an account ?{ " "}
             <Link to="/login" className="text-blue-600 font-semibold hover:text-blue-700" >
