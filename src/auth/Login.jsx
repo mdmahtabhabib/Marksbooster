@@ -54,7 +54,7 @@ async function handleResend(){
     const {error } = await supabase.auth.resend({
         type: "signup",
         email,
-        options: {emailRedirectTo: `${window.location.origin}/dashboard`},
+        
     });
     setLoading(false);
 
@@ -62,9 +62,7 @@ async function handleResend(){
         setIsError(true);
         setMessage(error.message);
     }else{
-        setIsError(false);
-        setNeedsConfirm(false);
-        setMessage("New confirmation email sent. Check your inbox and spam folder");
+        navigate( "/verify-email" , { state: {email}} );
     }
 }
 
@@ -113,7 +111,7 @@ async function handleResend(){
            {needsConfirm &&(
             <button type="button" onClick={handleResend} disabled={loading}
             className="mt-3 w-full text-sm font-semibold text-blue-600 hover:text-blue-700 disabled:opacity-50" >
-            {loading ? "Sending..." : "Resend confirmation email"}
+            {loading ? "Sending code..." : "Verify my email"}
             </button>
            )}
            <p className="text-sm text-gray-500 text-center mt-6" >
