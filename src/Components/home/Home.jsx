@@ -14,8 +14,9 @@ function Home(){
    return (
     <>
     <Helmet>
-        <title>MarksBooster - Free NEET Biology Notes & Flashcards</title>
-        <meta name="description" content="Free NEET Biology notes, flashcards, PYQs for class 8-10 students. Just ₹499/year." />
+        <title>MarksBooster | Flashcards, Short Notes & Practice for Exams</title>
+        <meta name="description" content="Chapter-wise flashcards, one-page short notes, concept-check quizzes and important questions to help you score more in your exams. Now live for CBSE Class 9." />
+
       </Helmet>
 <div>
      <Nav />
