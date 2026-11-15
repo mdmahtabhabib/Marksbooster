@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { supabase } from "../lib/supabase";
 import { Link, useNavigate } from "react-router-dom";
+import GoogleButton from "./GoogleButton";
+import OrDivider from "@/Components/ui/OrDivider";
 
 
 
@@ -104,10 +106,11 @@ const navigate = useNavigate();
             <p className={`mt-4 text-sm text-center font-medium  ${ isError ? "text-red-600" : "text-emerald-600"}` } >{message}</p>
            )}
 
-        
+             <OrDivider />
+                   <GoogleButton />
 
            <p className="text-sm text-gray-500 text-center mt-6" >
-            Already have an account ?{ " "}
+            Already have an account?{ " "}
             <Link to="/login" className="text-blue-600 font-semibold hover:text-blue-700" >
             Log in
             </Link>

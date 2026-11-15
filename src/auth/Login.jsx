@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { supabase } from "../lib/supabase";
 import { Link , useNavigate , useLocation } from "react-router-dom";
+import GoogleButton from "./GoogleButton";
+import OrDivider from "@/Components/ui/OrDivider";
 
 
 
@@ -83,6 +85,11 @@ async function handleResend(){
                 <p className="text-sm text-gray-500 text-center mt-1 mb-6" >
                     Start studying smarter - everything in one place
                 </p>
+
+
+                
+
+
            <form onSubmit={handleSubmit} className="flex flex-col gap-4" >
 
             <div className="flex flex-col gap-1.5" >
@@ -102,6 +109,8 @@ async function handleResend(){
             <Link to="/forgot-password" className="text-sm text-center font-semibold text-slate-700 hover:text-blue-700" >
             Forgot password?
             </Link>
+
+            
             
            </form>
            {message && (
@@ -114,8 +123,13 @@ async function handleResend(){
             {loading ? "Sending code..." : "Verify my email"}
             </button>
            )}
+           
+                <OrDivider />
+           <GoogleButton />
+            
+
            <p className="text-sm text-gray-500 text-center mt-6" >
-            Don't have an account  ?{ " "}
+            Don't have an account?{ " "}
             <Link to="/signup" className="text-blue-600 font-semibold hover:text-blue-700" >
             Sign up
             </Link>
