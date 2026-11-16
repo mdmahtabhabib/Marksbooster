@@ -30,6 +30,7 @@ import RefundPolicy from "./Pages/Legal/RefundPolicy";
 import ShippingPolicy from "./Pages/Legal/ShippingPolicy";
 import Terms from "./Pages/Legal/Terms";
 import Privacy from "./Pages/Legal/Privacy";
+import About from "./Pages/Legal/About";
 
 
 
@@ -115,16 +116,20 @@ function App() {
      <Route path="/home/:classId/:tool" element={<ProtectedRoute><PurchaseRoute > <SubjectlistPage /></PurchaseRoute ></ProtectedRoute> } />
       <Route path="/home/:classId/:tool/:subject" element={<ProtectedRoute><PurchaseRoute ><ChapterlistPage /></ PurchaseRoute ></ProtectedRoute>} />
       <Route path="/home/:classId/:tool/:subject/:chapterSlug" element={<ProtectedRoute><PurchaseRoute ><ToolLeaf /></ PurchaseRoute ></ProtectedRoute>} />
-      <Route path="/signup" element={<Signup />} />
-      <Route path="/login" element={<Login/>} />
+     
       <Route path="/timer" element = {<Studytimer/>} />
       <Route path="/tracker" element = {<SyllabusTracker/>} />
       <Route path="/syllabus" element = {<SyllabusTracker/>} />
       <Route path="/dashboard" element = {<ProtectedRoute> <DashboardRedirect /> </ProtectedRoute>} />
+      
+      <Route path="*" element={< NotFound />} />
+      
+      {/* Authentication*/}
       <Route path="/forgot-password" element={<ForgotPassword />} />
       <Route path="/reset-password" element={<ResetPassword />} />
       <Route path="/verify-email" element={<VerifyEmail/>} />
-      <Route path="*" element={< NotFound />} />
+       <Route path="/signup" element={<Signup />} />
+      <Route path="/login" element={<Login/>} />
 
       {/* Legal pages - , no login*/}
       <Route path="/contact" element={<Contact />} />
@@ -132,6 +137,7 @@ function App() {
       <Route path="/shipping-policy" element={<ShippingPolicy />} />
       <Route path="/terms" element={<Terms />} />
       <Route path="/privacy" element={<Privacy />} />
+      <Route path="/about" element={<About/>} />
 
       
 

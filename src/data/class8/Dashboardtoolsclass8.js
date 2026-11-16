@@ -13,14 +13,14 @@ import { BookOpen, Clock, Target , AlertCircle , Flame , ChevronRight, CheckCirc
       name : "Short notes" , 
       desc : "A whole chapter on one page" ,
       icon : FileText ,
-      route : "/home/class8/pyq" ,
+      route : "/home/class8/short-notes" ,
       color : "indigo",
     } ,
     {
       name : "Concept check" ,
       desc : "Check if you're exam ready ",
       icon : MapIcon , 
-      route : "/home/class8/mindmap" ,
+      route : "/home/class8/concept-check" ,
       color : "violet",
 
     },
@@ -28,7 +28,7 @@ import { BookOpen, Clock, Target , AlertCircle , Flame , ChevronRight, CheckCirc
       name : "Important Q&A" ,
       desc : "	Exam-oriented, all question types" ,
       icon : HelpCircle ,
-      route : "/home/class8/topic-question",
+      route : "/home/class8/important-question",
       color : "rose",
     } ,
     

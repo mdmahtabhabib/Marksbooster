@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
+
 function Cources(){
     const Cources = [
         {class: "Class 8" , tag: "Foundation" , price: 499 , permonth:"That's just ₹41/month", Subjects: ["Mathematics" , "Science" , "Social Science" , "English" , "Hindi"], desc:"Perfect for building strong fundamentals in class 8" , label: "Buy Now" , cnt:"/home/class8"  } ,
-        {class: "Class 9" , tag: "Foundation" , price: 499 ,permonth:"That's just ₹41/month", Subjects: ["Mathematics" , "Science" , "Social Science" , "English" , "Computer"], desc:"Ideal for class 9 foundation students   ", label: "Buy Now" , cnt:"/home/class9"} ,
-        {class: "Class 10" , tag: "Board" , price: 499 ,permonth:"That's just ₹41/month", Subjects: ["Mathematics" , "Science" , "Social Science" , "English" , "Hindi"], desc:"Everything you need to ace your class 10 board exams", label: "Buy Now" , cnt:"/home/class10"} ,
-        {class: "Class 11" , tag: "Board" , price: 499 , permonth:"That's just ₹41/month", Subjects: ["Mathematics" , "Physics" , "Chemistry" , "Biology" , "English"], desc:"Everything you need to ace your class 10 board exams", label: "Buy Now" , cnt:"/home/class10"} ,
-        {class: "Class 12" , tag: "Board" , price: 499 , permonth:"That's just ₹41/month", Subjects: ["Mathematics" , "Physics" , "Chemistry" , "Biology" , "English"], desc:"Everything you need to ace your class 10 board exams", label: "Buy Now" , cnt:"/home/class10"} ,
-        {class: "Complete NEET",tag: "NEET",price: 999 , permonth:"That's just ₹82/month",Subjects: ["Physics", "Chemistry", "Zoology", "botany", "all subjects"], desc: "Everything you need to crack NEET ", label: "Start Now" , cnt:"/home/neet"},
+        {class: "Class 9" , tag: "Foundation" , price: 499 ,permonth:"That's just ₹41/month", Subjects: ["Mathematics" , "Science" , "Social Science" , "English" , "Computer"], desc:"Perfect for building strong fundamentals in class 9", label: "Buy Now" , cnt:"/home/class9"} ,
+        {class: "Class 10" , tag: "Board" , price: 499 ,permonth:"That's just ₹41/month", Subjects: ["Mathematics" , "Science" , "Social Science" , "English" , "Hindi"], desc:"Everything you need to ace your class 10 board exams", label: "Coming Soon" , cnt:"/ComingSoon"} ,
+        {class: "Class 11" , tag: "Board" , price: 499 , permonth:"That's just ₹41/month", Subjects: ["Mathematics" , "Physics" , "Chemistry" , "Biology" , "English"], desc:"Everything you need to ace your class 10 board exams", label: "Coming Soon" , cnt:"/ComingSoon"} ,
+        {class: "Class 12" , tag: "Board" , price: 499 , permonth:"That's just ₹41/month", Subjects: ["Mathematics" , "Physics" , "Chemistry" , "Biology" , "English"], desc:"Everything you need to ace your class 10 board exams", label: "Coming Soon" , cnt:"/ComingSoon"} ,
+        {class: "Complete NEET",tag: "NEET",price: 999 , permonth:"That's just ₹82/month",Subjects: ["Physics", "Chemistry", "Zoology", "botany", "all subjects"], desc: "Everything you need to crack NEET ", label: "Coming Soon" , cnt:"/ComingSoon"},
         
     ];
     

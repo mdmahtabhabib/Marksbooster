@@ -19,7 +19,7 @@ return(
       <div className="text-xl font-bold text-blue-900 tracking-tight">
         <Link to="/" >
         <span className="text-blue-900">Marks</span>
-        <span className="text-blue-400">booster</span>
+        <span className="text-blue-400">Booster</span>
         </Link>
       </div>
       <div className=" hidden md:flex gap-8 text-sm text-gray-500">

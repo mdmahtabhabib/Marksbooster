@@ -31,6 +31,8 @@ function Footer(){
                         <Link to="/terms" className="block mb-1 hover:text-blue-600" >Terms of Use</Link>
                         <Link to="/refund-policy" className="block mb-1 hover:text-blue-600" >Refund Policy</Link>
                         <Link to="/shipping-policy" className="block hover:text-blue-600" >Shipping Policy</Link>
+                        <Link to="/about" className="block mb-1 hover:text-blue-600" >About Us</Link>
+
 
                     </div>
                 </div>

@@ -61,7 +61,7 @@ function RefundPolicy(){
             <LegalSection heading="How you get the money back" > 
               <p>
                 Approved refunds go back to the original payment method (UPI, card or 
-                net banking), within 5-7 working days. Your bank may take a little 
+                net banking) within 5-7 working days. Your bank may take a little 
                 longer to show it.
               </p>
             </LegalSection>
