@@ -25,6 +25,11 @@ import DashboardRedirect from "./auth/DashboardRedirect";
 import ForgotPassword from "./auth/ForgotPassword";
 import ResetPassword from "./auth/ResetPassword";
 import VerifyEmail from "./auth/VerifyEmail";
+import Contact from "./Pages/Legal/Contact";
+import RefundPolicy from "./Pages/Legal/RefundPolicy";
+import ShippingPolicy from "./Pages/Legal/ShippingPolicy";
+import Terms from "./Pages/Legal/Terms";
+import Privacy from "./Pages/Legal/Privacy";
 
 
 
@@ -120,6 +125,14 @@ function App() {
       <Route path="/reset-password" element={<ResetPassword />} />
       <Route path="/verify-email" element={<VerifyEmail/>} />
       <Route path="*" element={< NotFound />} />
+
+      {/* Legal pages - , no login*/}
+      <Route path="/contact" element={<Contact />} />
+      <Route path="/refund-policy" element={<RefundPolicy />} />
+      <Route path="/shipping-policy" element={<ShippingPolicy />} />
+      <Route path="/terms" element={<Terms />} />
+      <Route path="/privacy" element={<Privacy />} />
+
       
 
 

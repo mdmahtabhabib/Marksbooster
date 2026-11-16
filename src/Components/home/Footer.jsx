@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function Footer(){
     return(
         <footer className=" bg-white border-t border-blue-100 px-5 md:px-10 py-8 " >
@@ -22,10 +24,14 @@ function Footer(){
                         <p className="hover:text-blue-600 cursor-pointer" >Unlimited question</p>
                     </div>
                     <div>
-                        <p className="font-semibold text-gray-600 mb-2" >Company</p>
-                        <p className="mb-1 hover:text-blue-600 cursor-pointer" >About</p>
-                        <p className="mb-1 hover:text-blue-600 cursor-pointer" >Privacy</p>
-                        <p className="hover:text-blue-600 cursor-pointer" >Terms</p>
+                   
+                        <p className="font-semibold text-gray-600 mb-2" >Legal</p>
+                        <Link to="/contact" className="block mb-1 hover:text-blue-600" >Contact Us</Link>
+                        <Link to="/privacy" className="block mb-1 hover:text-blue-600" >Privacy Policy</Link>
+                        <Link to="/terms" className="block mb-1 hover:text-blue-600" >Terms of Use</Link>
+                        <Link to="/refund-policy" className="block mb-1 hover:text-blue-600" >Refund Policy</Link>
+                        <Link to="/shipping-policy" className="block hover:text-blue-600" >Shipping Policy</Link>
+
                     </div>
                 </div>
             </div>
